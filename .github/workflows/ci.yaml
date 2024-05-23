@@ -26,10 +26,10 @@ jobs:
         with:
           submodules: 'recursive'
       - run: |
-          trap 'cat tex/*.log || true >> "$GITHUB_OUTPUT"' EXIT
-          make -C tex/
+          trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
+          make
       - name: Upload output as artifact
         uses: actions/upload-artifact@v2
         with:
           name: manuscript
-          path: tex/${{ github.event.repository.name }}-draft.pdf
+          path: ${{ github.event.repository.name }}-draft.pdf
