@@ -1,0 +1,35 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - tex
+  pull_request:
+    branches:
+      - main
+      - master
+      - tex
+
+jobs:
+
+  latex:
+    name: Latex Build
+    runs-on: ubuntu-20.04
+    container:
+      image: ghcr.io/mmore500/teximage:sha-77b8179
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - run: |
+          trap 'cat tex/*.log || true >> "$GITHUB_OUTPUT"' EXIT
+          make -C tex/
+      - name: Upload output as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: manuscript
+          path: tex/${{ github.event.repository.name }}-draft.pdf
