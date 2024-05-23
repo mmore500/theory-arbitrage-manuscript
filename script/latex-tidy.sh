@@ -8,4 +8,4 @@ script_dir="$(dirname "$(readlink -f "$0")")"
 cd "${script_dir}"
 cd ..
 
-latexindent -w -s -c="/tmp/" -y="defaultIndent:' '" **/*.tex
+latexindent -w -s -c="/tmp/" -y="defaultIndent:'  '" **/*.tex
