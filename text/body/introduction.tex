@@ -1,58 +1,83 @@
-possible titles:
-\begin{itemize}
-  \item Untapped Opportunities to Arbitrage Biological Theory for Genetic Programming (opinion)
-  \item Arbitrage of Biological Theory, Methods, and Tools for Genetic Programming (review)
-  \item Arbitrage of Theory, Methods, and Tools from Biology to Genetic Programming
-\end{itemize}
-
-possible theses:
-\begin{itemize}
-  \item in addition to taking inspiration from biological phenomena, we should also be more directly taking theory/methods/analyses from the literature
-  \item the biological analogy continues to be useful/meaningful for genetic programming, as evidenced by recent and ongoing work mining the biological literature for methods and theory that benefit genetic programming
-\end{itemize}
-
 \section{Introduction} \label{sec:introduction}
 
-original inspiration for the field
+In work with genetic programming and genetic algorithms, it can be difficult to discern where bio-inspiration ends and algoritm engineering begins.
+The metaphor to biological evolution, peculiarly deeply ingrained in comparison with other ML/AI domains, has profoundly influenced the trajectory of evolutionary algorithm research.
+Many key algorithmic innovations in the field were developed or have come to fall within the evolutionary framing.
+For instance,
 \begin{itemize}
-  \item koza, recombination and crossover
-  \item island-based model
-  \item diversity maintenance (EcoEA, Lexicase)
-  \item speciation
+  \item diversity maintenance as ecology/negative frequency-dependent selection,
+  \item reciporical selection effects as co-evolution, and
+  \item search space transforms as genotype-phenotype maps.
 \end{itemize}
+% For these key algorithmic components, bio-inspiration drove their conception, or simply become a .
+Approaches that deviate from the evolutionary method have had some notable successes, but in broad strokes amount to the exception rathet than the rule (TODO CITES).
+In this regard, bio-inspiration has benefited evolutionary computation by providing a rich well for impactful, innovative ideas and a conventient, intuitive, consistent vocabulary to conceptualize them \citep{sorensen2015metaheuristics,banzhaf2006artificial}.
 
-criticism: \citep{moore2023evolution,woodward2009evolution}
+Such extensive reliance on bio-inspiration, however, plays in to major perceived criticisms of evolutionary algoritms.
+One such criticism is the \textit{ad hoc} structure of the field.
+As typical in outcome-driven AI/ML fields, substantial portions of the literature pursue descriptive rather than explanatory objectives --- i.e., ``we found that X approach benefited solution quality'' as opposed to ``we evaluated whether Y mechanism mediates effects of X on solution quality'' \citep{lipton2019troubling,hutson2018ai,sculley2018winner} but particularly for bio-inspired methods \citep{del2019bio}.
+(Of course, important exceptions to this generalization exist, and will be an important part of subsequent discussion below.)
+This pattern is not problematic in and of itself, as X new approach is typically grounded in some empirically or mathematically grounded observation regarding weaknesses of existing work.
+However, in the case of evolutionary algorithms, the fact of biological precedent can partially stand in for explanation of how and why a proposed algorithm would have some desirable properties.
+To a skeptical reader, pervasive appeal to bio-inspiration lends work within the field a tint of hand-waving, naturalistic fallacy, and recycling old ideas with new window dressing \citep{wortmann2020does,sorensen2015metaheuristics}.
 
-classic work
+These perceptions point to a more substantial, and established criticism that genetic algorithm and genetic programming research lacks of a cohesive, rigorous theoretical framework.
+This criticism isn't unique to evolutionary computaiton, \textit{per se}, but is to some degree baggage carried over from the broader ``scruffy'' versus ``neat'' disceptation \citep[p. 16]{jones2008artificial} \citep{minsky1991logical}.
+foundation in empiricism and narrative argumentation rather than first-principles mathematical/provable algoritmic rigor
+This concern has been widely acknolwedged as a key barrier impeding research in the field from systematically building up and one that has stymied its palatteability.
+The \textit{ad hoc} nature also plays a role in styming outside adoption owing to the large number of arbitrary tunable elements \citep{oneil2010open}.
+One path forward, therefore, calls for the evolution metaphor to be de-emphasized, in the hope that approaches more closely incorporating algorithmic theory might be pursued \citep{moore2023evolution}.
+
+We agree that applicability of the evolution metaphor is a key factor in driving the ills of theory rigor in evolutionary algorithms.
+However, we argue that leaning \textit{deeper} into the evolutionary metaphor presents a complementary path forward to solving this problem.
+Typical, and productive, practice within the field focuses on emulating of the mechanisms/structure of biology itself that fold into our runtime algorithms \citep{banzhaf2006artificial,kumar2003biologically}.
+Here, we highlight the value of a second tier of bio-inspiration beyond direct inspiration from natural systems themselves.
+This second tier, instead, looks to the scientific disciplines \textit{studying} those natural systems to take inspiration from their methods and theory.
+Given the engineering/objective-driven bent of genetic programming, it should come as no surprise that genetic programming had been faster on the first impulse to uptake of ideas/mechanisms from evolutionary biology that can be incorporated into runtime algoritm dynamics.
+
+By their very nature, evolutionary biology is complementary to evolutionary computation as a field with typically (but not always CITE directed evolution) descriptive/analytical field while genetic programming is more engineering driven;
+Contemporary biology provides vast, rich opportunity for arbitrage.
+To name a few pertinent subdisciplines population genetics, evolutionary biology, developmental biology, and ecology
+It has matured into a highly quantitative, model-driven field.
+The advent of experimental evolution has also been opening up inquiry that is driven by falsifiable hypotheses and experimental manipulations.
+while it is true that significant aspects of methodology are speciric to the particulars of biology, with creative and substantial tweaks some surprising aspects of biological study can become the genetalizabile.
+For instance, software for phylogenetic reconstruction is tailored to the four letter nucleotide alphabet and reconstruction is a problem specific to biology itself because in simulation we in principle have access to perfect information.
+However, recent work has engineered analogs of reconstruction approwcjrs to achieve highly scalable phylogenetic tracking.
+And the rest pf the bioinformstics infrastructure for measuring and intetpreting phylogenetic structure translates very cleanly.
+
+Taking advantage of biological theory not only requires dealing with subtle issues alogning reasonable correspondences, but also because there is so much so vast it also requires developing familiarity with often dense and technical topics outside of typical comfort/familiarity zone.
+in addition to reading up, investing in making contacts and collaborations is another important resource.
+the BEACON center for the study of evolution in action is an exemplar in this regard \citep{goodman2020evolution}.
+
+if we invest the effort to become familiar with them, there is a lot of value that can be arbitraged from biologal literature.
+indeed this had already been a rich vein of research in evolutionary algorithms.
+in this review, we cover
 \begin{itemize}
-  \item coevolution (of tests and test case, ???)
-  \item plasticity
   \item genotype-phenotype maps
-        \begin{itemize}
-          \item The arrival of the frequent: how bias in genotype-phenotype maps can steer populations to local optima.
-          \item Genome growth and the evolution of the genotype-phenotype map
-        \end{itemize}
-\end{itemize}
-
-recent work
-\begin{itemize}
   \item ecology assembly theory \citep{dolson2024reachability}
   \item phylogeny for prediction/analysis \citep{hernandez2022can,shahbandegan2022untangling}
-  \item phylogeny-informed selection (like managing a nature reserve, taking into account phylogenetic history?)
   \item alife data standards: interoperation with bioinformatics infrastructure \citep{lalejini2019data,moreno2024apc}
+  \item reconstruction-based tracking \citep{moreno2022hstrat,moreno2024ecology}
 \end{itemize}
+beyond the work surveued here there is substantial untapped potential value in these areas wnd we additionwlly suggest areas where arbitrage from biology could be profitable in the future
 
-future work:
+The limitations of this approach should be noted --- it will only have a limited effect in developing a cohesive theory for genetic programming and genetic algorithms.
+this is due to there being limited success in developing cohesive theory for evolutionary biology.
+Like for evolutionary algoritmns, deficiency in theory has been a source of perennial consternation \citep{welch2017wrong}.
+it has been argued that this is due to intrsic challenges in the subject matter LIKE X Y Z
+This WORD approach is likely as fruitful as any other.
+Because so long as evolutionary algorithms bear the fundamental structure of (borrow from Emily), they will be instances of evolution \citep{pennock2007models}.
+Therefore, by a sort of computational reproducibility argument, a systemstic theory of genetic algorithms/genetic programming would have substantial explanatory power for aspects of biology.
+Given the scope and stature of the biological science enterprise, it seems unlikely for any transformative unifying theory to result.
+However, we do argue that there is great potential for theory arbitrage to be bidirectional, and we identify some areas where evolutionary algoritms could make important contributipns to the corpus of biological literature.
+
+Ultimately, we argue that with new perspective the evolution metaphor in genetic programming and genetic algorithms has yet more to give.
+For genetic programming and genetic algorithm methods to advance to the next level of rigor and effectiveness, we should look beyond the biological processes themselves and also take inspiration from the fields studying it.
+By highlighting notable classic and more recent activity in this direction, we hope to draw attention to potential in the direction and catalyze progress.
+This is why we close by discussing areas we see as priorities to exploit for arbitrage.
+
+\section{Scraps}
+
 \begin{itemize}
-  \item trait-based phylogenetic analysis
-  \item spatial structure (parallel and distributed computing)
-  \item sampling-based anlayses (parallel and distributed computing)
-  \item detecting speciation through population genetics methods \citep{sukumaran2021incorporating}
+  \item unrelated criticisms of GP \citep{yampolskiy2018we, woodward2016gp}
 \end{itemize}
-
-there's also a lot of potential for arbitrage in the opposite direction, through the question of evolvability \citep{kirschner1998evolvability}.
-\citep{moreno2018understanding}
-
-Of consequence to both fields: bootstrapping problem.
-
-More recent autoencoder/LLM work \citep{bradley2024openelm,wittenberg2023denoising}
