@@ -1,44 +1,44 @@
 \section{Sampling and Tracking Partial Observability}
 
-It repeatedly occured that significant steps forward in biological knowledge piggyback on innovations making new types or quantities of data available, technological or otherwise.
-For instance, evolutionary theory arose in the context of burgeoning taxonomic collections \citep{winsor2009taxonomy}, core ideas in pathology and developmental biology arose from microscopy \citep{turner1890cell}, high-throughput sequencing has made symbiosis a key concept in organismal biology (e.g., gut microbiome) \citep{durack2019gut}, and new imaging technologies are driving new questions about ecological interctions across continental-scale distance \citep{stark2016toward}.
+It has repeatedly been the case that significant steps forward in biological knowledge piggyback on innovations making new types or quantities of data available, technological or otherwise.
+For instance, evolutionary theory arose in the context of burgeoning taxonomic collections \citep{winsor2009taxonomy}, core ideas in pathology and developmental biology arose from microscopy \citep{turner1890cell}, high-throughput sequencing has made symbiosis a key concept in organismal biology (e.g., gut microbiome) \citep{durack2019gut}, and new imaging technologies are driving new questions about ecological interactions across continental-scale distance \citep{stark2016toward}.
 Although factors besides feasibility have also catalyzed significant advances in life science (e.g., Mendel, Redi, Semmelweis), growth in capabilities to generate and collect data play a longstanding and ongoing role in enabling new biological inquiry \citep{strasser2012data}.
 Contemporary biology enjoys profound, ongoing gains in data availability \citep{sulston1983embryonic,sheth2017multiplex,weeks2023deep}, nevertheless fundamental limitations exist in data completeness, particularly with respect to historical accounts of natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
 
-In contrast to biology, digital evolution has from the outset enjoyed perfect fidelity and absolute completeness in data collection.
+In contrast to biology, digital evolution has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection.
 Indeed, such observability is a key driver of scientific interest in using \textit{in silico} models for evolution research \citep{o2003digital}.
 
 Although some domains of genetic programming have been highlighted for their capability to produce intuitive symbolic expressions \citep{hu2023genetic,javed2022simplification}, it is also the case that discerning the functionality of some evolved artifacts can require extensive experiment-driven analyses.
 Such knockout trials --- in contrast to other aspects of digital evolution --- are notable in that combinatoric tractability has held back completely exhaustive analysis for all but the smallest genomes \citep{nitash2021information}.
-Knockout assay experiments have therefore typically limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2023fluctuating}, or iterative approaches \citep{langdon2014improving,moreno2024case}.
+Knockout assay experiments have, therefore, typically limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2023fluctuating}, or iterative approaches \citep{langdon2014improving,moreno2024case}.
 
-Massively parallel and distributed processing power, which has been argued crucial to future directions in digital evolution \citep{moreno2022best,ackleyTODO}, als peels back on the tractability of digital evolution's existing perfect observability paradigm.
+Massively parallel and distributed processing power, which has been argued crucial to future directions in digital evolution \citep{moreno2022best,taylor2016open}, peels away the tractability of digital evolution's existing perfect observability paradigm.
 One concern is that many-process experiments can produce greater volumes of data than is feasible to store, much less analyze \citep{klasky2021data}.
-For instance, even under serial processing, maintaining full records of genetic program instruction history under sexual recombination has proven to be a highly technically-demanding, data-intensive task \citep{mcphee2016using}.
-Parallel and distributed computing also introduces challenges in runtime overhead from comminication and synchronization required for data collection and introduces the possibility of data loss when components fail \citep{snir2014addressing}.
+For instance, even under serial processing, maintaining full records of genetic program instruction history under sexual recombination has proven to be a highly technically demanding, data-intensive task \citep{mcphee2016using}.
+Parallel and distributed computing also introduces challenges in runtime overhead from communication and synchronization required for data collection and introduces the possibility of data loss when components fail \citep{snir2014addressing}.
 Continuing with the phylogenetic example, typical tracking approaches are sensitive to even small amounts of data loss and, in a distributed computing context, require runtime inter-process communication to reclaim memory from extinct lineages \citep{moreno2024algorithms}.
 
 Fortunately for digital evolution, research in biology, by necessity, already routinely works around issues of incomplete and imperfect data.
 As such, existing methods can provide a valuable foothold in scenarios where combinatorial effects or runtime multiprocessing make exhaustive direct observation impractical.
-This section reviews work leveraging methods borrowed from biology to negotiate data limitations on both fronts: application of mark-recapture approaches from ecology to charactetize fitness landscapes and application of reconstruction-based approaches inspired by bioinformatics for robust, decentralized phylogeny tracing.
+This section reviews work leveraging methods borrowed from biology to negotiate data limitations on both fronts: 1) application of mark-recapture approaches from ecology to characterize fitness landscapes and 2) application of reconstruction-based approaches inspired by bioinformatics for robust, decentralized phylogeny tracing.
 
 \subsection{Mark-Recapture Estimation}
 
 Mark-recapture analysis (or capture-recapture analysis) is a widely-used and well-developed method to estimate sizes of biological populations \citep{amstrup2010handbook}.
-This method uses the proportion of individuals common between two or more samples as a proxy to estimate the total population size that is being sampled from.
+This method uses the proportion of individuals shared between two or more samples as a proxy to estimate the total population size that is being sampled.
 For large population sizes, relatively lower recapture rates are expected.
 It turns out, though, that idealized sampling from an urn poorly describes animal behavior.
-Various potential biases have been identified --- ranging from inherent disposition of certain animals to be more ``trap happy'' or ``trap shy'' to the tendency of already-captured animals to become more wary of traps --- and sophisticated statistical methods have been devised to make estimation robust to them.
-Mark-recapture literature, therefore, provides a rich ready-made buffet for tacking estimation problems involving repeat partial sampling.
+Various potential biases have been identified --- ranging from the inherent disposition of certain animals to be more ``trap happy'' or ``trap shy'' to the tendency of already-captured animals to become more wary of traps --- and sophisticated statistical methods have been devised to make estimation robust to them.
+Mark-recapture literature, therefore, provides a rich, ready-made buffet for tacking estimation problems involving repeat partial sampling.
 
 In one application, \citet{moreno2024methods} demonstrate use of a mark-recapture estimator in quantifying sites contributing to fitness that are not individually detectable due to epistatic redundancy and or small-effect contributions.
 Analogy to the mark-recapture scenario is established by equating sites with any potential for fitness effect --- whether or not detectable through single-site knockout --- to the population to be estimated.
-Iterative knockouts are performed to produce several ``skeleton'' genotypes, where no more sites can be removed without reducing fitness.
-Sites in each skeleton, therefore, each have a demonstrable fitness effect --- but, if redundancy or small-effects are at play, no skeleton contains all such sites.
-Each skeleton, therefore, represents a sample of sites with potential fitness effect.
-Crucially, though, these samples will have lower-redundancy or larger-effect sites overrepresented.
+Iterative knockouts are applied to produce several ``skeleton'' genotypes, where no more sites can be removed without reducing fitness.
+Sites in each skeleton, therefore, each have a demonstrable fitness effect --- but, if redundancy or small effects are at play, no skeleton contains all such sites.
+Each skeleton, therefore, represents a sample of sites with potential fitness effects.
+Crucially, though, these samples will overrepresent lower-redundancy or larger-effect sites.
 Application of a jackknife estimator due to \citet{burnham1979robust}, however, ensures estimation accuracy remains intact.
-In a separate line of work, \citet{schulte2014software} have noted potential for mark recapture methods to play a role in characterizing the extent of neutral space within multi-step mutational neighborhoods of computer programs.
+In a separate line of work, \citet{schulte2014software} have noted potential for mark-recapture methods to play a role in characterizing the extent of neutral space within multistep mutational neighborhoods of computer programs.
 
 \subsection{Reconstruction-based Phylogenetic Analysis}
 
@@ -47,21 +47,21 @@ Availability of an exactly accurate phylogenetic record is useful, but in most c
 Indeed, typical biological approaches to phylogenetic analysis involve inexact inference-based estimation, yet such phylogenetic analysis has contributed immensely to our understanding of biological evolution.
 
 At the most fundamental level, modern bioinformatics accomplishes phylogenetic analysis by comparing traces of similarity retained in DNA genomes under the influence of mutational accumulation.
-Notably, such mutational processes occur in a completely decentralized manner and reconstruction can be performed among any number of organisms, including small subsamples of an overall population.
-Disadvantageously, though, complications arise in these analyses owing to issues of backmutation, mutational saturation, selection effects, long branch attraction, and the vast quantities of genetic sequence information required \citep{TODO}
-In contrast to biological model organisms, however, evolutionary computation affords the capability to arbitrarily engineer genome structure --- and therefore the possibility to sidestep such challenges.
+Notably, such mutational processes occur in a completely decentralized manner, and reconstruction can be performed among any number of organisms --- including small subsamples of the overall population.
+Disadvantageously, though, complications arise in these analyses owing to issues of back mutation, mutational saturation, selection effects, long branch attraction, and the vast quantities of genetic sequence information required \citep{TODO}
+In contrast to biological model organisms, however, evolutionary computation affords the capability to arbitrarily engineer genome structure --- and, therefore, affords the possibility to sidestep such challenges.
 
 Hereditary stratigraphy methodology arose from such a desire for a means to extract phylogenetic information from distributed simulations that is efficient, robust, straightforward, and generalizable across digital evolution systems.
 The method works by bundling agent genomes with special annotations in a manner akin to non-coding DNA (entirely neutral with respect to agent traits and fitness).
 These annotations apply an approximate checkpointing mechanism to maximize reconstruction quality from a minimal memory footprint --- configurable as low as 96 bits per genome \citep{moreno2022hereditary}.
 A major benefit of this approach is that it allows the relatedness of any two organisms to be compared directly without depending on global information, which opens the door to incorporation of EC techniques that incorporate phylogenetic information at runtime to guide evolution toward desired outcomes \citep{lalejini2024phylogeny,lalejini2024runtime,murphy2008simple,burke2003increased}.
 
-In one application, borrowing from bioinformatics has allowed hereditary stratigraphy-enabled implementation to address challenges in scale, memory capacity, and communication bandwidth in opening a window into digital evolution on next-generation AI accelerator hardware.
+In one application, borrowing from bioinformatics has allowed hereditary stratigraphy-enabled implementation to address challenges of scale, memory capacity, and communication bandwidth in opening a window into digital evolution on next-generation AI accelerator hardware.
 \citet{moreno2024trackable} demonstrates tracking of an island-model genetic algorithm across the 850,000 core Cerebras Wafer-Scale Engine.
-Under a simple one-max equivalent test regime, the strong decentralization afforded by hereditary stratigraphy enables on the order of quadrillions of replication events to be simulated an hour.
+Under a simple one-max equivalent test regime, the strong decentralization afforded by hereditary stratigraphy enables upwards of a quadrillion replication events to be simulated in an hour.
 \citet{moreno2024trackable} showed effects in phylogenetic structure between alternate mutation operators, and other work has demonstrated recovery of information salient to understanding selection pressure, spatial structure, and ecological dynamics \citep{moreno2024ecology}.
 
 For those looking to incorporate this methodology into their own work, a public-facing software library (``\textit{hstrat}'') has been provided to facilitate plug-and-play addition of tracking annotations  \citep{moreno2022hstrat}.
-\citet{moreno2024guide} provides a steb-by-step guide to configuring and using the methodology.
-Although the core methodology ascribes an asexual model, extensions to sexual phylogenies have been explored \citep{moreno2024TODO}.
+\citet{moreno2024guide} provides a step-by-step guide to configuring and using the methodology.
+Although the core methodology ascribes an asexual model, extensions to sexual phylogenies have been explored \citep{moreno2024methods}.
 Beyond phylogenetic tracking, underlying algorithms developed for hereditary stratigraphy provide means to very efficiently maintain running temporal cross-samples (``data stream curation'') \citep{moreno2024efficient}, which holds potential for more general utility in reducing runtime communication and storage by support for on-demand, after-the-fact data extraction.
