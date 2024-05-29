@@ -22,20 +22,25 @@ Fortunately for digital evolution, research in biology, by necessity, already ro
 As such, existing methods can provide a valuable foothold in scenarios where combinatorial effects or runtime multiprocessing make exhaustive direct observation impractical.
 This section reviews work leveraging methods borrowed from biology to negotiate data limitations on both fronts: application of mark-recapture approaches from ecology to charactetize fitness landscapes and application of reconstruction-based approaches inspired by bioinformatics for robust, decentralized phylogeny tracing.
 
-\subsection{Cryptic Sequence Complexity Estimation}
+\subsection{Mark-Recapture Estimation}
 
-Mark-recapture analysis has been an important part of biology CITE BOOK
-it allows you to estimate the total size of a population by counting up how often individuals are sampled more than once
-in particular, sophisticated methods have been created to account for vatious types of bias.
-This makes it a useful approach for  partial sampling problems.
+Mark-recapture analysis (or capture-recapture analysis) is a widely-used and well-developed method to estimate sizes of biological populations \citep{amstrup2010handbook}.
+This method uses the proportion of individuals common between two or more samples as a proxy to estimate the total population size that is being sampled from.
+For large population sizes, relatively lower recapture rates are expected.
+It turns out, though, that idealized sampling from an urn poorly describes animal behavior.
+Various potential biases have been identified --- ranging from inherent disposition of certain animals to be more ``trap happy'' or ``trap shy'' to the tendency of already-captured animals to become more wary of traps --- and sophisticated statistical methods have been devised to make estimation robust to them.
+Mark-recapture literature, therefore, provides a rich ready-made buffet for tacking estimation problems involving repeat partial sampling.
 
-In one application,  \citet{moreno2024methods} demonstrate its use in overcoming difficulties in assessing the number of sites that contribute to fitness in the presence of pleiotropic redundancy or limitations in the sensitivity of fitness measures to detect small-effect outcomes masking the contribution of individual sites.
-Repeated iterative knockouts to produce ``skeleton'' genotypes where no more sites can be removed without reducing fitness.
-Skeleton sites, which have a demonstrable fitness effect but arr a sample of the sites that can have a fitness effect under the analogy
-In particular, a jackknife estimator accounts for the tendency of certain sites to be more ``trap shy'' than others \citep{TODO}.
-In a separate line of work, \citet{schulte2014software} have also noted the potential for mark recapture methods to be useful in characterizing the extent of neutral space within multi-step mutational neighborhoods of computer programs.
+In one application, \citet{moreno2024methods} demonstrate use of a mark-recapture estimator in quantifying sites contributing to fitness that are not individually detectable due to epistatic redundancy and or small-effect contributions.
+Analogy to the mark-recapture scenario is established by equating sites with any potential for fitness effect --- whether or not detectable through single-site knockout --- to the population to be estimated.
+Iterative knockouts are performed to produce several ``skeleton'' genotypes, where no more sites can be removed without reducing fitness.
+Sites in each skeleton, therefore, each have a demonstrable fitness effect --- but, if redundancy or small-effects are at play, no skeleton contains all such sites.
+Each skeleton, therefore, represents a sample of sites with potential fitness effect.
+Crucially, though, these samples will have lower-redundancy or larger-effect sites overrepresented.
+Application of a jackknife estimator due to \citet{burnham1979robust}, however, ensures estimation accuracy remains intact.
+In a separate line of work, \citet{schulte2014software} have noted potential for mark recapture methods to play a role in characterizing the extent of neutral space within multi-step mutational neighborhoods of computer programs.
 
-\subsection{Reconstruction-based Phylogeny Tracking}
+\subsection{Reconstruction-based Phylogenetic Analysis}
 
 In the context of evolutionary computation, the existing approach to collecting phylogenetic history is emblematic of this existing complete-observability paradigm.
 Typical practice to record phylogeny, the structure of lineage relatedness over evolutionary time, is to accrete every parent-child relationship as it occurs to create a comprehensive tree data structure \citep{moreno2024algorithms}.
