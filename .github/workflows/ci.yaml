@@ -15,21 +15,35 @@ on:
 jobs:
 
   latex:
-    name: Latex Build
-    runs-on: ubuntu-20.04
+    name: Latex Build and Deploy
+    runs-on: ubuntu-22.04
     container:
       image: ghcr.io/mmore500/teximage:sha-77b8179
-      # github actions requires root to access mounted volumes
       options: --user root
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
-      - run: |
+      - name: Build LaTeX document
+        run: |
           trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
           make
-      - name: Upload output as artifact
-        uses: actions/upload-artifact@v2
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p deploy
+          cp ${{ github.event.repository.name }}-draft.pdf deploy/
+          echo '<html><body><a href="${{ github.event.repository.name }}-draft.pdf">Download Manuscript Draft [PDF]</a></body></html>' > deploy/index.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: manuscript
-          path: ${{ github.event.repository.name }}-draft.pdf
+          path: deploy
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
