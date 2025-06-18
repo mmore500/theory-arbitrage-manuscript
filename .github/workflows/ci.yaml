@@ -19,10 +19,6 @@ jobs:
     container:
       image: ghcr.io/mmore500/teximage:sha-77b8179
       options: --user root
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
