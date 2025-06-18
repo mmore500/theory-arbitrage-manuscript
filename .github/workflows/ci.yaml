@@ -19,9 +19,6 @@ jobs:
     container:
       image: ghcr.io/mmore500/teximage:sha-77b8179
       options: --user root
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v3
         with:
