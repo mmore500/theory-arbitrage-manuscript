@@ -30,6 +30,11 @@ jobs:
         run: |
           trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
           make
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdf
+          path: ${{ github.event.repository.name }}-draft.pdf
 
   latex:
     name: Latex Build and Deploy
