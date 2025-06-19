@@ -7,34 +7,34 @@ Key references:
 \item sampling-based knockout analyses \citep{moreno2024methods}
 \end{itemize}
 
-TODO mention that best-effort approaches are of interest in scaling digital evolution systems themselves (e.g., ackely, darkcycle, etc.)
+TODO lead-in goes here
 
-\citep{moreno2022hstrat,moreno2024guide}
+% TODO mention that best-effort approaches are of interest in scaling digital evolution systems themselves (e.g., ackely, darkcycle, etc.)
 
-It has repeatedly been the case that significant steps forward in biological knowledge piggyback on innovations making new types or quantities of data available, technological or otherwise.
-For instance, evolutionary theory arose in the context of burgeoning taxonomic collections \citep{winsor2009taxonomy}, core ideas in pathology and developmental biology arose from microscopy \citep{turner1890cell}, high-throughput sequencing has made symbiosis a key concept in organismal biology (e.g., gut microbiome) \citep{durack2019gut}, and new imaging technologies are driving new questions about ecological interactions across continental-scale distance \citep{stark2016toward}.
-Although factors besides feasibility have also catalyzed significant advances in life science (e.g., Mendel, Redi, Semmelweis), growth in capabilities to generate and collect data play a longstanding and ongoing role in enabling new biological inquiry \citep{strasser2012data}.
-Contemporary biology enjoys profound, ongoing gains in data availability \citep{sulston1983embryonic,sheth2017multiplex,weeks2023deep}, nevertheless fundamental limitations exist in data completeness, particularly with respect to historical accounts of natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
+% It has repeatedly been the case that significant steps forward in biological knowledge piggyback on innovations making new types or quantities of data available, technological or otherwise.
+% For instance, evolutionary theory arose in the context of burgeoning taxonomic collections \citep{winsor2009taxonomy}, core ideas in pathology and developmental biology arose from microscopy \citep{turner1890cell}, high-throughput sequencing has made symbiosis a key concept in organismal biology (e.g., gut microbiome) \citep{durack2019gut}, and new imaging technologies are driving new questions about ecological interactions across continental-scale distance \citep{stark2016toward}.
+% Although factors besides feasibility have also catalyzed significant advances in life science (e.g., Mendel, Redi, Semmelweis), growth in capabilities to generate and collect data play a longstanding and ongoing role in enabling new biological inquiry \citep{strasser2012data}.
+% Contemporary biology enjoys profound, ongoing gains in data availability \citep{sulston1983embryonic,sheth2017multiplex,weeks2023deep}, nevertheless fundamental limitations exist in data completeness, particularly with respect to historical accounts of natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
 
-In contrast to biology, digital evolution has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection.
-Indeed, such observability is a key driver of scientific interest in using \textit{in silico} models for evolution research \citep{o2003digital}.
+% In contrast to biology, digital evolution has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection.
+% Indeed, such observability is a key driver of scientific interest in using \textit{in silico} models for evolution research \citep{o2003digital}.
 
-Although some domains of genetic programming have been highlighted for their capability to produce intuitive symbolic expressions \citep{hu2023genetic,javed2022simplification}, it is also the case that discerning the functionality of some evolved artifacts can require extensive experiment-driven analyses.
-Such knockout trials --- in contrast to other aspects of digital evolution --- are notable in that combinatoric tractability has held back completely exhaustive analysis for all but the smallest genomes \citep{nitash2021information}.
-Knockout assay experiments have, therefore, typically limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2023fluctuating}, or iterative approaches \citep{langdon2014improving,moreno2021case}.
+% Although some domains of genetic programming have been highlighted for their capability to produce intuitive symbolic expressions \citep{hu2023genetic,javed2022simplification}, it is also the case that discerning the functionality of some evolved artifacts can require extensive experiment-driven analyses.
+% Such knockout trials --- in contrast to other aspects of digital evolution --- are notable in that combinatoric tractability has held back completely exhaustive analysis for all but the smallest genomes \citep{nitash2021information}.
+% Knockout assay experiments have, therefore, typically limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2023fluctuating}, or iterative approaches \citep{langdon2014improving,moreno2021case}.
 
-Massively parallel and distributed processing power, which has been argued crucial to future directions in digital evolution \citep{moreno2022best,taylor2016open}, peels away the tractability of digital evolution's existing perfect observability paradigm.
-One concern is that many-process experiments can produce greater volumes of data than is feasible to store, much less analyze \citep{klasky2021data}.
-For instance, even under serial processing, maintaining full records of genetic program instruction history under sexual recombination has proven to be a highly technically demanding, data-intensive task \citep{mcphee2016using}.
-Parallel and distributed computing also introduces challenges in runtime overhead from communication and synchronization required for data collection and introduces the possibility of data loss when components fail \citep{snir2014addressing}.
-Continuing with the phylogenetic example, typical tracking approaches are sensitive to even small amounts of data loss and, in a distributed computing context, require runtime inter-process communication to reclaim memory from extinct lineages \citep{moreno2024algorithms}.
+% Massively parallel and distributed processing power, which has been argued crucial to future directions in digital evolution \citep{moreno2022best,taylor2016open}, peels away the tractability of digital evolution's existing perfect observability paradigm.
+% One concern is that many-process experiments can produce greater volumes of data than is feasible to store, much less analyze \citep{klasky2021data}.
+% For instance, even under serial processing, maintaining full records of genetic program instruction history under sexual recombination has proven to be a highly technically demanding, data-intensive task \citep{mcphee2016using}.
+% Parallel and distributed computing also introduces challenges in runtime overhead from communication and synchronization required for data collection and introduces the possibility of data loss when components fail \citep{snir2014addressing}.
+% Continuing with the phylogenetic example, typical tracking approaches are sensitive to even small amounts of data loss and, in a distributed computing context, require runtime inter-process communication to reclaim memory from extinct lineages \citep{moreno2024algorithms}.
 
-Fortunately for digital evolution, research in biology, by necessity, already routinely works around issues of incomplete and imperfect data.
-As such, existing methods can provide a valuable foothold in scenarios where combinatorial effects or runtime multiprocessing make exhaustive direct observation impractical.
-This section reviews work leveraging methods borrowed from biology to negotiate data limitations on both fronts: 1) application of mark-recapture approaches from ecology to characterize fitness landscapes and 2) application of reconstruction-based approaches inspired by bioinformatics for robust, decentralized phylogeny tracing.
+% Fortunately for digital evolution, research in biology, by necessity, already routinely works around issues of incomplete and imperfect data.
+% As such, existing methods can provide a valuable foothold in scenarios where combinatorial effects or runtime multiprocessing make exhaustive direct observation impractical.
+% This section reviews work leveraging methods borrowed from biology to negotiate data limitations on both fronts: 1) application of mark-recapture approaches from ecology to characterize fitness landscapes and 2) application of reconstruction-based approaches inspired by bioinformatics for robust, decentralized phylogeny tracing.
 
-\input{text/body/best-effort/mark-recapture.tex}
+% \input{text/body/best-effort/mark-recapture.tex}
 
-\input{text/body/best-effort/phylogeny-inference.tex}
+% \input{text/body/best-effort/phylogeny-inference.tex}
 
-\input{text/body/best-effort/inferential-observability.tex}
+% \input{text/body/best-effort/inferential-observability.tex}
