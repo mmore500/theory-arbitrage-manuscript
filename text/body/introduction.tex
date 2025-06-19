@@ -16,16 +16,16 @@ Table \ref{tab:bioinspiration} highlights prominent examples of this phenomenon.
 
 \input{tab/bioinspiration.tex}
 
-Indeed, given the prevalence of bio-inspiration within evolutionary computing (EC), its merit has constituted a longstanding point of discussion.
+Indeed, given the prevalence of bio-inspiration within evolutionary computing (EC), the merit of bio-inspiration has constituted a longstanding point of discussion.
 In addition to imparting useful new ideas, some highlight value from biological metaphors simply as a source for convenient, intuitive, self-consistent vocabulary \citep{sorensen2015metaheuristics,banzhaf2006artificial}.
 Another draw of bio-inspiration is the charisma it lends evolutionary computation \citep{lehman2020surprising}.
-Indeed, the complexity and emergent intelligence found throughout the natural world provides a stunning display of evolution’s profound creative power, and the prospect of capturing any fraction of that power and creativity is fascinating.
+The complexity and emergent intelligence found throughout the natural world provides a stunning display of evolution’s profound creative power, and the prospect of capturing any fraction of that power and creativity is fascinating.
 % Could also mention that a lot of people find evolution more intuitive
 %The peculiar ubiquity of bio-inspiration in evolutionary computation compared to other ML/AI domains, however,
-Further, the demonstrated viability of natural precedent lends bio-inspiration manifest credence as a blueprint for ambitious research agendas in computing \citep{miikkulainen2021biological,banzhaf2006from}.
+Indeed, the demonstrated viability of natural precedent lends bio-inspiration credence as a blueprint for ambitious research agendas in computing \citep{miikkulainen2021biological,banzhaf2006from}.
 
 Some have questioned, however, whether charisma of the evolutionary approach might also be serving as a preoccupying distraction \citep{moore2023evolution,sorensen2015metaheuristics}.
-In particular, given the broader tendency for machine learning researchers to adhere to their preferred models \citep{domingos2012few}, there is a risk that, rather than a means to an end, evolutionary approaches have, to an extent, become an end in and of themselves \citep{woodward2016gp,yampolskiy2018we}.
+In particular, given the broader tendency for machine learning researchers to adhere to their preferred models \citep{domingos2012few}, there is risk that evolutionary approaches have become something of a pursuit for its own sake, rather than a means to an end \citep{woodward2016gp,yampolskiy2018we}.
 
 % ELD: I like this, but I think it's breaking the flow. Maybe it can go somewhere else
 %Bio-inspiration, additionally, can be perceived to play into criticism of the \textit{ad hoc} structure of evolutionary computation.
@@ -41,7 +41,7 @@ Moreover, to a skeptical reader, pervasive appeals to bio-inspiration can come a
 % foundation in empiricism and narrative argumentation rather than first-principles mathematical/provable algorithmic rigor; is held back from substantive progress
 Such perceptions contribute to a more fundamental concern that evolutionary computation lacks a cohesive, rigorous theoretical framework with first-principles grounding \citep{worzel2003genetic}.
 (Concerns in this vein, in part, also persist from more general and longstanding contention between ``scruffy'' and ``neat'' philosophies \citep[p.~16]{jones2008artificial, minsky1991logical}.)
-The \textit{ad hoc} nature of evolutionary computation has also been implicated in hampering adoption, on account of the numerous configurable and tunable elements that confront new users \citep{oneil2010open}.
+The \textit{ad hoc} nature of evolutionary computation has also been implicated in hampering adoption, on account of numerous configurable and tunable elements confronting new users \citep{oneil2010open}.
 
 One possible response to these concerns is to favor de-emphasizing the evolutionary metaphor, with the goal of deepening and diversifying first principles footing of evolutionary computation \citep{moore2023evolution}.
 While we agree that evolutionary computation needs sounder theory, we propose the opposite --- that this challenge can best be addressed by leaning \textit{deeper} into the evolutionary metaphor.
@@ -56,58 +56,53 @@ Subsequently, we will evaluate additional yet-to-be-explored opportunities that 
 Discussion, in particular, highlights connections between understanding gained from arbitraged theory and analysis and --- of ultimate importance --- application-oriented objectives of evolutionary computation.
 
 At the most basic level, evolutionary biology and allied fields of population genetics, developmental biology, and ecology complement the focus of evolutionary computation in seeking to explain, rather than optimize (though not always \citep{cobb2013directed,carroll2014applying}).
-These fields have seen radical advances in recent years due to technology-driven growth in data acquisition and analysis capability in the life sciences \citep{math2018omics,deshpande2024evolution}.
+These life sciences fields have seen radical advances in recent years due to technological leaps in data acquisition and analysis capability \citep{math2018omics,deshpande2024evolution}.
 % In particular, research has driven towards model-driven approaches capable of quantitative (as opposed to qualitative) predictions \citep{TODO}.
-Also notable is continuing traction gained by the subfield of experimental evolution within evolutionary biology.
-Experimental evolution approaches, which observe evolution under controlled conditions, allow detailed inquiry that avails direct observability, replay capabilities, and systematic experimental manipulations \citep{kawecki2012experimental}.
+Also notable is increasing traction gained by the subfield of experimental evolution within evolutionary biology.
+Experimental evolution approaches, which observe evolution under controlled conditions, allow detailed inquiry leveraging detailed data collection, replay capabilities, and systematic experimental manipulations \citep{kawecki2012experimental}.
 
-One concern in transposing WORD from biology to evolutionary computation is whether theory and methods are specific enough to biological life so as to be poorly applicable or informative to evolutionary computation.
-While it is true that certain particulars are of limited general applicability, owing to practical needs to incorporate abstractions for tractability and generalizability across domains of biological life, we have found there to be a good amount of work that is useful to evolutionary computation.
-Indeed, computational artificial life approaches, a close cousin of evolutionary computation, are a popular technique for exploring the generalizability of biological findings beyond life-as-we-know-it is \citep{cleland2013general,langton1989artificial,pennock2007models}. % ELD: Lots more astrobiology citations we could add here
-Insofar as value applicable to evolutionary computation exists within biological literature, however, applying that knowledge requires sufficient domain knowledge (1) to identify it and (2) to navigate subtleties in aligning appropriate correspondences with EC.
+One concern in transposing knowledge from biology to evolutionary computation is the extent to which specificity of theory and methods to biological life might make them poorly applicable to evolutionary computation.
+While this is a valid concern, owing to existing needs in biology to stretch abstractions across vast and diverse domains of biological life, we have found there to be a good amount of work that is useful to evolutionary computation.
+Indeed, computational artificial life approaches, a close cousin of evolutionary computation, are a popular technique for exploring the generalizability of biological concepts beyond life-as-we-know-it \citep{cleland2013general,langton1989artificial,pennock2007models}. % ELD: Lots more astrobiology citations we could add here
+Insofar as content applicable to evolutionary computation exists within biological literature, however, applying that knowledge requires sufficient domain knowledge (1) to identify it and (2) to navigate subtleties in aligning appropriate correspondences with EC.
 Given the vastness, context-dependence, and --- at times --- polyonymy of biological theory, interdisciplinary collaborations can be highly productive \citep{goodman2020evolution}.
 
 % such knowledge arbitrage
-With investment of effort, engaging theory and methods from evolutionary biology can yield substantial value.
-Indeed, a good amount of existing research has already taken such an approach.
-Our review covers
+With investment of effort, engaging theory from evolutionary biology can yield substantial value.
+Indeed, a good amount of existing research has already taken such an approach (Table \ref{tab:arbitrage-examples}).
+Our review highlights examples across three themes,
 \begin{itemize}
   \item genotype-phenotype maps and fitness landscapes (Section \ref{sec:genotype-phenotype-maps});
   \item ecology assembly and coexistence theory (Section \ref{sec:ecology}); and
   \item phylogeny for prediction/analysis (Section \ref{sec:phylogeny-analysis}).
 \end{itemize}
-We also highlight opportunities where methods and tools can overlap with bioinformatics infrastructure
+We also review practical work on methods and tools overlapping evolutionary computation with bioinformatics infrastructure
 \begin{itemize}
   \item sampling-based approaches, which are friendly for decentralized infrastructure (Section \ref{sec:best-effort}); and
-  \item interoperation with bioinformatics infrastructure (Section \ref{sec:interoperation}); and
+  \item interoperation with bioinformatics infrastructure (Section \ref{sec:interoperation}).
 \end{itemize}
 Additional opportunities for theory arbitrage remain entirely unexplored, however --- which we also outline (Section \ref{sec:opportunities}).
 
-Table~\ref{tab:arbitrage-examples} overviews representative EC work drawing on biological theory.
 \input{tab/arbitrage-examples.tex}
 
 % ELD: Would be good to include some examples here that aren't things we/friends did.
 
-Despite its promise, borrowing from biology should not be taken as a silver bullet.
-There are fundamental limitations in cohesiveness and universality attainable through such an approach.
-% ELD: Home turf is probably a little too informal
-Namely, even taken alone, substantial blind spots remain in the explanatory and predictive power analyses and theory in ecology and evolution \citep{houlahan2016priority,catford2022addressing,yates2018outstanding}.
-% ELD: Maybe point out that they've still got multiple orders of magnitude more theory than EC? Evolutionary biology could do better, but even within biology evolution is often seen as one of the fields that has been more successful at embracing theory (ecological theorists get envious)
-Not unlike evolutionary computation, deficiency in theory has habituated as a source of perennial consternation in evolutionary biology \citep{welch2017wrong}.
-Among other factors, blame includes overabundance of identifiable contributing causal factors and the consistency of exceptions or complicating factors to nearly every generalization.
-% ELD: Not sure how to put this, but I feel like that's true for one type of rule, but there's another type of rule where its not. E.g. there are no exceptions to the fundamental principle of adaptation by natural selection, even if there are circumstances where it gets more complicated
+Despite its promise, borrowing from biology should not be taken as a silver bullet, as it is subject to fundamental limitations.
+Namely, substantial blind spots remain in the explanatory and predictive power of analyses and theory in ecology and evolution \citep{houlahan2016priority,catford2022addressing,yates2018outstanding} --- although this is best considered as the exception, rather than the rule \citep{lynch2025complexity}.
+Not unlike evolutionary computation, deficiency in theory has habituated perennial consternation in evolutionary biology \citep{welch2017wrong}.
+Among other factors, blame includes overabundance of identifiable causal factors and the existence of exceptions or complicating factors to nearly every generalization.
+Failures to recognize and build on existing work have also been broadly highlighted \citep{lynch2025complexity,beer2024alife}.
 
-% ELD: Next sentence is a little clunky
-Despite limitations of biological analysis and theory, arbitrage from biology seems likely to account for a substantial fraction of what explanatory power is possible within EC.
+These limitations notwithstanding, biological equivalencies seem likely for the preponderance of what explanatory power is possible within EC.
 So long as evolutionary algorithms comprise populations of discrete individuals with heritable traits, they will, in some literal sense, instantiate evolutionary processes \citep{pennock2007models}.
 Therefore, any systematic theory generalizable across evolutionary computation would likely also hold substantial explanatory power for aspects of biology and \textit{vice versa}.
-Notable exceptions, though, arise in EC's unique capabilities to entirely strip out elements e.g., of environmental heterogeneity or genotype-phenotype map and to achieve perfect, direct observability unique to digital evolution.
+Notable exceptions, though, arise in unique capabilities within digital evolution to entirely strip out metchanistic elements (e.g., environmental heterogeneity, indirect genotype-phenotype map, etc.) and to achieve perfect, direct observability.
 As such, theory established in-house for EC could plausibly lead biology in certain areas, a point we return to in our concluding remarks.
-Although EC will doubtlessly continue in contributing new ideas and perspectives on evolution, it seems unlikely, in most areas, for evolutionary computation to profoundly outpace biology in achieving truly general or cohesive theory.
+Although EC will doubtlessly continue in contributing new ideas and perspectives on evolution, reciporical exchange should e expected --- as it seems unlikely for EC, as a smaller field, to profoundly outpace biologists in achieving truly general or cohesive theory.
 % ELD: I'm not sold on this last sentence. They've got superior numbers right now, but I actually think evolutionary computation is a really undertapped approach in evolutionary theory
 
 % has profoundly influenced the trajectory of evolutionary algorithm research.
 With expanded perspective, the evolution metaphor in EC has value to offer not only in devising new approaches, but also in understanding how and why they work.
-Looking past biology to harness the science that has arisen around it should continue to be pursued as a priority in advancing the rigor and transparency of evolutionary computation.
+Looking past biology to harness the science that has arisen around it should continue to be prioritized in advancing the rigor and transparency of evolutionary computation.
 By highlighting notable existing steps in this direction, we hope to catalyze continued progress toward these goals.
 Calling attention to several yet-untapped correspondences with theory in ecology and evolutionary biology, we hope, also contributes towards this end.
