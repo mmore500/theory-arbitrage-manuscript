@@ -1,0 +1,35 @@
+\subsection{Inferential Observability (excerpt from EXPRESS grant)}
+
+To address these problems, we propose a paradigm shift in ABMS/PDES data collection: inferential observability.
+This model takes inspiration from approaches used in real-world experiments, which successfully draw scientific inferences based on a smaller and noisier sets of data than what are typically collected using ABMS/PDES.
+Indeed, past a certain point, precision in data from ABMS/PDES becomes of essentially negligible value, owing to arbitrary effects of stochasticity and fundamental limitations in correspondence between model and reality.
+Any computational resources invested in producing this excessive level of precision could be better used elsewhere.
+Trading a controlled amount of data precision for increased scalability and hardware accelerator compatibility would be highly worthwhile.
+
+Historically, most research using ABMS/PDES has assumed complete observability of model state.
+Indeed, the ability to measure properties \textit{in silico} that would be impossible to observe \textit{in vitro} or \textit{in vivo} is a major benefit of ABMS/PDES for scientific inquiry.
+However, as the scale of these models increases, the cost of data collection becomes a serious obstacle. % in terms of both time complexity and space complexity.
+Thus, experiments exist that are intractable in the real world because they rely on data that are physically impossible to measure, but are also intractable in digital models because storing the necessary data to answer the questions at hand is infeasible.
+We propose that, through careful algorithm development, we can solve this problem by recording a smaller amount of data that enables us to draw the desired scientific inferences at a fraction of the computational cost.
+Through this work, we will unlock the ability to perform scientific inquiry that would have been previously intractable across digital and real-world systems.
+
+% While PDES allow dramatic scalability improvements over ABMS, they are more severely impacted by time complexity cost of data tracking.
+Data tracking often requires cross-referencing multiple simulation elements, which can introduce runtime communication costs under parallel and distributed computation.
+For example, in evolutionary models, phylogenetic relatedness (i.e., line of descent) information enables powerful analyses, but perfectly tracking this data necessitates difficult-to-scale bookkeeping to purge extinct lineages \citep{moreno2024analysis} (we solved this problem using a combination of inferential observability and space-time memory; see HStrat in Prior Research).
+Qualitatively similar problems occur more broadly in contexts where patterns of interaction among simulation elements must be tracked (e.g., tracking chains of pathogen transmission).
+Beyond slowdown from synchronization inefficiencies, a fundamental obstacle is also posed when data storage needs exceed available space.
+
+Inferential observability aims to collect the minimal amount of data necessary to answer the scientific questions at hand.
+In part, we propose to achieve this goal by designing algorithms that efficiently down-sample time series data.
+More fundamentally, however, we suggest that modelers may be better served by exporting data only under certain circumstances and propose algorithms to support this workflow.
+Such an approach is particularly valuable for work with hardware accelerators such as the WSE, which have limited input/output (I/O) bandwidth.
+We anticipate that users may want to export data in response to certain ``trigger'' conditions being fulfilled, through sampling processes, or --- for policy-driven models --- in response to real-time queries during scenario exercises.
+
+Simulation is useful insofar as it is interpretable.
+As simulation scales, so does the challenge of managing an exhaustive data record.
+Recent hardware trends only exacerbate matters, growing processing power while reducing the amount of RAM and disk storage available per core --- especially in accelerator-driven HPC architectures \citep{khan2021analysis,gholami2024ai}.
+For such architectures, host-device bandwidth and latency strongly impact performance \citep{kwon2018beyond}.
+Such concerns arise especially in work with the Cerebras WSE where only a small fraction of peripherally-located PEs interface to the host.
+Our proposed inferential observability paradigm will help mitigate these problems.
+In this aim, we propose to develop, formalize, and experimentally evaluate this approach.
+Additionally, we will publish software implementations to make inferential observability accessible to the ABMS/PDES community.

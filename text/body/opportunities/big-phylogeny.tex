@@ -1,0 +1,19 @@
+\subsection{Excerpt from \href{https://github.com/mmore500/hstrat-reconstruction-algo/}{mmore500/hstrat-reconstruction-algo}}
+\label{sec:big-phylogeny}
+
+In a parallel vein, the volume of data processed in bioinformatics workflows is also increasing with continuing advances in high-throughput sequencing technologies, enabling the construction of phylogenies containing millions of taxa.
+As an illustrative example at the cutting edge of extreme scale, \citet{konno2022deep} reports phylogeny synthesis from 235 million sequence reads generated from an \textit{in silico} CRISPR barcoding model --- requiring 31 hours of compute time across 300 HPC nodes.
+% In digital evolution, sampling approaches and reconstruction algorithms such as the one presented in this paper can process billions of tips in a matter of hours.
+
+In both the context of bioinformatics and artificial life research, very large-scale phylogeny data enabled by advances in sequencing and computing technology represent a new challenge as much as an opportunity, raising the question of how best to mine this data.
+On a practical level, work is needed not just to push the boundaries of what can be learned from phylogenies, but also how to store, load, traverse, quantify, visualize, and manipulate very large phylogenies in an efficient manner.
+Indeed, projects are being developed to try to address this issue.
+For example, taxonium \citep{sanderson2022taxonium} is a web-based software for visualizing large phylogenies in a flexible, interactive manner, and is able to handle browsing millions of tips at a high frame rate.
+Other projects aim to create methods for compact, scalable phylogeny representations \citep{moshiri2025compacttree, moshiri2020treeswift}, enabling faster and more memory-efficient tree operations.
+
+In pushing the boundaries of phylogenetic scale to billion-tip datasets, ALife research has the opportunity to contribute to an interdisciplinary ecosystem of software tools developing around working with very large-scale phylogenies.
+In particular, the ALife data standard, which specifies a tabular representation for phylogeny data \citep{lalejini2019data}, has strong potential to develop a backbone of a larger high-performance phylogeny processing infrastructure.
+Although originally envisioned as a data storage format, the tabular nature of the standard allows integrations with high-performance software tools arisen around the ``Data Frame'' concept, including Pandas, Polars, Dask, and data.table.
+These libraries provide a structured, user-friendly interface to advanced performance features such as multithreading, data streaming, query optimization, file partitioning, and column-oriented binary datafile formats \citep{mckinney2010data,datatable,vink2024polars,rocklin2015dask}.
+Additionally, for Python users, the columnar array format typical in data frame libraries is compatible with NumPy and Numba, readily enabling on-the-fly SIMD vectorization and Just-In-Time compilation \citep{harris2020array,lam2015numba}.
+Indeed, this approach underlies much of the pre- and post-processing steps for end-to-end reconstruction demonstrated in this work.

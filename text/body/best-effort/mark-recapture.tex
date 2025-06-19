@@ -1,0 +1,17 @@
+\subsection{Mark-Recapture Estimation}
+
+Mark-recapture analysis (or capture-recapture analysis) is a widely-used and well-developed method to estimate sizes of biological populations \citep{amstrup2010handbook}.
+This method uses the proportion of individuals shared between two or more samples as a proxy to estimate the total population size that is being sampled.
+For large population sizes, relatively lower recapture rates are expected.
+It turns out, though, that idealized sampling from an urn poorly describes animal behavior.
+Various potential biases have been identified --- ranging from the inherent disposition of certain animals to be more ``trap happy'' or ``trap shy'' to the tendency of already-captured animals to become more wary of traps --- and sophisticated statistical methods have been devised to make estimation robust to them.
+Mark-recapture literature, therefore, provides a rich, ready-made buffet for tacking estimation problems involving repeat partial sampling.
+
+In one application, \citet{moreno2024methods} demonstrate use of a mark-recapture estimator in quantifying sites contributing to fitness that are not individually detectable due to epistatic redundancy and or small-effect contributions.
+Analogy to the mark-recapture scenario is established by equating sites with any potential for fitness effect --- whether or not detectable through single-site knockout --- to the population to be estimated.
+Iterative knockouts are applied to produce several ``skeleton'' genotypes, where no more sites can be removed without reducing fitness.
+Sites in each skeleton, therefore, each have a demonstrable fitness effect --- but, if redundancy or small effects are at play, no skeleton contains all such sites.
+Each skeleton, therefore, represents a sample of sites with potential fitness effects.
+Crucially, though, these samples will overrepresent lower-redundancy or larger-effect sites.
+Application of a jackknife estimator due to \citet{burnham1979robust}, however, ensures estimation accuracy remains intact.
+In a separate line of work, \citet{schulte2014software} have noted potential for mark-recapture methods to play a role in characterizing the extent of neutral space within multistep mutational neighborhoods of computer programs.

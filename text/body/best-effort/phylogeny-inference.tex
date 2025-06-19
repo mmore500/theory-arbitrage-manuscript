@@ -1,0 +1,25 @@
+\subsection{Reconstruction-based Phylogenetic Analysis}
+
+In addition to play-by-play accounts of extinctions, innovations, and other key events in an evolutionary run, phylogenetic analysis can provide insight into the nuts and bolts of evolutionary computation through more general characterization of the underlying mode and tempo of evolution \citep{moreno2023toward,hernandez2022can,shahbandegan2022untangling,lewinsohn2023statedependent}.
+Availability of an exactly accurate phylogenetic record is useful, but in most cases not strictly necessary, in accomplishing these objectives \citep{moreno2024ecology}.
+Indeed, typical biological approaches to phylogenetic analysis involve inexact inference-based estimation, yet such phylogenetic analysis has contributed immensely to our understanding of biological evolution.
+
+At the most fundamental level, modern bioinformatics accomplishes phylogenetic analysis by comparing traces of similarity retained in DNA genomes under the influence of mutational accumulation.
+Notably, such mutational processes occur in a completely decentralized manner, and reconstruction can be performed among any number of organisms --- including small subsamples of the overall population.
+Disadvantageously, though, complications arise in these analyses owing to issues of back mutation, mutational saturation, selection effects, long branch attraction, and the vast quantities of genetic sequence information required \citep{TODO}
+In contrast to biological model organisms, however, evolutionary computation affords the capability to arbitrarily engineer genome structure --- and, therefore, affords the possibility to sidestep such challenges.
+
+Hereditary stratigraphy methodology arose from such a desire for a means to extract phylogenetic information from distributed simulations that is efficient, robust, straightforward, and generalizable across digital evolution systems.
+The method works by bundling agent genomes with special annotations in a manner akin to non-coding DNA (entirely neutral with respect to agent traits and fitness).
+These annotations apply an approximate checkpointing mechanism to maximize reconstruction quality from a minimal memory footprint --- configurable as low as 96 bits per genome \citep{moreno2022hereditary}.
+A major benefit of this approach is that it allows the relatedness of any two organisms to be compared directly without depending on global information, which opens the door to incorporation of EC techniques that incorporate phylogenetic information at runtime to guide evolution toward desired outcomes \citep{lalejini2024phylogeny,lalejini2024runtime,murphy2008simple,burke2003increased}.
+
+In one application, borrowing from bioinformatics has allowed hereditary stratigraphy-enabled implementation to address challenges of scale, memory capacity, and communication bandwidth in opening a window into digital evolution on next-generation AI accelerator hardware.
+\citet{moreno2024trackable} demonstrates tracking of an island-model genetic algorithm across the 850,000 core Cerebras Wafer-Scale Engine.
+Under a simple one-max equivalent test regime, the strong decentralization afforded by hereditary stratigraphy enables upwards of a quadrillion replication events to be simulated in an hour.
+\citet{moreno2024trackable} showed effects in phylogenetic structure between alternate mutation operators, and other work has demonstrated recovery of information salient to understanding selection pressure, spatial structure, and ecological dynamics \citep{moreno2024ecology}.
+
+For those looking to incorporate this methodology into their own work, a public-facing software library (``\textit{hstrat}'') has been provided to facilitate plug-and-play addition of tracking annotations  \citep{moreno2022hstrat}.
+\citet{moreno2024guide} provides a step-by-step guide to configuring and using the methodology.
+Although the core methodology ascribes an asexual model, extensions to sexual phylogenies have been explored \citep{moreno2024methods}.
+Beyond phylogenetic tracking, underlying algorithms developed for hereditary stratigraphy provide means to very efficiently maintain running temporal cross-samples (``data stream curation'') \citep{moreno2024structured}, which holds potential for more general utility in reducing runtime communication and storage by support for on-demand, after-the-fact data extraction.
