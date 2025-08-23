@@ -15,6 +15,8 @@
 *.cb
 *.cb2
 .*.lb
+*.hd
+*.bib
 
 ## Intermediate documents:
 *.dvi
@@ -315,3 +317,5 @@ TSWLatexianTemp*
 
 theory-arbitrage-manuscript-draft.pdf
 theory-arbitrage-manuscript.pdf
+main-draft.pdf
+main.pdf

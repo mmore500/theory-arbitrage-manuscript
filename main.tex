@@ -1,20 +1,24 @@
-\documentclass{article}
+\ifdefined\mydraft
+\documentclass[acmsmall, screen=true, review=true, natbib=true]{acmart}
+\else
+\documentclass[acmsmall, screen=true, review=false, natbib=true]{acmart}
+\fi
 
 \input{lib/dependencies.tex}
 \input{lib/pragmaonce.tex}
 
-\ifdefined\mydraft
-\mydraft
-\fi
+% \ifdefined\mydraft
+% \mydraft
+% \fi
 
-\defaultbibliography{bibl}
-\defaultbibliographystyle{apalike-ejor}
+% \defaultbibliography{bibl}
+\defaultbibliographystyle{ACM-Reference-Format}
 
 \begin{document}
 
 \input{text/frontmatter.tex}
 
-% \begin{bibunit}
+\begin{bibunit}
 
   \input{text/body.tex}
 
@@ -22,7 +26,7 @@
 
   \input{text/references.tex}
 
-% \end{bibunit}
+\end{bibunit}
 
 \clearpage
 \newpage
