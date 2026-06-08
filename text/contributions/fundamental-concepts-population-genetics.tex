@@ -27,16 +27,16 @@
 \textbf{Suggested Citations}: \begin{itemize}
 \item find full reference info in \texttt{filecontents} above, or in rendered PDF
 \item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
-\item \citet{Goldberg1991}
-\item \citet{Rabani1998}
-\item \citet{Asoh1994a}
-\item \citet{Asoh1994b}
-\item \citet{Lieberman2005}
-\item \citet{Vose1993}
-\item \citet{Sudholt2015}
-\item \citet{Sudholt2017}
-\item \citet{Paixo2016}
-\item \citet{bedau_classification_1998} --- null models of evolution?
+\item \citet{goldberg1991comparative}
+\item \citet{rabani1998computational}
+\item \citet{asoh1994estimating}
+\item \citet{asoh1994mean}
+\item \citet{lieberman2005evolutionary}
+\item \citet{vose1993modeling}
+\item \citet{sudholt2015parallel}
+\item \citet{sudholt2017crossover}
+\item \citet{paixao2016towards}
+\item \citet{bedau1998classification} --- null models of evolution?
 \end{itemize}
 
 \textbf{Included Citations}: \begin{itemize}
@@ -70,7 +70,7 @@ While many EC studies implicitly investigate the population genetics of their fo
 % [Common reason for this: to achieve mathematical tractability, many pop gen models rely on many simplifying assumptions about genetics [Evo Comp 1999].]
 Even so, insights from population genetics have been drawn into evolutionary computing research.  
 [Christiansen and Feldman 1998]: Holland's GA schema theory in context of  population genetics. 
-Barton and Paixão~\cite{barton_can_2013} and Paixão \textit{et al}.~\cite{paixao_toward_2015} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
+Barton and Paixão~\cite{barton2013can} and Paixão \textit{et al}.~\cite{paixao2015toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
 % -- any other general frameworks--
 Below, we overview [X] topics studied in population genetics that we see as valuable sources of theoretical arbitrage. 
 % having particular relevance to continuing to mature EC theory.  
@@ -80,7 +80,7 @@ Below, we overview [X] topics studied in population genetics that we see as valu
 To interpret evolutionary dynamics, it is necessary to distinguish between reproductive systems: populations may be \textit{sexual} (involving recombination and mating) or \textit{asexual} (clonal reproduction), and individuals may be \textit{haploid} (carrying a single genome copy) or \textit{diploid} (carrying two copies).
 Null models describe how genetic variation changes over time in the absence of specific adaptive forces, providing baselines specific to these architectures \citep{hamilton2021population}.
 Classical Wright-Fisher \citep{wright1931evolution, fisher1930genetical} or Moran \citep{moran1958random} models under neutrality specify how allele frequencies drift under random sampling, mutation, and recombination, assuming no fitness differences among alleles.
-These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection, population structure, non-random mating, or other deviations from neutral expectations \citep{kimura1985neutral, hartl2007principles}.
+These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection, population structure, non-random mating, or other deviations from neutral expectations \citep{kimura1985neutral, hartl1997principles}.
 %These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection or other non-neutral forces \citep{kimura1985neutral}.
 
 For EC, analogous null models describe the behavior of a population under mutation, recombination, and random replacement without fitness-based selection. 
