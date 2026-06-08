@@ -27,7 +27,7 @@
 \textbf{Suggested Citations}: \begin{itemize}
 \item find full reference info in \texttt{filecontents} above, or in rendered PDF
 \item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
-\item \citet{goldberg1991a}
+\item \citet{goldberg1991ab}
 \item \citet{rabani1998a}
 \item \citet{asoh1994estimating}
 \item \citet{asoh1994on}
@@ -70,7 +70,7 @@ While many EC studies implicitly investigate the population genetics of their fo
 % [Common reason for this: to achieve mathematical tractability, many pop gen models rely on many simplifying assumptions about genetics [Evo Comp 1999].]
 Even so, insights from population genetics have been drawn into evolutionary computing research.  
 [Christiansen and Feldman 1998]: Holland's GA schema theory in context of  population genetics. 
-Barton and Paixão~\cite{barton????can} and Paixão \textit{et al}.~\cite{paixao????toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
+Barton and Paixão~\cite{barton2013can} and Paixão \textit{et al}.~\cite{paixao2015toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
 % -- any other general frameworks--
 Below, we overview [X] topics studied in population genetics that we see as valuable sources of theoretical arbitrage. 
 % having particular relevance to continuing to mature EC theory.  
@@ -90,7 +90,7 @@ Null models therefore offer a principled baseline for diagnosing whether observe
 
 \textbf{Genetic drift.}
 Genetic drift refers to random fluctuations in allele frequencies caused by finite sampling in reproduction \citep{kimura1985theb}. 
-Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016geneticb, kimura1985theb, ohta1992thec}. 
+Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016genetic, kimura1985theb, ohta1992thec}. 
 Drift can lead to random fixation or loss of alleles, erode genetic diversity over time, and interact with selection by either reinforcing or opposing deterministic trends, depending on population size and selection strength \citep{hamilton2021population}.
 
 In EC, drift has analogous effects on the ``genotypes" of candidate solutions. 
@@ -189,7 +189,7 @@ Analyzing EC runs through the lens of population structure---tracking inter-deme
 
 \textbf{Bottlenecks.}
 Bottlenecks occur when the population size drops sharply for one or more generations before recovering \citep{hamilton2021population}. 
-These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016geneticb, kimura1985theb, ohta1992thec}. 
+These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016genetic, kimura1985theb, ohta1992thec}. 
 The genetic composition of the post-bottleneck population is largely determined by chance survival, potentially reshaping the evolutionary trajectory, even without changes in selection. 
 Severe contractions can also elevate extinction risk, both by reducing genetic variation and by increasing the likelihood that surviving individuals carry deleterious or low-fitness genotypes \citep{hamilton2021population}.
 
