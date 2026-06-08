@@ -44,7 +44,7 @@
 % how selection affects populations in nature
 
 Biological principles have provided a strong conceptual foundation that has informed the analysis, refinement, and theoretical development of selection within evolutionary computation (EC).
-From classical population genetics, the ``strength of selection" reflects the interplay between differences in fitness and random fluctuations in allele frequencies over generations (\textit{i.e.}, genetic drift) due to finite population sizes in natural populations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
+From classical population genetics, the ``strength of selection'' reflects the interplay between differences in fitness and random fluctuations in allele frequencies over generations (\textit{i.e.}, genetic drift) due to finite population sizes in natural populations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
 To operationalize this balance, we must first quantify the deterministic pressure that selection exerts on allele frequencies.
 The expected change in the frequency of an allele each generation depends on both the selection coefficient (\textit{s}), a measure of how much an allele increases or decreases fitness, and the allele's current frequency (\textit{p}) \citep{crow2017introduction}.
 Roughly, this change is proportional to $s p (1 - p)$ \citep{crow2017introduction}.  
@@ -52,7 +52,7 @@ However, its realized effect depends critically on population size ($N$).
 For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.
 Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
 Thus, the product $N s$ provides a simple, dimensionless measure of how effectively selection can overcome drift in populations of constant size \citep{gravel2016selection}, serving as an approximate indicator under idealized conditions. 
-In other words, ``strength of selection" quantifies how strongly fitness differences shape evolutionary change relative to stochastic variation in reproduction. 
+In other words, ``strength of selection'' quantifies how strongly fitness differences shape evolutionary change relative to stochastic variation in reproduction. 
 % EC adopts this idea, but reframes selection strength in terms of how forcefully a selection scheme favors high-performing individuals over others during search.
 In biological reality, this inherent stochasticity is further heightened because population sizes fluctuate and environments change; consequently, evolution in finite populations is a probabilistic optimization process, where advantageous alleles may still be lost by chance and genetic change reflects a balance among selection, mutation, and drift.
 %In biological reality, population sizes fluctuate and environments change; accordingly, evolution in finite populations is an inherently probabilistic optimization process, where advantageous alleles may still be lost by chance and genetic change reflects a balance among selection, mutation, and drift.
@@ -60,7 +60,7 @@ These concepts provide a natural baseline for thinking about how selection mecha
 
 % what is selection in EC
 
-In EC, an analogous notion of strength of selection, also called ``selection pressure," is imposed not only by demographic constraints but also arises from how selection mechanisms are engineered to guide the search process.
+In EC, an analogous notion of strength of selection, also called ``selection pressure,'' is imposed not only by demographic constraints but also arises from how selection mechanisms are engineered to guide the search process.
 Selection is a foundational principle underlying virtually all EC algorithms, and the resulting selection pressure depends on how it is instantiated, varying across domains, algorithmic paradigms, and the specific goals of individual studies. 
 % Digital models of evolution used to simulate biological phenomena often involve selection emergent from underlying self-replication processes (\textit{e.g.}, natural selection).
 Application-oriented EC typically employs engineered selection mechanisms that leverage the exploratory creativity and robustness of evolutionary search while maintaining optimization efficiency.
