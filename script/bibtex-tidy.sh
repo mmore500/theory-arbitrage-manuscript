@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -o pipefail # exit with error if any of this fails
+set -euo pipefail
 
 script_dir="$(dirname "$(readlink -f "$0")")"
 
