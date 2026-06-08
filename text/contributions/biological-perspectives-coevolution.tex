@@ -33,17 +33,17 @@
 
 % \textbf{Included Citations}: \begin{itemize}
 % \item move citations incorporated into section text here!
-% \item \citet{Hillis_1990}
-% \item \citet{Wang2019}
-% \item \citet{Bucci2003,Bucci2005,Bucci2003a}
-% \item \citet{Watson2003}
-% \item \citet{Watson2001}
-% \item \citet{Stanley2004}
-% \item \citet{Popovici2012}
-% \item \citet{Ficici2000}
-% \item \citet{Cliff1995}
-% \item \citet{Zaman2014}
-% \item \citet{Vostinar2019}
+% \item \citet{hillis1990coevolvingb}
+% \item \citet{wang2019paired}
+% \item \citet{bucci2003focusing, bucci2005on, bucci2003a}
+% \item \citet{watson2003a}
+% \item \citet{watson2001coevolutionary}
+% \item \citet{stanley2004competitive}
+% \item \citet{popovici2012coevolutionary}
+% \item \citet{ficici2000a}
+% \item \citet{cliff1995tracking}
+% \item \citet{zaman2014coevolutionc}
+% \item \citet{vostinar2019spatial}
 % \end{itemize}
 
 % \textbf{Excluded Citations}: \begin{itemize}
@@ -57,7 +57,7 @@
 % -  as primary focus, opportunities to understand existing practice
 % - section names are broad — focusing on a handful of selected topics within a section is fine!
 
-% TODO @mmore500 high-profile \cite{Hillis1990}
+% TODO @mmore500 high-profile \cite{hillis1990coevolving}
 % pulled from citations to hillis, 1990
 % 1. Potter, M. A., & De Jong, K. A. (1994). A Cooperative Coevolutionary Approach to Function Optimization. Parallel Problem Solving from Nature (PPSN III). https://doi.org/10.1007/3-540-58484-6_269
 
@@ -87,16 +87,16 @@
 
 % - sections: at most ~2-3 pages (~<1k-1.5k words; page est. excludes refs)
 All biological evolution is, in fact, co-evolution between many interacting species. The interaction between the species can be negative, such as parasitism, predation, or general competition, or positive, such as mutualism or cooperation. Such interactions often vary in their strength and even the very nature of the effect over evolutionary time. 
-Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{Willkens2022,Popovici2012, Ficici2000}, parasitism \citep{Hilllis_1990,  Cliff1995}, competition \citep{Stanley2004}, and mutualism \citep{Wang2019, Bucci2005, Bucci2003a, Bucci2003, Watson2003, Watson2001}, however the specific form of co-evolutionary relationship plays an often underappreciated role in these algorithms.
+Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{willkens2022evolving, popovici2012coevolutionary, ficici2000a}, parasitism \citep{Hilllis_1990, cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005on, bucci2003a, bucci2003focusing, watson2003a, watson2001coevolutionary}, however the specific form of co-evolutionary relationship plays an often underappreciated role in these algorithms.
 
 For example, some coevolutionary algorithms use a form of parasitism where a population of tests is evaluated against a population of solutions. %TODO: find example citations
 While these are sometimes presented as a form of predation, failing a test doesn't ``kill'' a solution. Instead, failing a test leads to a slightly lower fitness score for the solution, similar to a parasitism dynamic. 
 
 %TODO: look for places to point out that bio suggests type of EC to use or when parasitism/mutualism would change so making sure to consider if parasitism/mutualism
-The classic example of co-evolutionary algorithm is \citet{Potter2000}.
+The classic example of co-evolutionary algorithm is \citet{potter2000cooperative}.
 In this work, they introduced the possibility of decomposing a problem into subcomponents and using separate evolutionary algorithms to solve each subcomponent.
 However, the key insight was that the subcomponents could only be evaluated with each other, and therefore their fitness is determined by how well they solve the complete problem when combined with some representative solutions to the other subproblems.
-There has been decades of work \citep{ma2018survey, pan2020effective, gong2015distributed, goh2008competitive, antonio2017coevolutionary,hancer2025survey, wiegand2004analysis, garcia2005cooperative, wiegand2001empirical, byrski2015evolutionary} building on this idea and endeavoring to solve the many issues that arise with implementing it: how to decompose the problem, how to decide on individual subcomponents to combine, how to evaluate each subcomponent, as well as the many other typical concerns of evolutionary algorithms such as mutation regime, etc.
+There has been decades of work \citep{ma2018a, pan2020an, gong2015distributed, goh2008a, antonio2017coevolutionary, hancer2025a, wiegand2004an, garcapedrajas2005cooperative, wiegand2001an, byrski2015evolutionary} building on this idea and endeavoring to solve the many issues that arise with implementing it: how to decompose the problem, how to decide on individual subcomponents to combine, how to evaluate each subcomponent, as well as the many other typical concerns of evolutionary algorithms such as mutation regime, etc.
 
 However, this classic framing is a clear case of non-symbiotic co-evolution, because each individual subcomponent is only guaranteed to be evaluated with another individual subcomponent once.
 This structure is analogous to an individual hummingbird visiting an individual flower: they both benefit if the hummingbird's beak happens to perfectly fit the flower's shape, but the hummingbird's fitness is based on how well it matches the flowers on average (taking into account the hummingbird's ability to choose flowers of course) and the flower's fitness is based on how well it matches the visiting pollinators on average.
@@ -116,18 +116,18 @@ For example, if the goal is a population of co-evolving subcomponents that must 
 In addition to the mutualism-parasitism spectrum, there are many ways in which symbiotic partners can impact each other, which ultimately all impact their fitness, but may have differing selective effects.
 The typical co-evolutionary algorithm setup is best labeled as a cross-feeding dynamic, where no subcomponent is able to produce all necessary nutrients and so they must rely on each other for survival.
 Specifically, each subcomponent can only solve part of the problem (i.e. a single necessary nutrient), and therefore must rely on the other subcomponents to produce a complete solution (i.e. the other necessary nutrients).
-However, symbiotic partners can provide other types of benefits, such as protection against environmental stressors or pathogens \citep{Trivedi2020} and overall improved health \citep{Stengel2022}.
-These other kinds of interactions may lead to differing selective effects due to the differing amounts of consistency (presence or absence of stressor) and directness (improved health) \citep{buckling2002role, benard2020stress, apprill2020role}, which may be beneficial to a particular problem domain.
+However, symbiotic partners can provide other types of benefits, such as protection against environmental stressors or pathogens \citep{trivedi2020plantmicrobiome} and overall improved health \citep{stengel2022rethinking}.
+These other kinds of interactions may lead to differing selective effects due to the differing amounts of consistency (presence or absence of stressor) and directness (improved health) \citep{buckling2002the, benard2020stress, apprill2020the}, which may be beneficial to a particular problem domain.
 
 Further, many other kinds of complications can occur.
-For example, it has previously been shown that parasites can increase host behavioral complexity through the Population-Genetic Memory Hypothesis and Red Queen dynamics \citep{Ladle1992,Zaman2014}.
+For example, it has previously been shown that parasites can increase host behavioral complexity through the Population-Genetic Memory Hypothesis and Red Queen dynamics \citep{ladle1992parasites, zaman2014coevolutionc}.
 Mutualists, however, are hypothesized to have mixed effects.
-They can increase host behavioral complexity through the major evolutionary transition of symbiogenesis, where the symbiont becomes so dependent on the host that it is no longer considered a separate organism \citep{CavalierSmith2013}; this biological phenomenon is somewhat analogous to the dynamics of Tangled Program Graphs \citep{Smith2021}.
+They can increase host behavioral complexity through the major evolutionary transition of symbiogenesis, where the symbiont becomes so dependent on the host that it is no longer considered a separate organism \citep{cavaliersmith2013symbiogenesis}; this biological phenomenon is somewhat analogous to the dynamics of Tangled Program Graphs \citep{smith2021evolving}.
 Mutualists can also decrease host complexity by constraining host evolution, causing co-extinction events.
-Mutualist constraint could also enable division of labor, decreasing the need for the host to perform complex tasks. While the host would then be less complex, such scenarios can actually improve the system's overall problem-solving capability \citep{Uchiumi2020}.
-Endosymbiosis (where the symbiont lives inside of the host) has also been found to lead to genome degradation of the symbiont as it becomes reliant on the host, potentially decreasing the symbiont's behavioral complexity \citep{Andersson1999}.
-It has also been hypothesized that the presence of both mutualistic and parasitic interactions in the same system could increase evolved host complexity beyond what the host would reach with only one type of interaction due to the more complex selection pressures from multiple interactions \citep{Willkens2022}.
-Finally, when symbionts evolve along the parasitism-mutualism spectrum, the presence of spatial structure can influence how parasitic or mutualistic they become \citep{Vostinar2019}, in particular making parasitism more likely at intermediate vertical transmission rates. Further, their evolutionary history, such as the degree of specialization of the symbiont, can influence the future state of the system, as in the Co-Opted Antagonist Hypothesis, where a parasite is co-opted to become a mutualist due to increasing reliance on the host for survival\citep{Johnson2021}.
+Mutualist constraint could also enable division of labor, decreasing the need for the host to perform complex tasks. While the host would then be less complex, such scenarios can actually improve the system's overall problem-solving capability \citep{uchiumi2020evolution}.
+Endosymbiosis (where the symbiont lives inside of the host) has also been found to lead to genome degradation of the symbiont as it becomes reliant on the host, potentially decreasing the symbiont's behavioral complexity \citep{andersson1999insights}.
+It has also been hypothesized that the presence of both mutualistic and parasitic interactions in the same system could increase evolved host complexity beyond what the host would reach with only one type of interaction due to the more complex selection pressures from multiple interactions \citep{willkens2022evolving}.
+Finally, when symbionts evolve along the parasitism-mutualism spectrum, the presence of spatial structure can influence how parasitic or mutualistic they become \citep{vostinar2019spatial}, in particular making parasitism more likely at intermediate vertical transmission rates. Further, their evolutionary history, such as the degree of specialization of the symbiont, can influence the future state of the system, as in the Co-Opted Antagonist Hypothesis, where a parasite is co-opted to become a mutualist due to increasing reliance on the host for survival\citep{johnson2021coevolutionary}.
 
 In the biological domain, host-symbiont interactions are strongly influenced by tangled mechanistic contingencies and often highly entrenched; we have so far not discovered a model system capable of every type of symbiotic interaction with which to perform controlled experiments (and it's unlikely such a system exists).
 This limitation means that biological theory lacks a unified understanding of how each of these symbiotic interactions does impact the co-evolutionary dynamics of the system.

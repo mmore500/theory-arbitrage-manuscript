@@ -27,16 +27,16 @@
 \textbf{Suggested Citations}: \begin{itemize}
 \item find full reference info in \texttt{filecontents} above, or in rendered PDF
 \item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
-\item \citet{Goldberg1991}
-\item \citet{Rabani1998}
-\item \citet{Asoh1994a}
-\item \citet{Asoh1994b}
-\item \citet{Lieberman2005}
-\item \citet{Vose1993}
-\item \citet{Sudholt2015}
-\item \citet{Sudholt2017}
-\item \citet{Paixo2016}
-\item \citet{bedau_classification_1998} --- null models of evolution?
+\item \citet{goldberg1991a}
+\item \citet{rabani1998a}
+\item \citet{asoh1994estimating}
+\item \citet{asoh1994on}
+\item \citet{lieberman2005evolutionaryb}
+\item \citet{vose1993modeling}
+\item \citet{sudholt2015parallel}
+\item \citet{sudholt2017how}
+\item \citet{paixo2016towards}
+\item \citet{bedau1998a} --- null models of evolution?
 \end{itemize}
 
 \textbf{Included Citations}: \begin{itemize}
@@ -70,7 +70,7 @@ While many EC studies implicitly investigate the population genetics of their fo
 % [Common reason for this: to achieve mathematical tractability, many pop gen models rely on many simplifying assumptions about genetics [Evo Comp 1999].]
 Even so, insights from population genetics have been drawn into evolutionary computing research.  
 [Christiansen and Feldman 1998]: Holland's GA schema theory in context of  population genetics. 
-Barton and Paixão~\cite{barton_can_2013} and Paixão \textit{et al}.~\cite{paixao_toward_2015} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
+Barton and Paixão~\cite{barton????can} and Paixão \textit{et al}.~\cite{paixao????toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
 % -- any other general frameworks--
 Below, we overview [X] topics studied in population genetics that we see as valuable sources of theoretical arbitrage. 
 % having particular relevance to continuing to mature EC theory.  
@@ -79,9 +79,9 @@ Below, we overview [X] topics studied in population genetics that we see as valu
 \textbf{Null models of evolution.}
 To interpret evolutionary dynamics, it is necessary to distinguish between reproductive systems: populations may be \textit{sexual} (involving recombination and mating) or \textit{asexual} (clonal reproduction), and individuals may be \textit{haploid} (carrying a single genome copy) or \textit{diploid} (carrying two copies).
 Null models describe how genetic variation changes over time in the absence of specific adaptive forces, providing baselines specific to these architectures \citep{hamilton2021population}.
-Classical Wright-Fisher \citep{wright1931evolution, fisher1930genetical} or Moran \citep{moran1958random} models under neutrality specify how allele frequencies drift under random sampling, mutation, and recombination, assuming no fitness differences among alleles.
-These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection, population structure, non-random mating, or other deviations from neutral expectations \citep{kimura1985neutral, hartl2007principles}.
-%These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection or other non-neutral forces \citep{kimura1985neutral}.
+Classical Wright-Fisher \citep{wright1931evolution, fisher1930thec} or Moran \citep{moran1958random} models under neutrality specify how allele frequencies drift under random sampling, mutation, and recombination, assuming no fitness differences among alleles.
+These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection, population structure, non-random mating, or other deviations from neutral expectations \citep{kimura1985theb, hartl2007principles}.
+%These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection or other non-neutral forces \citep{kimura1985theb}.
 
 For EC, analogous null models describe the behavior of a population under mutation, recombination, and random replacement without fitness-based selection. 
 Such models can be instantiated by running the same variation operators and population sizes, but with arbitrary fitness, or with selection replaced by uniform sampling. 
@@ -89,8 +89,8 @@ Comparing diversity trajectories, fixation times of schema or building blocks, o
 Null models therefore offer a principled baseline for diagnosing whether observed EC dynamics are truly ``adaptive" with respect to the specified objective, or whether they could be explained by neutral processes and the intrinsic biases of variation operators.
 
 \textbf{Genetic drift.}
-Genetic drift refers to random fluctuations in allele frequencies caused by finite sampling in reproduction \citep{kimura1985neutral}. 
-Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}. 
+Genetic drift refers to random fluctuations in allele frequencies caused by finite sampling in reproduction \citep{kimura1985theb}. 
+Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016geneticb, kimura1985theb, ohta1992thec}. 
 Drift can lead to random fixation or loss of alleles, erode genetic diversity over time, and interact with selection by either reinforcing or opposing deterministic trends, depending on population size and selection strength \citep{hamilton2021population}.
 
 In EC, drift has analogous effects on the ``genotypes" of candidate solutions. 
@@ -105,7 +105,7 @@ Formally, it corresponds to the size of an idealized Wright-Fisher population, c
 %The effective population size ($N_e$) represents the number of individuals who effectively contribute genetic material to the next generation. 
 %Formally, it is the size of an idealized population of size $N$ that would experience the same rate of drift or selection response as the real population \citep{hamilton2021population}. 
 Unequal reproductive success, overlapping generations, fluctuating population sizes, population structure, and variance in offspring number can all push $N_e$ below census population size. 
-Because drift becomes less influential and selection more effective as $N_e$ increases \citep{crow2017introduction, hamilton2021population}, this concept is central for predicting rates of diversity loss, fixation, and adaptation.
+Because drift becomes less influential and selection more effective as $N_e$ increases \citep{crow2017anb, hamilton2021population}, this concept is central for predicting rates of diversity loss, fixation, and adaptation.
 
 In EC, nominal population size (the number of individuals per generation) can be a poor proxy for how many ``independent" genomes are effectively contributing to future generations. 
 Strong elitism, heavy cloning of a few high-fitness individuals, or highly skewed selection probabilities
@@ -116,7 +116,7 @@ Adapting effective population size concepts to EC would allow practitioners to q
 
 \textbf{Mutation-selection-drift balance.}
 Mutation, selection, and drift jointly shape the equilibrium level of genetic variation. 
-Novel mutation continually introduces new alleles, while selection filters them based on fitness and drift randomly amplifies or eliminates them depending on population size \citep{crow2017introduction, hamilton2021population}. 
+Novel mutation continually introduces new alleles, while selection filters them based on fitness and drift randomly amplifies or eliminates them depending on population size \citep{crow2017anb, hamilton2021population}. 
 At equilibrium, these opposing forces produce predictable levels of genetic diversity and allele frequency distributions, even under ongoing adaptive pressures \citep{hamilton2021population}. 
 This balance provides a baseline expectation for long-term diversity and the persistence of rare alleles.
 
@@ -151,10 +151,10 @@ Interpreting empirical dynamics (\textit{e.g.}, movement of trait means, changes
 \textbf{Selective sweeps, hitchhiking, and interference.}
 A selective sweep occurs when a strongly beneficial mutation rises rapidly in frequency, reducing diversity at linked loci as neutral or even slightly deleterious alleles ``hitchhike" along with it \citep{hamilton2021population, barton2000genetic}. 
 When multiple beneficial mutations arise independently before any can fix, they compete for representation in the population. 
-This phenomenon is termed \emph{clonal interference} in asexual populations, where the absence of recombination extends linkage across the whole genome, preventing beneficial mutations in different lineages from combining and forcing them to compete until one drives the others to extinction \citep{gerrish1998fate}.
-This represents a systemic and severe form of the broader \emph{Hill-Robertson interference} that also affects sexual populations, though typically only within specific regions of limited recombination \citep{hill1966effect}.
+This phenomenon is termed \emph{clonal interference} in asexual populations, where the absence of recombination extends linkage across the whole genome, preventing beneficial mutations in different lineages from combining and forcing them to compete until one drives the others to extinction \citep{gerrish1998the}.
+This represents a systemic and severe form of the broader \emph{Hill-Robertson interference} that also affects sexual populations, though typically only within specific regions of limited recombination \citep{hill1966the}.
 These phenomena create characteristic signatures: sharp drops in local diversity, rapid shifts in allele frequencies, and the transient coexistence of multiple high-fitness lineages.
-%This phenomenon is termed \emph{clonal interference} in asexual populations and is a special case of the broader Hill-Robertson interference that also affects sexual populations with limited recombination \citep{gerrish1998fate, hill1966effect}.
+%This phenomenon is termed \emph{clonal interference} in asexual populations and is a special case of the broader Hill-Robertson interference that also affects sexual populations with limited recombination \citep{gerrish1998the, hill1966the}.
 
 Analogous patterns frequently emerge in EC runs. 
 A newly discovered high-fitness solution, subtree, or architectural motif may propagate rapidly through the population, producing a sweep-like takeover where many individuals share the same structural innovation. 
@@ -178,7 +178,7 @@ Analyzing LD-like statistics in EC (\textit{e.g.}, covariance between fragments/
 Spatial structure and limited migration generate patterns of local adaptation and differentiation. 
 Models such as the island model and stepping-stone model describe how gene flow interacts with drift and selection across demes (\textit{i.e.}, locally breeding subpopulations connected by migration) \citep{hamilton2021population}. 
 Migration prevents complete divergence by reintroducing alleles from other populations, while restricted movement allows local genetic signatures and environmental adaptations to emerge \citep{hamilton2021population}. 
-Measures such as $F_{ST}$ quantify how differentiated subpopulations become under different migration and drift regimes \citep{wright1949genetical}.
+Measures such as $F_{ST}$ quantify how differentiated subpopulations become under different migration and drift regimes \citep{wright1949the}.
 
 Evolutionary computation frequently mirrors these dynamics through island models, structured populations, and multi-deme evolutionary strategies. 
 Demes evolve semi-independently, maintaining local diversity while exploration proceeds in parallel. 
@@ -189,7 +189,7 @@ Analyzing EC runs through the lens of population structure---tracking inter-deme
 
 \textbf{Bottlenecks.}
 Bottlenecks occur when the population size drops sharply for one or more generations before recovering \citep{hamilton2021population}. 
-These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}. 
+These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016geneticb, kimura1985theb, ohta1992thec}. 
 The genetic composition of the post-bottleneck population is largely determined by chance survival, potentially reshaping the evolutionary trajectory, even without changes in selection. 
 Severe contractions can also elevate extinction risk, both by reducing genetic variation and by increasing the likelihood that surviving individuals carry deleterious or low-fitness genotypes \citep{hamilton2021population}.
 
@@ -200,7 +200,7 @@ Analyzing EC runs in terms of bottleneck frequency, severity, and timing, using 
 
 \textbf{Coalescence theory.}
 Coalescent theory models the genealogy of sampled individuals by tracing their lineages backward in time to common ancestors \citep{hamilton2021population}. 
-This retrospective perspective is mathematically powerful because the number of lineages strictly decreases as one moves backward, allowing the complex branching of forward-time evolution to be treated as a simplified merging process that ignores extinction events \citep{kingman1982coalescent}.
+This retrospective perspective is mathematically powerful because the number of lineages strictly decreases as one moves backward, allowing the complex branching of forward-time evolution to be treated as a simplified merging process that ignores extinction events \citep{kingman1982thec}.
 Under a given demographic and selective scenario, the coalescent provides theoretical expectations for the resulting genealogies, including distributions of branch lengths and the timing of merger events.
 Crucially, these theoretical models allow for the statistical interpretation of biological data: by comparing empirically reconstructed trees against coalescent expectations, researchers can infer historical population size changes, migration rates, and the presence of selective sweeps \citep{wakeley2009coalescent}.
 %Under a given demographic and selective scenario, the coalescent provides the distribution of branch lengths, the time to the most recent common ancestor, and patterns of shared ancestry among alleles. 

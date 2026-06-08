@@ -23,33 +23,33 @@
 
 A central challenge in any machine learning algorithm is balancing exploration of the problem space with focusing search on regions of the space already known to contain good solutions (i.e., exploitation).
 Insufficient exploration will lead to premature convergence on local optima that results in failure to find the global optimum.
-In evolutionary computation, exploration is achieved by maintaining a diverse population \citep{Sudholt2019}.
-Over the years, key innovations in evolutionary computation have come from discovering better diversity maintenance techniques \citep{goldberg_genetic_1987, wang2019poet}. 
+In evolutionary computation, exploration is achieved by maintaining a diverse population \citep{sudholt2019the}.
+Over the years, key innovations in evolutionary computation have come from discovering better diversity maintenance techniques \citep{goldberg1987genetic, wang2019poet}. 
 
 A simple approach to maintaining diversity is by slowing the growth of individual lineages.
 Population genetics derives the influence of selection strength on how fast advantaged alleles displace others within a population \citep{kimura1980average}.
-Likewise, existing evolutionary graph theory describes how spatial structure can influence the probability of mutations fixing within a population \citep{lieberman2005evolutionary}, and slow the rate at which fixation occurs \citep{frean2013effect}.
+Likewise, existing evolutionary graph theory describes how spatial structure can influence the probability of mutations fixing within a population \citep{lieberman2005evolutionaryc}, and slow the rate at which fixation occurs \citep{frean2013the}.
 Both selection strength and spatial structure have thus long been of interest within evolutionary computation
-with respect to diversity maintenance \citep{Simon2008,blickle:1995:css}.
+with respect to diversity maintenance \citep{simon2008biogeographybased, blickle1995a}.
 
-Although diversity loss can be slowed by spatial structure and large population size \citep{Slatkin1981,Kimura1969}, even under fully neutral selection, most lineages will eventually be driven extinct by drift effects \citep{Wright1931evolution,Fisher1930,kingman1982coalescent}.
+Although diversity loss can be slowed by spatial structure and large population size \citep{slatkin1981fixation, kimura1969the}, even under fully neutral selection, most lineages will eventually be driven extinct by drift effects \citep{wright1931evolutionb, fisher1930theb, kingman1982thec}.
 Thus, stable long-term coexistence ultimately depends on balancing selection that protects rare minorities \citep{chesson2000mechanisms}.
-In ecology, such balancing is typically framed in terms of negative frequency-dependent selection (scenarios where rare traits are advantaged) \citep{brisson2018negative,clarke1979evolution,wright1939distribution,levin1988frequency}, resource specialization \citep{tilman1980resources}, habitat requirements \citep{grinnell1917niche}, and niche occupancy \citep{hutchinson1957concluding}.
+In ecology, such balancing is typically framed in terms of negative frequency-dependent selection (scenarios where rare traits are advantaged) \citep{brisson2018negative, clarke1979the, wright1939the, levin1988frequencydependent}, resource specialization \citep{tilman1980resources}, habitat requirements \citep{grinnell1917the}, and niche occupancy \citep{hutchinson1957concluding}.
 
 As such, most successful diversity maintenance techniques operate by introducing ecological interactions among candidate solutions \citep{dolson2018applying, dolson2018ecological}.
-Classical approaches --- such as crowding, niching, and fitness sharing --- lend favor to candidate solutions on the basis of their rareness and distinctiveness \citep{mahfoud1996niching,Petrowski1996,dejong1975analysis,Friedrich2009}.
-Extending this strategy to also promote divergence from cumulative population history provides the basis of novelty search and its related variants \citep{Lehman2011,Pugh2016,Lehman2011evolving}.
-Ecological interactions have also been mediated by resource competition (e.g., EcoEA \citep{Goings2009,Goings2012}) or by partitioning capacity across habitat gradients (e.g., quality-diversity \citep{Mouret2015,Cully2018}).
+Classical approaches --- such as crowding, niching, and fitness sharing --- lend favor to candidate solutions on the basis of their rareness and distinctiveness \citep{mahfoud1996niching, petrowski1996a, dejong1975an, friedrich2009analysis}.
+Extending this strategy to also promote divergence from cumulative population history provides the basis of novelty search and its related variants \citep{lehman2011abandoning, pugh2016qualityb, lehman2011evolving}.
+Ecological interactions have also been mediated by resource competition (e.g., EcoEA \citep{goings2009ecological, goings2012an}) or by partitioning capacity across habitat gradients (e.g., quality-diversity \citep{mouret2015illuminatingb, cully2018quality}).
 While ecological in the sense of predicating fitness on population composition, other diversity maintenance schemes have no biological analog --- such as Lexicase selection, which selects on heterogenous combinations of traits \citep{spector2012assessment}.
 
 Due to the fact that these techniques are literal implementations of ecological dynamics, theoretical ecology can be directly imported to predict and explain the behavior of these algorithms \citep{dolson2018ecological}.
-In the late 1980s, researchers in theoretical ecology \citep{Chesson1990} and evolutionary computation \citep{Deb1989} independently derived equivalent math while trying to predict when coexistence would occur in their respective systems \citep{dolson2018ecological}.
+In the late 1980s, researchers in theoretical ecology \citep{chesson1990macarthurs} and evolutionary computation \citep{deb1989an} independently derived equivalent math while trying to predict when coexistence would occur in their respective systems \citep{dolson2018ecological}.
 Similar mathematical equivalencies can be found in other evolutionary algorithms \citep{dolson2018ecological}. Once these equivalencies are identified, large bodies of existing ecological theory can be immediately applied to the relevant evolutionary algorithm.
-For example, \citep{Deb1989} only derived the math to predict when two species/solutions would coexist indefinitely. Ecologists, however, have gone on to derive math for multi-species coexistence in the same scenario (in addition to a variety of more complex scenarios that may or may not translate usefully to evolutionary computation) \citep{barabas2016multispecies,saavedra2017structural,chesson2000mechanisms}. 
+For example, \citep{deb1989an} only derived the math to predict when two species/solutions would coexist indefinitely. Ecologists, however, have gone on to derive math for multi-species coexistence in the same scenario (in addition to a variety of more complex scenarios that may or may not translate usefully to evolutionary computation) \citep{barabas2016the, saavedra2017a, chesson2000mechanisms}. 
 These insights are available for free to evolutionary computation researchers if we only know where to look.
 
 Even in cases where evolutionary computation is not directly equivalent to a known ecological model, frameworks from theoretical ecology may be useful to evolutionary computation researchers.
-For example, community assembly graphs are a framework for predicting the possible trajectories of ecological community assembly (i.e., the process of species getting added to a community) \citep{hangkwang1993assembly,servan2021tractable}.
+For example, community assembly graphs are a framework for predicting the possible trajectories of ecological community assembly (i.e., the process of species getting added to a community) \citep{hangkwang1993the, servn2021tractable}.
 Recently, it has been shown that this approach can be to predicting the possible trajectories of evolutionary computation as well \citep{dolson2024reachability}. 
 Specifically, community assembly graphs can represent the population states reachable under lexicase selection, where a candidate solution's prospects depend on the composition of the rest of the population and no single fitness landscape applies.
 Analyzing the topology of this graph reveals whether an optimal solution is reachable from a given starting population and whether competing trajectories instead terminate in dead ends.
@@ -57,39 +57,39 @@ Community assembly graphs thus provide a practical diagnostic tool to help predi
 
 An ecological framing not only hooks evolutionary computation into the established results, but also provides a common vocabulary and empirical analysis techniques that clarifies how evolutionary computation methods resemble and differ from one another.
 Interaction networks and phylogenetic diversity metrics reveal, for instance, that a selection scheme can shape phylogenetic diversity quite differently from phenotypic diversity \citep{dolson2018ecological}.
-More than just borrowing from ecological theory, however, evolutionary computation has also contributed meaningfully as a tractable study system that is controlled, and fully observable yet also nontrivial \citep{Dolson2021}.
-Likewise, EC selection schemes provide promising means for objective-oriented structuring of artificial ecologies in directed and experimental evolution of biological organisms under laboratory conditions \citep{Lalejini2022}.
+More than just borrowing from ecological theory, however, evolutionary computation has also contributed meaningfully as a tractable study system that is controlled, and fully observable yet also nontrivial \citep{dolson2021digitalc}.
+Likewise, EC selection schemes provide promising means for objective-oriented structuring of artificial ecologies in directed and experimental evolution of biological organisms under laboratory conditions \citep{lalejini2022artificialc}.
 
 % \textbf{Suggested Citations}: \begin{itemize}
 % \item find full reference info in \texttt{filecontents} above, or in rendered PDF
 % \item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
-% \item MAP-Elites \citet{Dolson2019}
-% \item ecological approaches to diversity maintenance in evolutionary algorithms \citet{Goings2009}
-% \item \citet{Shahbandegan2024} robustness of lexicase selection to contradictory objectives
-% \item \citet{Neumann2019}
-% \item \citet{Letten2017}
+% \item MAP-Elites \citet{dolson2019exploring}
+% \item ecological approaches to diversity maintenance in evolutionary algorithms \citet{goings2009ecological}
+% \item \citet{shahbandegan2024on} robustness of lexicase selection to contradictory objectives
+% \item \citet{neumann2019evolutionary}
+% \item \citet{letten2017linking}
 % \end{itemize}
 
 % \textbf{Included Citations}: \begin{itemize}
-% \item a spatial heuristic for ecology \citet{Simon2008}
+% \item a spatial heuristic for ecology \citet{simon2008biogeographybased}
 % \item move citations incorporated into section text here!
-% \item \citet{Mouret2015} map-elites
-% \item \citet{Friedrich2009}
-% \item \citet{Dolson2018a}
-% \item \citet{Dolson2018b}
-% \item \citet{Deb1989}
-% \item \citet{Dolson2024}
-% \item digital evolution for ecology review \citet{Dolson2021}
-% \item EcoEA \citet{Goings2012}
-% \item novelty search and friends \citet{Lehman2011,Pugh2016,Lehman2011evolving}
-% \item NEAT speciation \citet{stanley2002neat}
-% \item artificial selection schemes for directed evolution \citet{Lalejini2022}
-% \item \citet{Sudholt2019}
+% \item \citet{mouret2015illuminatingb} map-elites
+% \item \citet{friedrich2009analysis}
+% \item \citet{dolson2018applyingb}
+% \item \citet{dolson2018ecologicalb}
+% \item \citet{deb1989an}
+% \item \citet{dolson2024reachabilityb}
+% \item digital evolution for ecology review \citet{dolson2021digitalc}
+% \item EcoEA \citet{goings2012an}
+% \item novelty search and friends \citet{lehman2011abandoning, pugh2016qualityb, lehman2011evolving}
+% \item NEAT speciation \citet{stanley2002evolvingb}
+% \item artificial selection schemes for directed evolution \citet{lalejini2022artificialc}
+% \item \citet{sudholt2019the}
 % \end{itemize}
 
 % \textbf{Excluded Citations}: \begin{itemize}
 % \item move citations not incorporated into section text here!
-% \item \citet{Sudholt2024}
+% \item \citet{sudholt2024theory}
 % \end{itemize}
 
 
