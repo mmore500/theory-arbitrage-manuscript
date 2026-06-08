@@ -1,25 +1,105 @@
 % Vinny
-\begin{bibunit}
-
-% please ensure refs have a DOI where possible!!!
-\begin{filecontents*}[overwrite]{biological-perspectives-local-optima.bib}
-@book{Darwin2009,
-  title = {The Origin of Species: By Means of Natural Selection,  or the Preservation of Favoured Races in the Struggle for Life},
-  ISBN = {9780511694295},
-  url = {http://dx.doi.org/10.1017/CBO9780511694295},
-  DOI = {10.1017/cbo9780511694295},
-  publisher = {Cambridge University Press},
-  author = {Darwin,  Charles},
-  year = {2009},
-  month = jul 
-}
-\end{filecontents*} 
+% biological-perspectives-local-optima.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% revision status as of <DATE>
+% - [x] accept or reject all track changes
+% - [-] incorporate review comments
+%    - don’t worry about clearing all comments
+% - [X] incorporate reference suggestions
+% - [ ] cross-cutting revision objectives (see email)
+% - [x] other planned changes or refinements (if any)
+% for revision status, mark - for partial or x for complete
+% any free-form comments on planned/completed revisions are helpful too!
+% --------------------------------------------------------------------------------
+% draft status: complete Draft as of 2026-03-31    <---------- fill me in!
+% pick one of: outline, partial draft, rough draft, complete draft
+% where rough draft indicates that major points are hit,
+% but still working on changes or improvements in refining the text
+%
+% TODO: 
+% Find citations for a few remaining examples (any help here would be appreciated)
+% Address comments that require additional or modified text (some clarity on what the other authors desire here would be helpful)
+% readability pass (assistance from other authors would be helpful here too)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Biological Perspectives on Local Optima}
 \label{sec:local-optima}
 
-Example citation \citep{Darwin2009}
+% \textbf{Included Citations}: \begin{itemize}
+% \item \citet{Bohm2024}
+% \item \citet{Ragusa2022}
+% \item \citet{wr32,Wright1982}
+% \item \citet{Oliveto2017}
+% \end{itemize}
 
-\putbib[biological-perspectives-local-optima]
+% \textbf{Excluded Citations}: \begin{itemize}
+% \item \citet{Ochoa2008}
+% \item \citet{Dang2021}
+% \item \citet{Gavrilets1997}
+% \item \citet{Friedrich2022}
+% \item \citet{Pandey2014}
+% \end{itemize}
+
+
+% ------------ intro ---------------
+\subsection{Premature Convergence}
+Of all the challenges faced during evolutionary optimization, few are as stubborn or ubiquitous as premature convergence. In design optimization, artificial life, or open-ended search, premature convergence halts discovery and wastes computation. Evolutionary computation, then, faces the same question that biological evolution has answered for billions of years: how does an evolving system keep evolving beyond local optima?
+Convergence on an optimum occurs when a population has lost the majority of its genetic diversity and finds itself unable to easily discover further improvements. The difficulty in progressing past a convergence lies in the way selection prevents exploration. Selection acts as a stabilizing force that amplifies fitter variants, while mutation introduces a diffusive pressure that maintains diversity. Convergence occurs when the attractive pull of purifying selection overwhelms the diffusive pressure of mutation, sharply reducing the system's exploratory capacity. In particular, paths to higher fitness via a sequence of mutations that initially reduce fitness are selected against, while neutral paths (if any exist) may still be possible.
+
+What makes a convergence premature is the knowledge or expectation that substantial genetic improvements are still waiting to be discovered. Consequently, the concept of premature convergence itself is usually limited to discussions where the fitness landscape is known in some capacity, such as knowledge of specific optima or outcomes to which we might compare a population and judge its progress. In other words, premature convergence is when an outside observer can identify that the population has converged on an optimum that is not the best available. 
+
+In nature, though, evolution is open-ended, without a preferred endpoint (and possibly without an achievable one). From an open-ended perspective, we may as well assume all convergence is premature, since the expectation is that there is always something better. In this light, we can focus our attention on those evolutionary dynamics that affect the speed and likelihood of convergence without needing to qualify if the convergence is premature or not: it's always premature. This perspective helps us focus on mechanisms that maintain evolvability without knowing the global landscape.
+
+% --------------------------------
+\subsection{Evolutionary means of escape}
+% VINNY: this section will have the most overlap with other sections in this paper, and a much better use of this space might be to simply acknowledge those sections as relevant to this topic and refer the reader to them.
+% @mmore500 if this gets ironed out, we should make sure the specific aspects of theory alluded to are cited/name-checked where these topic appear elsewhere in the text
+Many natural mechanisms have been studied which help a population escape from a local optimum, including shifting selection strengths, phenotypic plasticity, neutral variation, and evolving mutation rates, just to name a few. Shifting balance theory \cite{wr32,Wright1982}, for example, describes how a population can naturally change size, from large to small, and thus weaken selection enough to allow escape from local optima. The degree to which a genotype-phenotype map allows for neutral\cite{kimura1983neutral,kimura1991neutral} (or nearly neutral\cite{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \cite{Oliveto2017}. Phenotypic plasticity, too, can mask the effects of deleterious mutations and allow them to avoid immediate purifying selection [CITE]. So-called `hyper-mutators' can arise in a converged population and subsequently overcome purifying selection with sheer quantity of mutations \cite{goodman2016better}.
+
+These concepts have been around for some time already, however, and have already been studied as remedies to premature convergence in evolutionary computation: Changing pop size [CITE], neutral diversity\cite{hu2025neutrality,banzhaf1994genotype}, phenotypic plasticity\cite{behera1997effect,borenstein2006effect}, evolving mutation rates\cite{Back_1994,Smit_Eiben_2009,Kramer_2010}. % rephrase this paragraph to emphasise that although these topics have been studied in EC, evolutionary theory provides both principled reasons for including them, and convey more complexity than the usual EC abstractions have captured, creating opportunities for EC to develop further
+
+
+% --------------------------------
+
+\subsubsection{Adaptive Momentum}
+Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computing. One recent advancement, the theory of adaptive momentum\cite{Bohm2024}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged. 
+
+When a population is in the midst of a non-equilibrium transition, such as the selective sweep of a beneficial mutation, a territory range expansion, or a carrying capacity increase, some lineages experience weakened purifying selection. If a deleterious mutation arises on one of those lineages, it is less likely to be purged. Once the population has completed its transition, purifying selection acts with equal strength on all lineages once again. Therefore, from the same genetic starting point, a population experiencing one of these transitions will more easily escape a local optima than a converged population. Furthermore, since the selective sweep of a beneficial mutation is one of these transitions, a cascade of local optima escapes is possible, leading to the appearance of adaptive momentum. One surprising feature of adaptive momentum is that in multidimensional landscapes, adaptation along one axis can promote discoveries along others. This last property of adaptive momentum makes it extremely potent in high-dimensional fitness landscapes.
+
+Reasoning through the consequences of adaptive momentum, we can predict that populations that have prolonged fixation periods should see an improved ability to navigate fitness landscapes compared to populations with short fixation periods, since purifying selection is delayed longer. In other words, populations that avoid convergence should continue to perform better than populations that converge between evolutionary advancements. A simple weakening of the global selection strength isn't enough, however. Weak selection introduces additional risk of losing genetic improvements to drift. Therefore, to leverage adaptive momentum, we seek scenarios where we increase the time it takes to converge, without lowering the probability of fixing beneficial discoveries. 
+
+One simple method of tuning fixation speed is to introduce spatial structure to the population. There is a rich body of literature that catalog how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \cite{Moller_Hindersin_Traulsen_2019,askari2015analytical,lieberman2005evolutionary,Bohm2024}. Introducing these structures into existing evolutionary algorithms should boost the system's ability to leverage adaptive momentum without substantially changing other algorithmic components.
+
+A complementary strategy for leveraging adaptive momentum is to artificially introduce the dynamics of an unconverged population into the evolutionary process. For example, increase selection strength when newly discovered beneficial mutations are at risk of going extinct but lower the selection strength before the new benefit fixes, preventing total convergence and promoting exploration. In practice, this could correspond to dynamically adjusting tournament size, temperature in an annealing-style controller, or even population size.
+
+Another, more structural way to achieve a similar effect is to maintain a small contingent of lineages that remain unconstrained even when the population is converged. One such technique adds ``super-explorers'' \cite{Ragusa2022} to an evolving system. Super explorers undergo Brownian motion in the fitness landscape, seeded at the locations of high-fitness genotypes. These super explorers can buffer an unlimited number of deleterious mutations before being removed due to old age. While they explore, they are visible to selection and may introduce their genotype into the main population, giving their discoveries a chance to compete. Super explorers help get converged populations unstuck faster, while minimally impacting the ability of the population to exploit discoveries once they are made.
+% @mmore500 Could a similar effect be achieved by injecting multi-step mutants? Is the continuous trajectory of super-explorers traced under drift important?
+% possibly related \citep{Rocha1999}
+
+
+These three strategies, spatial structure targeted at increasing fixation time, adapting selection strength based on genotype frequency, and super-explorers are each inspired by the discovery of new evolutionary theory, but many more advances in evolutionary theory are waiting to provide inspiration too.
+
+\subsection{Alternatives to escape, per se}
+
+Up to now, the discussion of local optima and premature convergence has centered on population dynamics: how do populations escape from premature convergence? However, there are a number of paths out of a local optima which might be attributed to the landscape itself.
+% @mmore500 Could also wade into biological discussions of whether genotype space is so high dimensional that peaks/valleys meaningfully exist eg https://doi.org/10.1016/S0169-5347(97)01098-7
+
+\subsubsection{Fitness Seascapes and ecology}
+
+The metaphor of a fitness landscape evokes the image of hills and valleys which remain fixed in place while the population climbs overtop. However, natural fitness landscapes are not so fixed. Take, for example, the simple interaction between two species: what is fit in the presence of the other may not be fit in isolation, or vice versa. Yet, a species may indeed become isolated or be confronted with another species and have its fitness change as a result. No genetic change has occurred, the fitness landscape simply changed beneath the population's feet. In more realistic ecological networks, these kinds of changes are happening constantly. This constant change has given rise to the metaphor of the fitness seascape, one where populations try to swim to the crest of the highest wave.
+% @mmore500 maybe some citations and allusions to where fitness seascape discussions are taking place on the biology side?
+
+For evolutionary computation, these seascapes remind us that fitness functions don't need to be static, and that controlled dynamism can help populations escape from local optima. Even applying simple noise to the fitness function can improve rates of adaptation \cite{ragusa2021connections}.
+
+The introduction of ecology in various forms can also result in a dynamic fitness seascape. Natural examples include: parasitism \cite{Johnson_2025}, sexual selection \cite{bohm2019sexual}, predator/prey interactions [cite], cooperative/swarm behavior [cite], ...
+In addition to these, a number of artificial ecological interactions can introduce similar effects: fitness sharing \cite{della2007niches}, crowding penalties \cite{deb2002fast}, and novelty rewards \cite{lehman2011novelty, mouret2015illuminating} are all examples of evolutionary computation techniques that alter the fitness landscape dynamically based on the state or history of the population.
+
+All of these ecological dynamics, natural or artificial, create opportunities for populations to find climbable fitness gradients without crossing a valley in the fitness landscape. Once on a climbable gradient, genetic improvements are more easily discovered, leading to adaptive momentum, creating even more opportunities for further developments. Furthermore, due to the multidimensional aspect of adaptive momentum, seascape-like behavior on only some dimensions of the fitness landscape can still benefit exploration and valley-crossing on the portions of the fitness landscape which remain static. Taken together, all of this suggests that creating seascape-like dynamics in evolutionary computation systems, for example by introducing ecological dynamics, can promote exploration and prevent premature convergence.
+
+\subsection{ Final remarks}
+In both natural and artificial evolution, progress depends on maintaining a delicate disequilibrium: enough stability to accumulate information, but enough instability to encourage exploration. Introducing dynamism into artificially evolving systems as adaptive momentum, noisy fitness, ecology, super-explorers, or any other means serves to balance the scales in favor of disequilibrium without sabotaging selection in the process. Nature is full of these kinds of mechanisms and processes, just waiting to be studied and applied to artificial systems.
+%
+% --------------------------------
+% \putbib[biological-perspectives-local-optima]
     
-\end{bibunit}
+% \end{bibunit}

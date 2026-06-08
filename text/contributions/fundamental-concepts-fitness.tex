@@ -1,25 +1,106 @@
-% Jose
-\begin{bibunit}
+% Jose and Philip
+% fundamental-concepts-fitness.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% revision status as of 3/3/26
+% - [x] accept or reject all track changes
+% - [x] incorporate review comments
+%    - don’t worry about clearing all comments
+% - [x] incorporate reference suggestions
+% - [x] cross-cutting revision objectives (see email)\
+% - [x] other planned changes or refinements (if any)
+% for revision status, mark - for partial or x for complete
+% any free-form comments on planned/completed revisions are helpful too!
+% --------------------------------------------------------------------------------
+% draft status: complete draft as of 12/4/25
+% pick one of: outline, partial draft, rough draft, complete draft
+% where rough draft indicates that major points are hit,
+% but still working on changes or improvements in refining the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% please ensure refs have a DOI where possible!!!
-\begin{filecontents*}[overwrite]{fundamental-concepts-fitness.bib}
-@book{Darwin2009,
-  title = {The Origin of Species: By Means of Natural Selection,  or the Preservation of Favoured Races in the Struggle for Life},
-  ISBN = {9780511694295},
-  url = {http://dx.doi.org/10.1017/CBO9780511694295},
-  DOI = {10.1017/cbo9780511694295},
-  publisher = {Cambridge University Press},
-  author = {Darwin,  Charles},
-  year = {2009},
-  month = jul 
-}
-\end{filecontents*} 
 
-\subsection{Fitness}
+% --- Bio definitions of fitness ---
+% - Number of offspring an individual produces after one generation, W
+% - Individual's rate of reproduction in continous time, r
+
+\subsection{Fitness and Selection}
 \label{sec:fitness}
 
-Example citation \citep{Darwin2009}
+% \textbf{Suggested Citations}: \begin{itemize}
+% \item find full reference info in \texttt{filecontents} above, or in rendered PDF
+% \item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
+% \end{itemize}
 
-\putbib[fundamental-concepts-fitness]
-    
-\end{bibunit}
+% \textbf{Included Citations}: \begin{itemize}
+% \item move citations incorporated into section text here!
+% \end{itemize}
+
+% \textbf{Excluded Citations}: \begin{itemize}
+% \item move citations not incorporated into section text here!
+% \item \citet{Hansen2018}
+% \item \citet{VandeWalle2022}
+% \item \citet{Brant2017}
+% \item \citet{Doncieux2019}
+% \item \citet{Doulcier2020}
+% \end{itemize}
+
+% fitness in both biology and ec
+The concepts of \textit{fitness} and \textit{selection} are fundamental to evolutionary biology and serve as key inspirations for both the design of algorithms and the theoretical underpinnings of evolutionary computation (EC).
+Fitness in evolutionary biology refers to the expected reproductive contribution of an individual to future generations \citep{orr2009fitness}.
+It may be defined for genotypes (\textit{i.e.}, genetic makeup) or phenotypes (\textit{i.e.}, observable traits), and it is evaluated relative to the population's ecological and demographic context \citep{orr2009fitness}.
+Fitness is intrinsically context dependent because the ecological environment determines the adaptive value of a given phenotype; consequently, a trait advantageous in one setting may be neutral or deleterious in another.
+%Because the genotype-phenotype map interacts with ecological and developmental environments, fitness is intrinsically context dependent: a trait advantageous in one setting may be neutral or deleterious in another.
+Thus, realized fitness often emerges from complex genotype-by-environment (GxE) interactions and life-history trade-offs \citep{falconer1983quantitative}.
+
+Once stable self-replicating entities emerged on the early Earth, variation in replication rate, fidelity, and survivorship produced differences in fitness on which selection could act.
+Crucially, fidelity operates within a theoretical limit known as the error threshold: replication must be sufficiently accurate to preserve information across generations, yet error-prone enough to sustain the variation required for adaptation \citep{eigen1971selforganization, nowak2006evolutionary}.
+This heritable variation arises from \underline{random} mutation and from recombination and segregation, which continually introduce new variants and combinations \citep{gregory2009understanding}.
+Selection, defined as the differential survival and reproduction of individuals due to differences in phenotype, filters this variation and biases which genotypes persist across generations \citep{endler1986natural}.
+%Selection filters this variation, biasing which genotypes and phenotypes persist across generations.
+Reproductive success is the ultimate currency of fitness, yet biological evolution can achieve similar outcomes through a wide range of adaptive solutions, from distinct trait combinations that succeed within species to the accumulated morphological, behavioral, and life-history differences that define species-level strategies across diverse ecological contexts \citep{stott2024life}.
+The interaction between ecological diversity and the genotype-phenotype map sustains these varied strategies, contributing to the vast diversity of biological forms that have arisen under shared evolutionary principles.
+In this sense, fitness captures the heritable attributes that promote lineage persistence and reproductive success over evolutionary timescales.
+%By analogy, EC defines a fitness function (single- or multi-objective) to score candidate solutions.
+%Together with stated objectives, constraints, and evaluation protocols, this scoring scheme constitutes an algorithm’s effective “selection environment.”
+%As in nature, optimizing one metric can impose costs on others (latent or co-optimized), making trade-offs explicit.
+
+% fitness depends on how EC is being used to: artificial life or EA for problem solving
+
+In EC, the concept of fitness diverges from its biological origins, varying across subfields, algorithmic implementations, and the specific objectives of individual studies.
+% For instance, research aimed at developing computational systems that emulate biological phenomena often seeks to align closely with biological principles.
+% The field of Artificial Life exemplifies this approach, as it focuses on constructing computational models and experiments to understand and replicate biological processes. 
+% In such contexts, the concept of fitness---along with other evolutionary mechanisms---tends to mirror its biological counterpart.
+% In contrast, when evolutionary processes are applied \textit{in silico} to optimize solutions for a given problem, the meaning of fitness diverges substantially from its biological origins.
+Rather than representing reproductive success outcomes as in biological contexts, fitness is typically computed via a \textit{fitness function} that quantifies how effectively a candidate solution satisfies a predefined objective or set of objectives.
+For example, the fitness of a solution may be calculated as the proportion of problem instances it successfully solves, rather than how many offspring it contributes to the following population.
+Conceptualizing fitness in this manner frames it as the primary driving force of the evolutionary search process underlying optimization, wherein EC algorithms applied to optimize a given objective tend to preferentially generate and retain solutions exhibiting better fitness values.
+Although these biological analogies of fitness may appear superficially similar, they highlight significant distinctions within the field of EC in terms of their intended usage and conceptual purpose.
+
+% Indeed, conceptualizing and measuring fitness in this manner can create the impression that these quantitative fitness values are the primary driving force behind the evolutionary processes that optimize solutions.
+% More of initial implementations of EC algorithms attempted to closely mimic the relationship that biological fitness had in regard to fitness relating to the proportion of offspring for top-performing solutions (e.g., roulette and proportionate selection).
+
+Selection emerges as a statistical consequence of variation in fitness, translating individual reproductive outcomes into systematic genetic and phenotypic trends across generations \citep{gregory2009understanding, endler1986natural}.
+%Selection is the causal process that translates fitness differences into genetic and phenotypic change in populations across generations \citep{gregory2009understanding}.
+\textit{Natural selection} is \underline{non-random} with respect to fitness and acts on heritable genetic variation (allelic, regulatory, and structural), through its effects on phenotypes.
+Organisms are subject to many selective pressures (\textit{e.g.}, predation, climate, pathogens, competition), and these forces often simultaneously target multiple, potentially correlated traits \citep{lande1983measurement}. 
+As a result, natural selection rarely optimizes a single objective.
+Instead, evolutionary change reflects a balance constrained by genetics, development, and physiology (\textit{e.g.}, pleiotropy, limited genetic variation, linkage) \citep{garland2022trade}.
+Viewed through an optimization lens, natural organisms explore a high-dimensional Pareto surface in which gains along one axis can impose costs along others \citep{shoval2012evolutionary}.
+By contrast, \textit{artificial selection} on domesticated species reduces the operational dimensionality of selection by restricting objectives to single or few targeted traits \citep{hill1992artificial}, partially decoupling fitness from reproductive success.
+Because domestication buffers many environmental pressures through agricultural and husbandry practices (\textit{e.g.}, ample nutrition, shelter, healthcare, pest control), phenotypes favored under artificial selection persist less by outperforming competitors and more by meeting predefined human criteria \citep{milla2015plant,ahmad2020domestication}.
+These interventions standardize the environment and enable rapid, directed change, albeit sometimes at the cost of reduced robustness or unintended correlated responses in other traits \citep{frankham2008genetic}.
+%
+
+
+The selection mechanisms employed in EC differ from those observed in natural biological evolution.  % regardless of whether EC is employed to model biological phenomena or to solve a given task.
+As previously discussed, organisms in nature must simultaneously navigate multiple, conflicting selective pressures.
+Moreover, natural selection operates in a continuous and asynchronous manner and, in principle, acts instantaneously across entire populations within their environments \citep{lande1983measurement,shoval2012evolutionary}.
+% Replicating this phenomenon in a computational system is challenging, in part because it is difficult to fully characterize and model all relevant selective forces acting on these organisms.
+Replicating these dynamics in a computational system is challenging, in part because it is difficult to fully identify, characterize, and model all relevant selective forces acting on organisms.
+Additionally, computational frameworks typically rely on explicit timing checkpoints and generational boundaries, whereas there are no discrete time steps or externally imposed pauses in biological evolutionary processes.
+% Moreover, natural selection operates continuously, asynchronously, and, in principle, instantaneously across entire populations within their environments \citep{lande1983measurement, shoval2012evolutionary}.
+By contrast, without explicit intervention, digital evolution systems often default towards synchronous, stable generational turnover devoid of long-term fluctuations or short-term disruptions.
+Such models are common (though not universal) in EC, which typically follow a stable, highly-regular artificial-selection paradigm: users define the objectives of interest, evaluate candidate solutions, and deliberately propagate promising variants to subsequent generations within a controlled computational setting.
+% Such models are common (though not universal) in artificial life studies of evolution, and even more so in EC --- which typically follows a stable, highly-regular artificial-selection paradigm: users define the objectives of interest, evaluate candidate solutions, and deliberately propagate promising variants to subsequent generations within a controlled computational setting.
+% In both cases, however, practitioners must still define the genotypic and phenotypic representations on which selection operates, as well as specify the mechanism by which digital organisms are evaluated and selected.
+Although the selection mechanisms in EC differ from those in biological evolution, both systems have demonstrated the ability to generate effective solutions across diverse and challenging problem domains and environmental conditions.
+%

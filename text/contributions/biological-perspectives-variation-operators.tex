@@ -1,25 +1,104 @@
 % Nick/Anselmo
-\begin{bibunit}
-
-% please ensure refs have a DOI where possible!!!
-\begin{filecontents*}[overwrite]{biological-perspectives-variation-operators.bib}
-@book{Darwin2009,
-  title = {The Origin of Species: By Means of Natural Selection,  or the Preservation of Favoured Races in the Struggle for Life},
-  ISBN = {9780511694295},
-  url = {http://dx.doi.org/10.1017/CBO9780511694295},
-  DOI = {10.1017/cbo9780511694295},
-  publisher = {Cambridge University Press},
-  author = {Darwin,  Charles},
-  year = {2009},
-  month = jul 
-}
-\end{filecontents*} 
+% biological-perspectives-variation-operators.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% revision status as of March 3rd 2026
+% - [-] accept or reject all track changes
+% - [-] incorporate review comments
+%    - don’t worry about clearing all comments
+% - [ ] incorporate reference suggestions
+% - [ ] cross-cutting revision objectives (see email)
+% - [ ] other planned changes or refinements (if any)  
+% for revision status, mark - for partial or x for complete
+% any free-form comments on planned/completed revisions are helpful too!
+% - Will add table with hierarchy of biological modularity within a cell
+% - Will add paragraphs contrasting how EC prevalent methods and less known research address the issues of modularity, recombination and HGT, and how these could be further informed by biological mechanisms for potential gains in evolvability. 
+% --------------------------------------------------------------------------------
+% draft status: <partial draft> as of <01-Dec-2025>    <---------- fill me in!
+% pick one of: outline, partial draft, rough draft, complete draft
+% where rough draft indicates that major points are hit,
+% but still working on changes or improvements in refining the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Biological Perspectives on Variation Operators}
 \label{sec:variation-operators}
 
-Example citation \citep{Darwin2009}
+\textbf{Suggested Citations}: \begin{itemize}
+\item find full reference info in \texttt{filecontents} above, or in rendered PDF
+\item empty this list by moving citations into ``Included Citations'' or ``Excluded Citations'' below
+\item \citet{Burke1998}
+\item \citet{Booker1993}
+\item \citet{Altenberg1995}
+\item \citet{Wiser_Canino-Koning_Ofria_2019}
+\item \citet{Misevic2005}
+\item \citet{Lorenz2011}
+\end{itemize}
 
-\putbib[biological-perspectives-variation-operators]
+\textbf{Included Citations}: \begin{itemize}
+\item move citations incorporated into section text here!
+\end{itemize}
+
+\textbf{Excluded Citations}: \begin{itemize}
+\item move citations not incorporated into section text here!
+\end{itemize}
+
+In EC, recombination is an important and widely used variation operator. What is not typically realized is that in nature recombination, both through horizontal gene transfer (HGT) and sexual recombination, plays a central role in generating genomic modularity, a key driver of evolvability. Additionally, while both methods of recombination lead to a similar results, considering this distinctly is important as unlike sexual recombination, HGT allows for exchange of information between lineages, but this exchange need not be reciprocal, involve whole chromosomes, or require parents to be proximate to one another. More closely modeling natural recombination mechanisms seems like a promising path to improve the evolutionary potential of EC systems.
+
+In nature, the free association of alleles within populations is a key feature of biological evolution. Sexual reproduction enables the mixing of genetic variation arising in different lineages, preventing new variants from staying trapped in their original genomic context. Similarly, HGT allows alleles to spread beyond their lineage context even in species that would otherwise be strictly clonal aside from mutation. While the importance of recombination in accelerating evolution has long been recognized \citep{felsenstein_evolutionary_1976}, a purely theoretical perspective may overlook its broader impact on the evolution of the genome itself, including its structural and regulatory organization.
+
+Abstractly, recombination improves the efficacy of purifying selection. This is empirically observed in flowering plants, where recombination rates are strongly correlated with genome size \citep{tiley_relationship_2015}, as recombination is expected to counteract the proliferation of parasitic transposons. Furthermore, as recombination itself is non-random and localized to hotspots determined by protein activity \citep{Paul2016}, selection can be modulated at finer scales. In populations with relatively low effective population size, genomic regions that undergo recombination less frequently show lower rates of purifying selection \citep{leroy_island_2021}, as estimated by the ratio of protein-altering to neutral substitutions. Accordingly, both genome architecture and local functional organization are shaped by the frequency and spatial distribution of recombination events.
+
+Conversely, HGT can maintain neutral and even weakly deleterious alleles within a population, since gene flow from distant donor populations can counteract negative selection and thereby preserve diversity. \cite{woods_horizontal_2020}. This additional diversity potentiates adaptation to selective challenges, such as antibiotic resistance, which depends on multiple alleles that individually do not experience strong selection \cite{woods_horizontal_2020}. HGT is also not limited to single or small groups of genes: a cluster of 40 photosynthetic genes has moved horizontally multiple times across alphaproteobacterial lineages as a single unit \cite{martin_physiological_2018, brinkmann_horizontal_2018}. Although HGT is no longer considered the sole driver of the evolution of co-regulated genes \cite{lawrence_selfish_1996, omelchenko_evolution_2003, price_operon_2005}, it remains a major contributor to modularity. Like gene duplication, HGT promotes the evolution of gene evolution by providing new genetic material that can introduce novel functions to existing families or replace functions in existing networks. For example, HGT has been associated with the expansion of regulatory factor repertoire of bacteria \cite{price_horizontal_2008} and the replacement of key genes in essential metabolic pathways \cite{goyal_horizontal_2022}. 
+
+HGT is classically described as occurring via three main mechanisms: conjugation between neighboring cells, transduction via viral intermediaries, and transformation through uptake of environmental DNA \cite{arnold_horizontal_2022}. However, HGT includes numerous alternative pathways, and even the cannonicalChanCC mechanisms can deviate from their typical modes of operation. For example, plasmids, independently replicating genetic elements, typically transfer via conjugation, yet \textit{E. coli} can be induced to take them directly from the environment \cite{Hasegawa2018}. Similarly, transformation can be biased when certain stimuli, such as the lysis of neighboring cells, influence competence \cite{Wall2016}. Once exogenous DNA enters the cell, DNA lacking autonomous replication may be integrated into the host genome, either through homologous or non-homologous recombination or via insertion at a random genomic location. Overall, HGT is capable of transferring multi-gene fragments of DNA within and between populations and is a common, widespread process. Even at lower rates than sexual recombination, its cumulative effects are evident in the mosaic allelic composition of typical prokaryotic genomes \cite{arnold_horizontal_2022}.
+
+Recombination in sexual organisms occurs through highly regulated mechanisms that control where double-strand breaks (DSBs) are induced, resulting in non-random crossover points between parental chromosomes \cite{Stapley2017a}. In fact, "in most organisms, recombination is concentrated at discrete and narrow regions of the genome, 1–2 kb in size, known as recombination hotspots (reviewed in [9–11])". Recombination hotspots are localized by proteins with sequence-specific DNA-binding domains and by DNA methylation, such that their genomic distribution is determined both genetic and epigenetic factors \cite{TiemannBoege2017}. Over evolutionary timescales, recombination leads to the erosion of preferred binding sequences through DSB-associated mutation and base conversion, a process counterbalanced by the relatively rapid evolution of the binding domains themselves \cite{TiemannBoege2017}. Although key regulatory factors are conserved across vertebrates, they vary in length, domain number, and functionality, producing significant interspecies differences in the spatial distribution of recombination events \cite{TiemannBoege2017}. At broader phylogenetic scales, recombination rates also vary widely across eukaryotes by more than an order of magnitude \cite{Stapley2017b}.
+
+\begin{figure}[t]
+\centering
+\setlength{\fboxsep}{10pt}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+
+\textbf{Box 1 | Modularity of Genetic Information}
+
+\rule{\textwidth}{0.5pt}
+
+\medskip
+
+Modularity is a fundamental feature of virtually all biological structures, where more complex systems are derived from simpler ones. Here we focus specifically on genetic information. At its most basic level, genetic information is encoded in an alphabet of four chemical bases, which are then formed into words with both functional and regulatory applications. However, modularity extends beyond the sequence of bases themselves:
+
+\medskip
+\textbf{Functional modularity (proteomic)}
+\begin{itemize}
+\item Chemical bases are organized into three-letter codons
+\item The coding region of a gene is comprised of successive codons which are translated into a sequence of amino acids
+\item Subsets of amino acids form a finite number of distinct folds in three-dimensional space (at least 2000 known [REF]) from which all known proteins are built
+\item Proteins are combinations of folds which give them distinct binding and functional potential
+\item Multimers composed of distinct proteins perform more complex functions using multiple binding sites
+\end{itemize}
+
+\textbf{Regulatory modularity (genetic)}
+\begin{itemize}
+\item Motifs composed of various numbers of bases allow regulatory elements to bind to the genome
+\item Groups of motifs regulate gene expression by allowing multiple factors to bind in combination
+\item Modulation of chromatin structure through motifs regulates regions of the genome in concert and can cause blocks of genes to segregate together as haplotypes
+\item The genome is divided into multiple chromosomes which may function independently of one another
+\end{itemize}
+
+\medskip
+
+While these two lines of genetic modularity are operated on by different parts of the cell, both share a similar hierarchical structure formed through the evolution of novel modules which are then replicated, mutated, and combined to form increasingly complex systems.
+
+\end{minipage}
+}
+\end{figure}
+
+In EC, recombination is typically implemented as a generic variation operator, with crossover points chosen uniformly or according to simple operator-specific rules, and with only limited dependence on genome structure or population context. HGT-inspired mechanisms are used far less often and are usually modeled as abstract transfers of segments or components rather than as context-sensitive processes tied to genome organization. This differs sharply from biology, where both sexual recombination and HGT are regulated by genomic architecture, population structure, and cellular state. The importance of that difference is already implicit in the EC literature itself: linkage learning was introduced precisely because naive crossover can disrupt co-adapted building blocks, and scalable evolutionary search depends critically on representing and preserving dependencies among variables.
+
+These simplifications are not merely stylistic. When recombination ignores linkage, regulatory context, or modular boundaries, it tends to act as an indiscriminate mixing process rather than as a mechanism for exchanging partially functional modules. In panmictic populations, this problem is compounded by drift, takeover, and allele loss, which reduce diversity and contribute to premature convergence; accordingly, structured-population and diversity-preserving methods have remained a major theme in EC. Biology offers a different picture: recombination is coupled to mechanisms that preserve differentiated populations, maintain low-frequency variation, and move genetic material across partially diverged lineages without requiring complete genomic homogenization. From that perspective, one limitation of many EC systems is not recombination per se, but the fact that recombination is often applied in representations and population structures that do little to preserve modular variation once it appears.
+
+A promising direction for future EC is therefore to use representations that can evolve modularity at multiple levels of expression and that can also evolve the locations at which recombination occurs. One concrete possibility is to place an inheritable epigenetic layer over each chromosome, with marks that encode local crossover propensity. Recombination events that yield successful offspring would reinforce marks near the realized crossover boundaries, whereas unproductive sites would decay over time, allowing a self-reinforcing but still evolvable recombination landscape to emerge. Such a system would give crossover points a memory, make them responsive to selection, and allow modular boundaries to be discovered rather than imposed a priori. Combined with structured populations and HGT-like transfer of multi-gene modules across partially differentiated subpopulations, this kind of representation could help EC preserve diversity, protect co-adapted components, and support more sustained, open-ended innovation.
+
+% \putbib[biological-perspectives-variation-operators]
     
-\end{bibunit}
+% \end{bibunit}
