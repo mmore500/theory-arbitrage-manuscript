@@ -88,7 +88,7 @@ However, no single configuration of the three components is universally optimal 
 
 % selection pressure: how it's been done and what could be better
 
-Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013eve,eiben1998eve,hernandez2023thesis}.
+Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998eve,hernandez2023thesis}.
 In natural systems, strong selection pressure reduces genetic diversity within a population and often induces premature convergence (\textit{i.e.}, potentially trapping the population in a local optima), limiting the population's ability to adapt to dynamic environments \citep{fisher1930genetical,robertson1960theory}.
 Analogously, selection schemes that heavily favor individuals exhibiting specific traits restrict the search to a narrow region of the search space defined by those individuals, overemphasizing exploitation.
 In contrast, weak selection pressure can lead to deleterious trait accumulation, via Muller's \citep{muller1964relation, haigh1978accumulation} and/or Ohta's Ratchet \citep{ohta1973slightly, ohta1992nearly}, and inadequate optimization of beneficial traits in natural systems \citep{lynch2016genetic,lahti2009relaxed}.
@@ -137,5 +137,5 @@ The existing diagnostics cover only a limited subset of potential exploitation a
 % For example, selection schemes that consistently favor high-quality solutions promote \textit{exploitation} by focusing search efforts on already promising regions of the search space.
 % In contrast, schemes that select solutions randomly facilitate exploration by allowing broader coverage of the search space. 
 % Thus, the design of the selection scheme plays a pivotal role in determining the balance between exploration and exploitation within an evolutionary algorithm.
-% Insights into how selection operates in biological systems have strongly influenced both the theory and practice of EC, clarifying the role of population size in performance \citep{chen2012large,witt2008population,piszcz2006population,ashlock2006small,luke2023implosion,hu2009role}, and motivating the development of increasingly sophisticated selection mechanisms \citep{lehman2011novelty,mouret2015illuminating,helmuth2015lexicase,deb2002nsgaii}.
+% Insights into how selection operates in biological systems have strongly influenced both the theory and practice of EC, clarifying the role of population size in performance \citep{chen2012large,witt2008population,piszcz2006population,ashlock2006small,luke2023implosion,hu2009role}, and motivating the development of increasingly sophisticated selection mechanisms \citep{lehman2011novelty,mouret2015illuminating,helmuth2015lexicase,deb2002fast}.
 
