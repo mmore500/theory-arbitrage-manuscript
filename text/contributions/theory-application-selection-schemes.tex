@@ -4,7 +4,7 @@
 % revision status as of 3/3/26
 % - [x] accept or reject all track changes
 % - [x] incorporate review comments
-%    - don’t worry about clearing all comments
+%    - don't worry about clearing all comments
 % - [x] incorporate reference suggestions
 % - [x] cross-cutting revision objectives (see email)
 % - [x] other planned changes or refinements (if any)
@@ -44,15 +44,15 @@
 % how selection affects populations in nature
 
 Biological principles have provided a strong conceptual foundation that has informed the analysis, refinement, and theoretical development of selection within evolutionary computation (EC).
-From classical population genetics, the ``strength of selection'' reflects the interplay between differences in fitness and random fluctuations in allele frequencies over generations (\textit{i.e.}, genetic drift) due to finite population sizes in natural populations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
+From classical population genetics, the ``strength of selection'' reflects the interplay between differences in fitness and random fluctuations in allele frequencies over generations (i.e., genetic drift) due to finite population sizes in natural populations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
 To operationalize this balance, we must first quantify the deterministic pressure that selection exerts on allele frequencies.
 The expected change in the frequency of an allele each generation depends on both the selection coefficient (\textit{s}), a measure of how much an allele increases or decreases fitness, and the allele's current frequency (\textit{p}) \citep{crow2017introduction}.
-Roughly, this change is proportional to $s p (1 - p)$ \citep{crow2017introduction}.  
+Roughly, this change is proportional to $s p (1 - p)$ \citep{crow2017introduction}.
 However, its realized effect depends critically on population size ($N$).
 For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.
 Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
-Thus, the product $N s$ provides a simple, dimensionless measure of how effectively selection can overcome drift in populations of constant size \citep{gravel2016selection}, serving as an approximate indicator under idealized conditions. 
-In other words, ``strength of selection'' quantifies how strongly fitness differences shape evolutionary change relative to stochastic variation in reproduction. 
+Thus, the product $N s$ provides a simple, dimensionless measure of how effectively selection can overcome drift in populations of constant size \citep{gravel2016selection}, serving as an approximate indicator under idealized conditions.
+In other words, ``strength of selection'' quantifies how strongly fitness differences shape evolutionary change relative to stochastic variation in reproduction.
 % EC adopts this idea, but reframes selection strength in terms of how forcefully a selection scheme favors high-performing individuals over others during search.
 In biological reality, this inherent stochasticity is further heightened because population sizes fluctuate and environments change; consequently, evolution in finite populations is a probabilistic optimization process, where advantageous alleles may still be lost by chance and genetic change reflects a balance among selection, mutation, and drift.
 %In biological reality, population sizes fluctuate and environments change; accordingly, evolution in finite populations is an inherently probabilistic optimization process, where advantageous alleles may still be lost by chance and genetic change reflects a balance among selection, mutation, and drift.
@@ -61,44 +61,44 @@ These concepts provide a natural baseline for thinking about how selection mecha
 % what is selection in EC
 
 In EC, an analogous notion of strength of selection, also called ``selection pressure,'' is imposed not only by demographic constraints but also arises from how selection mechanisms are engineered to guide the search process.
-Selection is a foundational principle underlying virtually all EC algorithms, and the resulting selection pressure depends on how it is instantiated, varying across domains, algorithmic paradigms, and the specific goals of individual studies. 
-% Digital models of evolution used to simulate biological phenomena often involve selection emergent from underlying self-replication processes (\textit{e.g.}, natural selection).
+Selection is a foundational principle underlying virtually all EC algorithms, and the resulting selection pressure depends on how it is instantiated, varying across domains, algorithmic paradigms, and the specific goals of individual studies.
+% Digital models of evolution used to simulate biological phenomena often involve selection emergent from underlying self-replication processes (e.g., natural selection).
 Application-oriented EC typically employs engineered selection mechanisms that leverage the exploratory creativity and robustness of evolutionary search while maintaining optimization efficiency.
 For instance, selection pressures may be explicitly designed to favor candidate solutions that not only achieve high task performance but also demonstrate behavioral or structural novelty in their problem-solving strategies \citep{mouret2015illuminating,lehman2011novelty}.
 In this way, EC frameworks can simultaneously promote effective problem-solving and the emergence of innovation, creativity, and robustness.
-Regardless of the specific framework and goal, EC methods must apply some form of selection to identify individuals that merit further processing---whether through variation operators, recombination or extraction of genetic material, or preservation of promising solutions.
+Regardless of the specific framework and goal, EC methods must apply some form of selection to identify individuals that merit further processing --- whether through variation operators, recombination or extraction of genetic material, or preservation of promising solutions.
 % Without selection, the population would stagnate or devolve into an undirected collection of randomly generated solutions.
 % Crucially, different selection mechanisms shape the dynamics of evolutionary search in distinct ways, giving rise to unique strategies for exploring and exploiting the solution space.
-% Crucially, each selection mechanism imposes distinct search characteristics and strategies, thereby inducing unique approaches for navigating the solution space. 
+% Crucially, each selection mechanism imposes distinct search characteristics and strategies, thereby inducing unique approaches for navigating the solution space.
 
 % what is a selection scheme
 
 Selection in EC generally relies on three core components:
 (1) a pool of candidate solutions to select from, typically drawn from a population or an archival repository of previously evolved solutions;
-(2) quantitative metrics that characterize solution quality, such as performance measures (\textit{e.g.}, accuracy) or solution-level traits (\textit{e.g.}, genome size);
+(2) quantitative metrics that characterize solution quality, such as performance measures (e.g., accuracy) or solution-level traits (e.g., genome size);
 and (3) an algorithmic protocol that specifies how candidates are chosen, that is, the procedure that formalizes the selection process.
 These three components are typically integrated into a \textit{selection scheme}, broadly defined as the selection mechanism responsible for choosing candidate solutions for subsequent analysis or use.
 All three core components directly influence the ability of a selection scheme to effectively navigate a search space.
 An insufficiently sized pool of candidate solutions can lead to drift \cite{rogers1999genetic}.
 Inappropriate or misleading quantitative metrics may misguide the search \citep{dolson2018applying}.
-Likewise, an algorithmic protocol ill-suited for the underlying landscape---such as one that aggressively prioritizes high-performing individuals in a search space containing numerous local optima---can degrade search performance \citep{mouret2015illuminating,helmuth2015lexicase,lehman2011novelty}.
+Likewise, an algorithmic protocol ill-suited for the underlying landscape --- such as one that aggressively prioritizes high-performing individuals in a search space containing numerous local optima --- can degrade search performance \citep{mouret2015illuminating,helmuth2015lexicase,lehman2011novelty}.
 % A deeper theoretical understanding and characterization of selection schemes can inform more effective design choices, thereby increasing the likelihood of success on a given problem.
-Together, these components characterize the search behavior and strategy imposed by a given selection scheme on the evolving population, thereby shaping distinct mechanisms for navigating the solution space. 
+Together, these components characterize the search behavior and strategy imposed by a given selection scheme on the evolving population, thereby shaping distinct mechanisms for navigating the solution space.
 However, no single configuration of the three components is universally optimal across all problem domains, a principle formalized by the No Free Lunch theorem \citep{wolpert1997nfl}.
 
 % selection pressure: how it's been done and what could be better
 
 Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998evolutionary,hernandez2023beyond}.
-In natural systems, strong selection pressure reduces genetic diversity within a population and often induces premature convergence (\textit{i.e.}, potentially trapping the population in a local optimum), limiting the population's ability to adapt to dynamic environments \citep{fisher1930genetical,robertson1960theory}.
+In natural systems, strong selection pressure reduces genetic diversity within a population and often induces premature convergence (i.e., potentially trapping the population in a local optimum), limiting the population's ability to adapt to dynamic environments \citep{fisher1930genetical,robertson1960theory}.
 Analogously, selection schemes that heavily favor individuals exhibiting specific traits restrict the search to a narrow region of the search space defined by those individuals, overemphasizing exploitation.
 In contrast, weak selection pressure can lead to deleterious trait accumulation, via Muller's \citep{muller1964relation, haigh1978accumulation} and/or Ohta's Ratchet \citep{ohta1973slightly, ohta1992nearly}, and inadequate optimization of beneficial traits in natural systems \citep{lynch2016genetic,lahti2009relaxed}.
 Selection schemes that approach random sampling correspond to pure exploration and weak selection pressure, enabling broad coverage of the search space without focus on any particular region.
 Prior work has derived closed-form expressions measuring the selection pressure induced by several widely used selection schemes, providing simplified formulas that clarify their underlying dynamics \citep{blickle1996ss,goldberg1991comparative,back1994selective,lehre2011fitnesslevels}.
-% However, deriving closed-form expressions is not always feasible. 
-% Some selection schemes are inherently complex---such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives---while others emphasize behavioral diversity rather than objective-based performance, as exemplified by novelty search \citep{lehman2011novelty}.
-% Some schemes are simply too complex---such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives---while others do not rely on performance metrics at all, as in novelty search \citep{lehman2011novelty}, which prioritizes behavioral diversity over performance.
+% However, deriving closed-form expressions is not always feasible.
+% Some selection schemes are inherently complex --- such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives --- while others emphasize behavioral diversity rather than objective-based performance, as exemplified by novelty search \citep{lehman2011novelty}.
+% Some schemes are simply too complex --- such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives --- while others do not rely on performance metrics at all, as in novelty search \citep{lehman2011novelty}, which prioritizes behavioral diversity over performance.
 However, these expressions do not predict the effectiveness of a selection scheme for a given problem or under specific evolutionary parameter settings.
-A balance between strong and weak selection pressure appears to offer the greatest potential for sustained adaptation in natural systems \citep{wright1932roles}. 
+A balance between strong and weak selection pressure appears to offer the greatest potential for sustained adaptation in natural systems \citep{wright1932roles}.
 An analogous perspective can inform the behavioral characteristics and practical effectiveness of a selection scheme across search spaces with differing structural properties.
 
 % Although a closed-form characterization of selection pressure provides valuable intuition, it does not by itself predict how effectively a selection scheme will perform on a particular problem or under a specific configuration of evolutionary parameters.
@@ -109,14 +109,14 @@ An analogous perspective can inform the behavioral characteristics and practical
 
 % In natural systems, strong selection pressure is known to reduce genetic variance within a population and often leads to premature convergence, which can hinder the population's ability to adapt to changing environments \citep{fisher1930genetical,robertson1960theory}.
 % Conversely, weak selection pressure can result in trait degradation and insufficient refinement of advantageous traits \citep{lynch2016genetic,lahti2009relaxed}.
-% A balance between strong and weak selection pressures---allowing for the crossing of fitness valleys---offers the greatest potential for sustained adaptation \citep{wright1932roles}.
+% A balance between strong and weak selection pressures --- allowing for the crossing of fitness valleys --- offers the greatest potential for sustained adaptation \citep{wright1932roles}.
 % Isolating selection schemes as the primary driver of evolutionary search in controlled experimental settings can further clarify their behavioral properties and practical utility.
 
 
 % selection can collapse variation by always selecting the same thing, and unchain it by picking randomly.
 % understnading when and where this is important is important. e.g., hill climbing topology means go ahead with the best every time, but landscapes that are multimodal and have fitness valleys may require more sophisticated approaches.
 
-% Studying selection schemes under controlled conditions---so that they function as the primary driving force of evolutionary search over well-defined search spaces with targeted structural properties---would enable a more precise characterization of their strengths and weaknesses.
+% Studying selection schemes under controlled conditions --- so that they function as the primary driving force of evolutionary search over well-defined search spaces with targeted structural properties --- would enable a more precise characterization of their strengths and weaknesses.
 % In doing so, a selection scheme's closed-form expression can be evaluated for their applicability across distinct search spaces, while also providing a first-order approximation for selection schemes lacking such expressions, enabling an initial comparison of their behavior against those for which closed-form characterizations exist.
 
 % closed form formula, but this is only theoretical
@@ -135,7 +135,7 @@ The existing diagnostics cover only a limited subset of potential exploitation a
 
 
 % For example, selection schemes that consistently favor high-quality solutions promote \textit{exploitation} by focusing search efforts on already promising regions of the search space.
-% In contrast, schemes that select solutions randomly facilitate exploration by allowing broader coverage of the search space. 
+% In contrast, schemes that select solutions randomly facilitate exploration by allowing broader coverage of the search space.
 % Thus, the design of the selection scheme plays a pivotal role in determining the balance between exploration and exploitation within an evolutionary algorithm.
 % Insights into how selection operates in biological systems have strongly influenced both the theory and practice of EC, clarifying the role of population size in performance \citep{chen2012large,witt2008population,piszcz2006population,ashlock2006small,luke2023implosion,hu2009role}, and motivating the development of increasingly sophisticated selection mechanisms \citep{lehman2011novelty,mouret2015illuminating,helmuth2015lexicase,deb2002fast}.
 

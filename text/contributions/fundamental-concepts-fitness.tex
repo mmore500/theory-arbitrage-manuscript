@@ -4,7 +4,7 @@
 % revision status as of 3/3/26
 % - [x] accept or reject all track changes
 % - [x] incorporate review comments
-%    - don’t worry about clearing all comments
+%    - don't worry about clearing all comments
 % - [x] incorporate reference suggestions
 % - [x] cross-cutting revision objectives (see email)\
 % - [x] other planned changes or refinements (if any)
@@ -46,7 +46,7 @@
 % fitness in both biology and ec
 The concepts of \textit{fitness} and \textit{selection} are fundamental to evolutionary biology and serve as key inspirations for both the design of algorithms and the theoretical underpinnings of evolutionary computation (EC).
 Fitness in evolutionary biology refers to the expected reproductive contribution of an individual to future generations \citep{orr2009fitness}.
-It may be defined for genotypes (\textit{i.e.}, genetic makeup) or phenotypes (\textit{i.e.}, observable traits), and it is evaluated relative to the population's ecological and demographic context \citep{orr2009fitness}.
+It may be defined for genotypes (i.e., genetic makeup) or phenotypes (i.e., observable traits), and it is evaluated relative to the population's ecological and demographic context \citep{orr2009fitness}.
 Fitness is intrinsically context dependent because the ecological environment determines the adaptive value of a given phenotype; consequently, a trait advantageous in one setting may be neutral or deleterious in another.
 %Because the genotype-phenotype map interacts with ecological and developmental environments, fitness is intrinsically context dependent: a trait advantageous in one setting may be neutral or deleterious in another.
 Thus, realized fitness often emerges from complex genotype-by-environment (GxE) interactions and life-history trade-offs \citep{falconer1983quantitative}.
@@ -60,15 +60,15 @@ Reproductive success is the ultimate currency of fitness, yet biological evoluti
 The interaction between ecological diversity and the genotype-phenotype map sustains these varied strategies, contributing to the vast diversity of biological forms that have arisen under shared evolutionary principles.
 In this sense, fitness captures the heritable attributes that promote lineage persistence and reproductive success over evolutionary timescales.
 %By analogy, EC defines a fitness function (single- or multi-objective) to score candidate solutions.
-%Together with stated objectives, constraints, and evaluation protocols, this scoring scheme constitutes an algorithm’s effective “selection environment.”
+%Together with stated objectives, constraints, and evaluation protocols, this scoring scheme constitutes an algorithm's effective ``selection environment.''
 %As in nature, optimizing one metric can impose costs on others (latent or co-optimized), making trade-offs explicit.
 
 % fitness depends on how EC is being used to: artificial life or EA for problem solving
 
 In EC, the concept of fitness diverges from its biological origins, varying across subfields, algorithmic implementations, and the specific objectives of individual studies.
 % For instance, research aimed at developing computational systems that emulate biological phenomena often seeks to align closely with biological principles.
-% The field of Artificial Life exemplifies this approach, as it focuses on constructing computational models and experiments to understand and replicate biological processes. 
-% In such contexts, the concept of fitness---along with other evolutionary mechanisms---tends to mirror its biological counterpart.
+% The field of Artificial Life exemplifies this approach, as it focuses on constructing computational models and experiments to understand and replicate biological processes.
+% In such contexts, the concept of fitness --- along with other evolutionary mechanisms --- tends to mirror its biological counterpart.
 % In contrast, when evolutionary processes are applied \textit{in silico} to optimize solutions for a given problem, the meaning of fitness diverges substantially from its biological origins.
 Rather than representing reproductive success outcomes as in biological contexts, fitness is typically computed via a \textit{fitness function} that quantifies how effectively a candidate solution satisfies a predefined objective or set of objectives.
 For example, the fitness of a solution may be calculated as the proportion of problem instances it successfully solves, rather than how many offspring it contributes to the following population.
@@ -81,12 +81,12 @@ Although these biological analogies of fitness may appear superficially similar,
 Selection emerges as a statistical consequence of variation in fitness, translating individual reproductive outcomes into systematic genetic and phenotypic trends across generations \citep{gregory2009understanding, endler1986natural}.
 %Selection is the causal process that translates fitness differences into genetic and phenotypic change in populations across generations \citep{gregory2009understanding}.
 \textit{Natural selection} is \underline{non-random} with respect to fitness and acts on heritable genetic variation (allelic, regulatory, and structural), through its effects on phenotypes.
-Organisms are subject to many selective pressures (\textit{e.g.}, predation, climate, pathogens, competition), and these forces often simultaneously target multiple, potentially correlated traits \citep{lande1983measurement}. 
+Organisms are subject to many selective pressures (e.g., predation, climate, pathogens, competition), and these forces often simultaneously target multiple, potentially correlated traits \citep{lande1983measurement}.
 As a result, natural selection rarely optimizes a single objective.
-Instead, evolutionary change reflects a balance constrained by genetics, development, and physiology (\textit{e.g.}, pleiotropy, limited genetic variation, linkage) \citep{garland2022trade}.
+Instead, evolutionary change reflects a balance constrained by genetics, development, and physiology (e.g., pleiotropy, limited genetic variation, linkage) \citep{garland2022trade}.
 Viewed through an optimization lens, natural organisms explore a high-dimensional Pareto surface in which gains along one axis can impose costs along others \citep{shoval2012evolutionary}.
 By contrast, \textit{artificial selection} on domesticated species reduces the operational dimensionality of selection by restricting objectives to single or few targeted traits \citep{hill1992artificial}, partially decoupling fitness from reproductive success.
-Because domestication buffers many environmental pressures through agricultural and husbandry practices (\textit{e.g.}, ample nutrition, shelter, healthcare, pest control), phenotypes favored under artificial selection persist less by outperforming competitors and more by meeting predefined human criteria \citep{milla2015plant,ahmad2020domestication}.
+Because domestication buffers many environmental pressures through agricultural and husbandry practices (e.g., ample nutrition, shelter, healthcare, pest control), phenotypes favored under artificial selection persist less by outperforming competitors and more by meeting predefined human criteria \citep{milla2015plant,ahmad2020domestication}.
 These interventions standardize the environment and enable rapid, directed change, albeit sometimes at the cost of reduced robustness or unintended correlated responses in other traits \citep{frankham2008genetic}.
 %
 
