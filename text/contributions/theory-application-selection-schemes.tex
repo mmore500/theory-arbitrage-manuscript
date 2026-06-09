@@ -88,7 +88,7 @@ However, no single configuration of the three components is universally optimal 
 
 % selection pressure: how it's been done and what could be better
 
-Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998eve,hernandez2023thesis}.
+Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998eve,hernandez2023beyond}.
 In natural systems, strong selection pressure reduces genetic diversity within a population and often induces premature convergence (\textit{i.e.}, potentially trapping the population in a local optimum), limiting the population's ability to adapt to dynamic environments \citep{fisher1930genetical,robertson1960theory}.
 Analogously, selection schemes that heavily favor individuals exhibiting specific traits restrict the search to a narrow region of the search space defined by those individuals, overemphasizing exploitation.
 In contrast, weak selection pressure can lead to deleterious trait accumulation, via Muller's \citep{muller1964relation, haigh1978accumulation} and/or Ohta's Ratchet \citep{ohta1973slightly, ohta1992nearly}, and inadequate optimization of beneficial traits in natural systems \citep{lynch2016genetic,lahti2009relaxed}.
@@ -124,9 +124,9 @@ An analogous perspective can inform the behavioral characteristics and practical
 %  my work
 
 
-Hernandez \textit{et al.} \cite{hernandez2023thesis,hernandez2023suite} introduced DOSSIER (``Diagnostic Overview of Selection Schemes in Evolutionary Runs''), a diagnostic suite of manually designed search spaces, each constructed to demand varying balances of exploration and exploitation for successful problem solving.
+Hernandez \textit{et al.} \cite{hernandez2023beyond,hernandez2023suite} introduced DOSSIER (``Diagnostic Overview of Selection Schemes in Evolutionary Runs''), a diagnostic suite of manually designed search spaces, each constructed to demand varying balances of exploration and exploitation for successful problem solving.
 An evolutionary algorithm designed to make the selection scheme the primary driver of the search was evaluated on each diagnostic task, with a range of selection schemes compared as the dominant search mechanism.
-The DOSSIER suite provided empirical evidence supporting the validity of existing selection pressure expressions, while also offering first-order approximations for selection schemes that previously lacked such expressions \cite{hernandez2023thesis,hernandez2023suite}.
+The DOSSIER suite provided empirical evidence supporting the validity of existing selection pressure expressions, while also offering first-order approximations for selection schemes that previously lacked such expressions \cite{hernandez2023beyond,hernandez2023suite}.
 Additionally, these diagnostics were used to reveal key differences in exploration capability among the various lexicase selection variants \citep{hernandez2022exploration}. %, each incorporating more sophisticated mechanisms than those present in standard lexicase selection.
 Moreover, the DOSSIER suite highlighted the influence of population size on lexicase selection's ability to maintain diversity and specialists \citep{hernandez2025params}, validated by an expression that estimates a theoretical threshold for successful diversity and specialist maintenance \citep{cava2019probabilistic}.
 The existing diagnostics cover only a limited subset of potential exploitation and exploration scenarios, leaving ample opportunity for the development of additional diagnostics that capture additional search space characteristics critical to success and that commonly arise in real-world problem domains.
