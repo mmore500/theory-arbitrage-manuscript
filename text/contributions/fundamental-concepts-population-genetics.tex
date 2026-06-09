@@ -4,7 +4,7 @@
 % revision status as of <DATE>
 % - [ ] accept or reject all track changes
 % - [ ] incorporate review comments
-%    - don’t worry about clearing all comments
+%    - don't worry about clearing all comments
 % - [ ] incorporate reference suggestions
 % - [ ] cross-cutting revision objectives (see email)
 % - [ ] other planned changes or refinements (if any)
@@ -53,13 +53,13 @@
 % -------------------------
 
 % -- Define population genetics --
-The subfield of population genetics quantifies evolution through the lens of genetic variation.  
+The subfield of population genetics quantifies evolution through the lens of genetic variation.
 Specifically, population genetics provides quantitative theory for understanding the distribution of genetic variance within populations and how those distributions change over time [cite - textbook].
 % -- Highlight connection between EC --
-%   - Help reader map their existing intuition onto any subsequent pop gen theory that we discuss. 
+%   - Help reader map their existing intuition onto any subsequent pop gen theory that we discuss.
 Theory from population genetics has clear applications in EC, as most EC systems maintain a population of candidate solutions with ``genetically'' encoded behavior (directly or indirectly).
-Variation operators (e.g., mutation, crossover, etc.) and selection algorithms shape the structure of genetic variation over time. 
-The quantitative models developed by population geneticists can establish baseline expectations and help us make predictions about how we would expect EC systems to navigate a search space under different configurations, including choice of mutation rate, population size, and selection strength.   
+Variation operators (e.g., mutation, crossover, etc.) and selection algorithms shape the structure of genetic variation over time.
+The quantitative models developed by population geneticists can establish baseline expectations and help us make predictions about how we would expect EC systems to navigate a search space under different configurations, including choice of mutation rate, population size, and selection strength.
 
 % -- Examples of pop gen in EC --
 % - Implicit connections
@@ -68,12 +68,12 @@ EC has a long history of studying and exploiting population genetics within EC s
 While many EC studies implicitly investigate the population genetics of their focal EC systems, few connect their hypotheses or results back to theory from population genetics.
 % - Explicit connections / theory gained
 % [Common reason for this: to achieve mathematical tractability, many pop gen models rely on many simplifying assumptions about genetics [Evo Comp 1999].]
-Even so, insights from population genetics have been drawn into evolutionary computing research.  
-[Christiansen and Feldman 1998]: Holland's GA schema theory in context of  population genetics. 
-Barton and Paixão~\cite{barton2013can} and Paixão \textit{et al}.~\cite{paixao2015toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models. 
+Even so, insights from population genetics have been drawn into evolutionary computing research.
+[Christiansen and Feldman 1998]: Holland's GA schema theory in context of  population genetics.
+Barton and Paix\~{a}o~\cite{barton2013can} and Paix\~{a}o \textit{et al}.~\cite{paixao2015toward} review foundational quantitative models from population genetics and propose a unifying framework for connecting evolutionary algorithms and population genetics models.
 % -- any other general frameworks--
-Below, we overview [X] topics studied in population genetics that we see as valuable sources of theoretical arbitrage. 
-% having particular relevance to continuing to mature EC theory.  
+Below, we overview [X] topics studied in population genetics that we see as valuable sources of theoretical arbitrage.
+% having particular relevance to continuing to mature EC theory.
 
 % bookmark
 \textbf{Null models of evolution.}
@@ -83,47 +83,46 @@ Classical Wright-Fisher \citep{wright1931evolution, fisher1930genetical} or Mora
 These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection, population structure, non-random mating, or other deviations from neutral expectations \citep{kimura1985neutral, hartl1997principles}.
 %These null models provide expectations for quantities such as fixation probabilities, time to fixation, and levels of standing diversity purely from demographic and stochastic processes, against which empirical data can be compared to detect signatures of selection or other non-neutral forces \citep{kimura1985neutral}.
 
-For EC, analogous null models describe the behavior of a population under mutation, recombination, and random replacement without fitness-based selection. 
-Such models can be instantiated by running the same variation operators and population sizes, but with arbitrary fitness, or with selection replaced by uniform sampling. 
-Comparing diversity trajectories, fixation times of schema or building blocks, or the evolution of structural statistics (\textit{e.g.}, GP tree sizes) under this neutral baseline versus under the actual fitness function can reveal when aspects of an algorithm's behavior are driven primarily by drift and operator bias rather than genuine exploitation of the optimization objective. 
+For EC, analogous null models describe the behavior of a population under mutation, recombination, and random replacement without fitness-based selection.
+Such models can be instantiated by running the same variation operators and population sizes, but with arbitrary fitness, or with selection replaced by uniform sampling.
+Comparing diversity trajectories, fixation times of schema or building blocks, or the evolution of structural statistics (e.g., GP tree sizes) under this neutral baseline versus under the actual fitness function can reveal when aspects of an algorithm's behavior are driven primarily by drift and operator bias rather than genuine exploitation of the optimization objective.
 Null models therefore offer a principled baseline for diagnosing whether observed EC dynamics are truly ``adaptive'' with respect to the specified objective, or whether they could be explained by neutral processes and the intrinsic biases of variation operators.
 
 \textbf{Genetic drift.}
-Genetic drift refers to random fluctuations in allele frequencies caused by finite sampling in reproduction \citep{kimura1985neutral}. 
-Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}. 
+Genetic drift refers to random fluctuations in allele frequencies caused by finite sampling in reproduction \citep{kimura1985neutral}.
+Even when all alleles have equal fitness, some increase in frequency and others are lost purely by chance, particularly in small populations or during demographic fluctuations \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
 Drift can lead to random fixation or loss of alleles, erode genetic diversity over time, and interact with selection by either reinforcing or opposing deterministic trends, depending on population size and selection strength \citep{hamilton2021population}.
 
-In EC, drift has analogous effects on the ``genotypes'' of candidate solutions. 
-When population sizes are small, selection pressure is weak, or fitness differences are minimal, the fate of particular schemata, modules, or subtrees is heavily influenced by stochastic sampling --- who happens to be selected as a parent, which offspring survive, and which mutations occur. 
-Empirically, strong drift regimes can be detected by rapid loss of diversity despite weak fitness gradients, high run-to-run variability in which building blocks dominate, or frequent random takeover by mediocre lineages. 
+In EC, drift has analogous effects on the ``genotypes'' of candidate solutions.
+When population sizes are small, selection pressure is weak, or fitness differences are minimal, the fate of particular schemata, modules, or subtrees is heavily influenced by stochastic sampling --- who happens to be selected as a parent, which offspring survive, and which mutations occur.
+Empirically, strong drift regimes can be detected by rapid loss of diversity despite weak fitness gradients, high run-to-run variability in which building blocks dominate, or frequent random takeover by mediocre lineages.
 Population-genetic analyses of drift allow \textit{a priori} prediction of how effective population size, selection intensity, and operator design interact, and can thus guide EC practitioners in choosing population sizes and selection schemes that keep drift at a desired level, whether to encourage exploration or to avoid the random loss of promising structures.
 % [Can use Super explorers as an example]
 
 \textbf{Effective population size.}
 The effective population size ($N_e$) quantifies the rate at which genetic variance is lost in a real population relative to a theoretical standard.
 Formally, it corresponds to the size of an idealized Wright-Fisher population, characterized by random mating, discrete generations, and constant size, that would experience the same rate of genetic drift or inbreeding as the actual population under study \citep{wright1931evolution, hamilton2021population}.
-%The effective population size ($N_e$) represents the number of individuals who effectively contribute genetic material to the next generation. 
-%Formally, it is the size of an idealized population of size $N$ that would experience the same rate of drift or selection response as the real population \citep{hamilton2021population}. 
-Unequal reproductive success, overlapping generations, fluctuating population sizes, population structure, and variance in offspring number can all push $N_e$ below census population size. 
+%The effective population size ($N_e$) represents the number of individuals who effectively contribute genetic material to the next generation.
+%Formally, it is the size of an idealized population of size $N$ that would experience the same rate of drift or selection response as the real population \citep{hamilton2021population}.
+Unequal reproductive success, overlapping generations, fluctuating population sizes, population structure, and variance in offspring number can all push $N_e$ below census population size.
 Because drift becomes less influential and selection more effective as $N_e$ increases \citep{crow2017introduction, hamilton2021population}, this concept is central for predicting rates of diversity loss, fixation, and adaptation.
 
-In EC, nominal population size (the number of individuals per generation) can be a poor proxy for how many ``independent'' genomes are effectively contributing to future generations. 
-Strong elitism, heavy cloning of a few high-fitness individuals, or highly skewed selection probabilities
-% , or tightly clustered communication patterns in structured populations 
- can all reduce the effective population size, increasing drift and accelerating the loss of diversity. 
-Conversely, mechanisms that equalize reproductive success across individuals or maintain subpopulation structure can increase $N_e$ relative to the census size. 
+In EC, nominal population size (the number of individuals per generation) can be a poor proxy for how many ``independent'' genomes are effectively contributing to future generations.
+Strong elitism, heavy cloning of a few high-fitness individuals, or highly skewed selection probabilities can all reduce the effective population size, increasing drift and accelerating the loss of diversity.
+% , or tightly clustered communication patterns in structured populations
+Conversely, mechanisms that equalize reproductive success across individuals or maintain subpopulation structure can increase $N_e$ relative to the census size.
 Adapting effective population size concepts to EC would allow practitioners to quantify how different algorithm choices (selection scheme, elitism, population structure) modulate the balance between selection and drift, and to design configurations where the ``effective'' diversity matches the desired exploration-exploitation trade-off, rather than relying solely on nominal population size as a tuning parameter.
 
 \textbf{Mutation-selection-drift balance.}
-Mutation, selection, and drift jointly shape the equilibrium level of genetic variation. 
-Novel mutation continually introduces new alleles, while selection filters them based on fitness and drift randomly amplifies or eliminates them depending on population size \citep{crow2017introduction, hamilton2021population}. 
-At equilibrium, these opposing forces produce predictable levels of genetic diversity and allele frequency distributions, even under ongoing adaptive pressures \citep{hamilton2021population}. 
+Mutation, selection, and drift jointly shape the equilibrium level of genetic variation.
+Novel mutation continually introduces new alleles, while selection filters them based on fitness and drift randomly amplifies or eliminates them depending on population size \citep{crow2017introduction, hamilton2021population}.
+At equilibrium, these opposing forces produce predictable levels of genetic diversity and allele frequency distributions, even under ongoing adaptive pressures \citep{hamilton2021population}.
 This balance provides a baseline expectation for long-term diversity and the persistence of rare alleles.
 
-In EC, an analogous balance determines the amount of variation maintained during a run. 
-Mutation injects new genetic material, selection amplifies fitter structures, and finite sampling introduces drift. 
-Even with strong selection, populations tend to settle into a characteristic diversity level governed by mutation rate, selection strength, and $N_e$. 
-Understanding mutation-selection-drift balance can help predict whether an algorithm will maintain sufficient diversity to explore the search space or drift toward premature convergence. 
+In EC, an analogous balance determines the amount of variation maintained during a run.
+Mutation injects new genetic material, selection amplifies fitter structures, and finite sampling introduces drift.
+Even with strong selection, populations tend to settle into a characteristic diversity level governed by mutation rate, selection strength, and $N_e$.
+Understanding mutation-selection-drift balance can help predict whether an algorithm will maintain sufficient diversity to explore the search space or drift toward premature convergence.
 Practically, this lens allows algorithm designers to tune mutation rates, selection intensity, and population sizes in a principled manner, aiming for diversity levels aligned with the desired exploration-exploitation trade-off.
 
 \textbf{Selection regimes.}
@@ -139,76 +138,76 @@ Selection regimes describe how fitness differences shape the distribution of tra
 
 Importantly, these regimes can overlap in space and time: one locus or trait may be under strong purifying selection while another experiences balancing selection, and the same population may transition between regimes as environments change.
 
-In EC, analogous ``selection regimes'' emerge from how we define fitness and implement selection, variation, and diversity mechanisms. 
-Directional selection corresponds to configurations where higher-fitness individuals are consistently favored (\textit{e.g.}, high tournament pressure), leading to a steady shift in the mean fitness or phenotype of the population and eventual convergence. 
-Stabilizing selection appears when intermediate behaviors or model complexities are favored, such as under strong regularization or parsimony pressure in GP; here we expect a unimodal distribution of solution traits concentrated around an algorithmically preferred ``sweet spot.'' 
-Disruptive selection arises in explicitly multi-modal or quality-diversity setups, where extreme or niche behaviors are rewarded (\textit{e.g.}, novelty search, fitness sharing, or multi-peak test functions), often producing bimodal or multimodal distributions in fitness, behavior descriptors, or structural traits; observing a population split into well-separated clusters in behavior or fitness space is one empirical signature of disruptive selection. 
-Purifying selection is realized when infeasible or extremely low-fitness individuals are strongly penalized or removed (\textit{e.g.}, constraint-handling, lethal violations), shaping the distribution by continually culling detrimental variants before they can spread. 
-Balancing selection occurs when niching, crowding, island models, or frequency-based rewards give rare or diverse individuals an advantage, leading to long-lived coexistence of multiple solution types. 
-As in natural populations, EC systems can express overlapping regimes: for instance, purifying selection may eliminate infeasible solutions while directional selection pushes feasible ones toward higher fitness, and balancing selection may operate across niches even as directional selection acts within each niche. 
-Interpreting empirical dynamics (\textit{e.g.}, movement of trait means, changes in variance, uni- vs multi-modality of fitness or behavioral descriptors) through this lens can clarify which effective selection regimes an algorithm is enacting at different stages of a run.
+In EC, analogous ``selection regimes'' emerge from how we define fitness and implement selection, variation, and diversity mechanisms.
+Directional selection corresponds to configurations where higher-fitness individuals are consistently favored (e.g., high tournament pressure), leading to a steady shift in the mean fitness or phenotype of the population and eventual convergence.
+Stabilizing selection appears when intermediate behaviors or model complexities are favored, such as under strong regularization or parsimony pressure in GP; here we expect a unimodal distribution of solution traits concentrated around an algorithmically preferred ``sweet spot.''
+Disruptive selection arises in explicitly multi-modal or quality-diversity setups, where extreme or niche behaviors are rewarded (e.g., novelty search, fitness sharing, or multi-peak test functions), often producing bimodal or multimodal distributions in fitness, behavior descriptors, or structural traits; observing a population split into well-separated clusters in behavior or fitness space is one empirical signature of disruptive selection.
+Purifying selection is realized when infeasible or extremely low-fitness individuals are strongly penalized or removed (e.g., constraint-handling, lethal violations), shaping the distribution by continually culling detrimental variants before they can spread.
+Balancing selection occurs when niching, crowding, island models, or frequency-based rewards give rare or diverse individuals an advantage, leading to long-lived coexistence of multiple solution types.
+As in natural populations, EC systems can express overlapping regimes: for instance, purifying selection may eliminate infeasible solutions while directional selection pushes feasible ones toward higher fitness, and balancing selection may operate across niches even as directional selection acts within each niche.
+Interpreting empirical dynamics (e.g., movement of trait means, changes in variance, uni- vs multi-modality of fitness or behavioral descriptors) through this lens can clarify which effective selection regimes an algorithm is enacting at different stages of a run.
 
 \textbf{Selective sweeps, hitchhiking, and interference.}
-A selective sweep occurs when a strongly beneficial mutation rises rapidly in frequency, reducing diversity at linked loci as neutral or even slightly deleterious alleles ``hitchhike'' along with it \citep{hamilton2021population, barton2000genetic}. 
-When multiple beneficial mutations arise independently before any can fix, they compete for representation in the population. 
+A selective sweep occurs when a strongly beneficial mutation rises rapidly in frequency, reducing diversity at linked loci as neutral or even slightly deleterious alleles ``hitchhike'' along with it \citep{hamilton2021population, barton2000genetic}.
+When multiple beneficial mutations arise independently before any can fix, they compete for representation in the population.
 This phenomenon is termed \emph{clonal interference} in asexual populations, where the absence of recombination extends linkage across the whole genome, preventing beneficial mutations in different lineages from combining and forcing them to compete until one drives the others to extinction \citep{gerrish1998fate}.
 This represents a systemic and severe form of the broader \emph{Hill-Robertson interference} that also affects sexual populations, though typically only within specific regions of limited recombination \citep{hill1966effect}.
 These phenomena create characteristic signatures: sharp drops in local diversity, rapid shifts in allele frequencies, and the transient coexistence of multiple high-fitness lineages.
 %This phenomenon is termed \emph{clonal interference} in asexual populations and is a special case of the broader Hill-Robertson interference that also affects sexual populations with limited recombination \citep{gerrish1998fate, hill1966effect}.
 
-Analogous patterns frequently emerge in EC runs. 
-A newly discovered high-fitness solution, subtree, or architectural motif may propagate rapidly through the population, producing a sweep-like takeover where many individuals share the same structural innovation. 
-Neutral or deleterious baggage attached to that structure may hitchhike, potentially causing populations to converge onto suboptimal but structurally homogeneous solutions. 
-Interference appears when multiple promising innovations arise simultaneously in different lineages (\textit{e.g.}, several distinct GP entities), and recombination and selection determine which ultimately dominates. 
+Analogous patterns frequently emerge in EC runs.
+A newly discovered high-fitness solution, subtree, or architectural motif may propagate rapidly through the population, producing a sweep-like takeover where many individuals share the same structural innovation.
+Neutral or deleterious baggage attached to that structure may hitchhike, potentially causing populations to converge onto suboptimal but structurally homogeneous solutions.
+Interference appears when multiple promising innovations arise simultaneously in different lineages (e.g., several distinct GP entities), and recombination and selection determine which ultimately dominates.
 Tracking diversity, structural motifs, and lineage successions over time can reveal whether an EC run is experiencing sweep-like events or competing innovation clusters, offering a population genetic interpretation of takeover dynamics and stagnation patterns.
 
 \textbf{Linkage disequilibrium and recombination.}
-Linkage disequilibrium (LD) quantifies the non-random association of alleles at different loci \citep{hill1968linkage}. 
-LD arises due to physical chromosomal proximity (non-independent segregation of loci during meiosis), selection on multilocus combinations, genetic drift, and demographic history \citep{hamilton2021population}. 
-Recombination breaks down LD by shuffling allele combinations, enabling beneficial alleles from different backgrounds to be combined but also disrupting well-adapted configurations \citep{hamilton2021population, hill1968linkage}. 
+Linkage disequilibrium (LD) quantifies the non-random association of alleles at different loci \citep{hill1968linkage}.
+LD arises due to physical chromosomal proximity (non-independent segregation of loci during meiosis), selection on multilocus combinations, genetic drift, and demographic history \citep{hamilton2021population}.
+Recombination breaks down LD by shuffling allele combinations, enabling beneficial alleles from different backgrounds to be combined but also disrupting well-adapted configurations \citep{hamilton2021population, hill1968linkage}.
 Patterns of LD, its buildup, decay, and genomic distribution, provide insight into modularity, historical selection, and demographic history.
 %Patterns of LD, its buildup, decay, and genomic distribution, provide insight into modularity, historical selection, and how genetic variation is organized across loci.
 
-In EC, an analogous notion of LD emerges when certain modules or program fragments consistently co-occur. 
-High LD is expected within ``building blocks'' whose components appear together more often than expected under random variation. 
-Crossover and recombination operators determine whether these associations are preserved, broken apart, or recombined into novel configurations. 
-Analyzing LD-like statistics in EC (\textit{e.g.}, covariance between fragments/modules, co-occurrence frequencies of subtrees in GP, or associations between operator choices in neural architectures) can reveal whether an EA is discovering modular structure, whether crossover is functioning as constructive recombination or destructive disruption, and how the search process organizes correlations among solution components over time.
+In EC, an analogous notion of LD emerges when certain modules or program fragments consistently co-occur.
+High LD is expected within ``building blocks'' whose components appear together more often than expected under random variation.
+Crossover and recombination operators determine whether these associations are preserved, broken apart, or recombined into novel configurations.
+Analyzing LD-like statistics in EC (e.g., covariance between fragments/modules, co-occurrence frequencies of subtrees in GP, or associations between operator choices in neural architectures) can reveal whether an EA is discovering modular structure, whether crossover is functioning as constructive recombination or destructive disruption, and how the search process organizes correlations among solution components over time.
 
 \textbf{Population structure and migration.}
-Spatial structure and limited migration generate patterns of local adaptation and differentiation. 
-Models such as the island model and stepping-stone model describe how gene flow interacts with drift and selection across demes (\textit{i.e.}, locally breeding subpopulations connected by migration) \citep{hamilton2021population}. 
-Migration prevents complete divergence by reintroducing alleles from other populations, while restricted movement allows local genetic signatures and environmental adaptations to emerge \citep{hamilton2021population}. 
+Spatial structure and limited migration generate patterns of local adaptation and differentiation.
+Models such as the island model and stepping-stone model describe how gene flow interacts with drift and selection across demes (i.e., locally breeding subpopulations connected by migration) \citep{hamilton2021population}.
+Migration prevents complete divergence by reintroducing alleles from other populations, while restricted movement allows local genetic signatures and environmental adaptations to emerge \citep{hamilton2021population}.
 Measures such as $F_{ST}$ quantify how differentiated subpopulations become under different migration and drift regimes \citep{wright1949genetical}.
 
-Evolutionary computation frequently mirrors these dynamics through island models, structured populations, and multi-deme evolutionary strategies. 
-Demes evolve semi-independently, maintaining local diversity while exploration proceeds in parallel. 
-Migration operators move individuals between demes, influencing whether populations remain differentiated or converge on similar solutions. 
-Low migration supports long-lived diversity and parallel innovation, while high migration synchronizes populations and can accelerate convergence. 
-Analyzing EC runs through the lens of population structure---tracking inter-deme diversity, time to homogenization, and lineage mixing---can clarify how structured populations trade off exploration, exploitation, and robustness to premature convergence.
+Evolutionary computation frequently mirrors these dynamics through island models, structured populations, and multi-deme evolutionary strategies.
+Demes evolve semi-independently, maintaining local diversity while exploration proceeds in parallel.
+Migration operators move individuals between demes, influencing whether populations remain differentiated or converge on similar solutions.
+Low migration supports long-lived diversity and parallel innovation, while high migration synchronizes populations and can accelerate convergence.
+Analyzing EC runs through the lens of population structure --- tracking inter-deme diversity, time to homogenization, and lineage mixing --- can clarify how structured populations trade off exploration, exploitation, and robustness to premature convergence.
 %Analyzing EC runs through the lens of population structure-tracking inter-deme diversity, time to homogenization, and lineage mixing, can clarify how structured populations trade off exploration, exploitation, and robustness to premature convergence.
 
 \textbf{Bottlenecks.}
-Bottlenecks occur when the population size drops sharply for one or more generations before recovering \citep{hamilton2021population}. 
-These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}. 
-The genetic composition of the post-bottleneck population is largely determined by chance survival, potentially reshaping the evolutionary trajectory, even without changes in selection. 
+Bottlenecks occur when the population size drops sharply for one or more generations before recovering \citep{hamilton2021population}.
+These events can dramatically reduce genetic diversity, amplify the effects of drift, and alter allele-frequency spectra, leaving characteristic signatures in patterns of variation \citep{lynch2016genetic, kimura1985neutral, ohta1992nearly}.
+The genetic composition of the post-bottleneck population is largely determined by chance survival, potentially reshaping the evolutionary trajectory, even without changes in selection.
 Severe contractions can also elevate extinction risk, both by reducing genetic variation and by increasing the likelihood that surviving individuals carry deleterious or low-fitness genotypes \citep{hamilton2021population}.
 
-Some EC systems implement analogues of bottleneck events, either intentionally or inadvertently. 
-Restarts, extreme down-sampling of the population, or severe pruning after environmental or objective changes create episodes where only a small subset of individuals survive to seed future generations. 
-From a population genetics perspective, such events drastically reduce diversity and magnify the stochastic influence of which individuals pass through the bottleneck, potentially discarding useful building blocks while enabling rapid shifts away from entrenched local optima. 
+Some EC systems implement analogues of bottleneck events, either intentionally or inadvertently.
+Restarts, extreme down-sampling of the population, or severe pruning after environmental or objective changes create episodes where only a small subset of individuals survive to seed future generations.
+From a population genetics perspective, such events drastically reduce diversity and magnify the stochastic influence of which individuals pass through the bottleneck, potentially discarding useful building blocks while enabling rapid shifts away from entrenched local optima.
 Analyzing EC runs in terms of bottleneck frequency, severity, and timing, using diversity statistics and ancestry reconstructions, can help distinguish when restart-like mechanisms function as beneficial escapes versus when they repeatedly erase accumulated structure, suggesting more nuanced or adaptive bottleneck strategies.
 
 \textbf{Coalescence theory.}
-Coalescent theory models the genealogy of sampled individuals by tracing their lineages backward in time to common ancestors \citep{hamilton2021population}. 
+Coalescent theory models the genealogy of sampled individuals by tracing their lineages backward in time to common ancestors \citep{hamilton2021population}.
 This retrospective perspective is mathematically powerful because the number of lineages strictly decreases as one moves backward, allowing the complex branching of forward-time evolution to be treated as a simplified merging process that ignores extinction events \citep{kingman1982coalescent}.
 Under a given demographic and selective scenario, the coalescent provides theoretical expectations for the resulting genealogies, including distributions of branch lengths and the timing of merger events.
 Crucially, these theoretical models allow for the statistical interpretation of biological data: by comparing empirically reconstructed trees against coalescent expectations, researchers can infer historical population size changes, migration rates, and the presence of selective sweeps \citep{wakeley2009coalescent}.
-%Under a given demographic and selective scenario, the coalescent provides the distribution of branch lengths, the time to the most recent common ancestor, and patterns of shared ancestry among alleles. 
+%Under a given demographic and selective scenario, the coalescent provides the distribution of branch lengths, the time to the most recent common ancestor, and patterns of shared ancestry among alleles.
 %These genealogies encode how quickly lineages merge, how long distinct lineages coexist, and how historical events such as population size changes or selection episodes shape present-day variation.
 
-Many EC systems, particularly in genetic programming and evolutionary strategies, already track individual-level ancestry information. 
-A coalescent-inspired analysis of EC lineages can quantify how quickly the population's ancestry collapses to a small number of dominant lineages (rapid coalescence) versus maintaining many long-lived independent lineages (slow coalescence), and how these patterns change across phases of a run or across different algorithm configurations. 
-For example, aggressive elitism and high selection pressure are expected to yield shallow genealogies with recent common ancestors, while strong niching or island structures should produce deeper genealogies with multiple persistent branches. 
+Many EC systems, particularly in genetic programming and evolutionary strategies, already track individual-level ancestry information.
+A coalescent-inspired analysis of EC lineages can quantify how quickly the population's ancestry collapses to a small number of dominant lineages (rapid coalescence) versus maintaining many long-lived independent lineages (slow coalescence), and how these patterns change across phases of a run or across different algorithm configurations.
+For example, aggressive elitism and high selection pressure are expected to yield shallow genealogies with recent common ancestors, while strong niching or island structures should produce deeper genealogies with multiple persistent branches.
 Measuring such genealogical properties in EC runs can reveal whether an algorithm is effectively exploring multiple independent innovation paths or quickly funneling search through a few ancestral lineages, providing a complementary lens to traditional performance metrics.
 
 
@@ -216,8 +215,8 @@ Measuring such genealogical properties in EC runs can reveal whether an algorith
 % [Below, we overview few [topics] with strong relevance to EC].
 
 
-% patterns of allele frequencies in a population 
-%   -> Allele - one of any # of variants possible at a locus (i.e., site/position in the genome); // EC analogy: GAs 0s and 1s 
+% patterns of allele frequencies in a population
+%   -> Allele - one of any # of variants possible at a locus (i.e., site/position in the genome); // EC analogy: GAs 0s and 1s
 % - In biology, many species are diploid or polyploidal; i.e., ...; EC systems typically haploid, just one copy of each
 
 % -- Null model of evolution --
@@ -235,6 +234,6 @@ Measuring such genealogical properties in EC runs can reveal whether an algorith
 % Define
 % Models
 % Implications
-% EC small population sizes, even smaller effective population sizes because of frequent bottlenecks caused by selection algorithms. 
+% EC small population sizes, even smaller effective population sizes because of frequent bottlenecks caused by selection algorithms.
 % Outlook: much to benefit from larger population sizes; move away from small population effects, make our selection algorithms more effective, have the population bandwidth to maintain more diversity; likely increase the power / capacity for open-endedness in our systems.
 
