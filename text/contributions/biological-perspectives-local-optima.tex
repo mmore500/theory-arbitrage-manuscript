@@ -77,7 +77,7 @@ These concepts have been around for some time already, however, and have already
 % --------------------------------
 
 \subsubsection{Adaptive Momentum}
-Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computing.
+Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computation.
 One recent advancement, the theory of adaptive momentum\cite{bohm2024reduced}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged.
 
 When a population is in the midst of a non-equilibrium transition, such as the selective sweep of a beneficial mutation, a territory range expansion, or a carrying capacity increase, some lineages experience weakened purifying selection.
@@ -104,10 +104,10 @@ In practice, this could correspond to dynamically adjusting tournament size, tem
 
 Another, more structural way to achieve a similar effect is to maintain a small contingent of lineages that remain unconstrained even when the population is converged.
 One such technique adds ``super-explorers'' \cite{ragusa2022augmenting} to an evolving system.
-Super explorers undergo Brownian motion in the fitness landscape, seeded at the locations of high-fitness genotypes.
-These super explorers can buffer an unlimited number of deleterious mutations before being removed due to old age.
+Super-explorers undergo Brownian motion in the fitness landscape, seeded at the locations of high-fitness genotypes.
+These super-explorers can buffer an unlimited number of deleterious mutations before being removed due to old age.
 While they explore, they are visible to selection and may introduce their genotype into the main population, giving their discoveries a chance to compete.
-Super explorers help get converged populations unstuck faster, while minimally impacting the ability of the population to exploit discoveries once they are made.
+Super-explorers help get converged populations unstuck faster, while minimally impacting the ability of the population to exploit discoveries once they are made.
 % @mmore500 Could a similar effect be achieved by injecting multi-step mutants? Is the continuous trajectory of super-explorers traced under drift important?
 % possibly related \citep{rocha1999preventing}
 
@@ -143,7 +143,7 @@ Once on a climbable gradient, genetic improvements are more easily discovered, l
 Furthermore, due to the multidimensional aspect of adaptive momentum, seascape-like behavior on only some dimensions of the fitness landscape can still benefit exploration and valley-crossing on the portions of the fitness landscape which remain static.
 Taken together, all of this suggests that creating seascape-like dynamics in evolutionary computation systems, for example by introducing ecological dynamics, can promote exploration and prevent premature convergence.
 
-\subsection{ Final remarks}
+\subsection{Final remarks}
 In both natural and artificial evolution, progress depends on maintaining a delicate disequilibrium: enough stability to accumulate information, but enough instability to encourage exploration.
 Introducing dynamism into artificially evolving systems as adaptive momentum, noisy fitness, ecology, super-explorers, or any other means serves to balance the scales in favor of disequilibrium without sabotaging selection in the process.
 Nature is full of these kinds of mechanisms and processes, just waiting to be studied and applied to artificial systems.
