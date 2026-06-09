@@ -1,7 +1,13 @@
+% TODO: remove the `nonacm` option once ACM submission metadata is finalized.
+% `nonacm` currently suppresses three blocks of placeholder boilerplate that
+% acmart would otherwise generate from the (not-yet-filled-in) rights/journal
+% info: the "ACM Reference Format:" block, the copyright/permission notice
+% (including the "ACM XXXX-XXXX/..." ISSN and DOI lines), and the journal page
+% footer ("..., Vol. 1, No. 1, Article . Publication date: ...").
 \ifdefined\mydraft
-\documentclass[acmsmall, screen=true, review=true, natbib=true]{acmart}
+\documentclass[acmsmall, nonacm, screen=true, review=true, natbib=true]{acmart}
 \else
-\documentclass[acmsmall, screen=true, review=false, natbib=true]{acmart}
+\documentclass[acmsmall, nonacm, screen=true, review=false, natbib=true]{acmart}
 \fi
 
 \input{lib/dependencies.tex}
