@@ -31,7 +31,7 @@
 % \item move citations incorporated into section text here!
 % \item \citet{back1994selective}
 % \item \citet{goldberg1991comparative}
-% \item \citet{lehre2011fitness}
+% \item \citet{lehre2011fitnesslevels}
 %
 % \end{itemize}
 %
@@ -80,7 +80,7 @@ and (3) an algorithmic protocol that specifies how candidates are chosen, that i
 These three components are typically integrated into a \textit{selection scheme}, broadly defined as the selection mechanism responsible for choosing candidate solutions for subsequent analysis or use.
 All three core components directly influence the ability of a selection scheme to effectively navigate a search space.
 An insufficiently sized pool of candidate solutions can lead to drift \cite{rogers1999genetic}.
-Inappropriate or misleading quantitative metrics may misguide the search \citep{dolson2018hints}.
+Inappropriate or misleading quantitative metrics may misguide the search \citep{dolson2018applying}.
 Likewise, an algorithmic protocol ill-suited for the underlying landscape---such as one that aggressively prioritizes high-performing individuals in a search space containing numerous local optima---can degrade search performance \citep{mouret2015illuminating,helmuth2015lexicase,lehman2011novelty}.
 % A deeper theoretical understanding and characterization of selection schemes can inform more effective design choices, thereby increasing the likelihood of success on a given problem.
 Together, these components characterize the search behavior and strategy imposed by a given selection scheme on the evolving population, thereby shaping distinct mechanisms for navigating the solution space. 
@@ -88,12 +88,12 @@ However, no single configuration of the three components is universally optimal 
 
 % selection pressure: how it's been done and what could be better
 
-Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998eve,hernandez2023beyond}.
+Selection pressure is a key criterion for characterizing selection schemes, as it governs the tradeoff between exploitation and exploration in evolutionary search \citep{crepinsek2013exploration,eiben1998evolutionary,hernandez2023beyond}.
 In natural systems, strong selection pressure reduces genetic diversity within a population and often induces premature convergence (\textit{i.e.}, potentially trapping the population in a local optimum), limiting the population's ability to adapt to dynamic environments \citep{fisher1930genetical,robertson1960theory}.
 Analogously, selection schemes that heavily favor individuals exhibiting specific traits restrict the search to a narrow region of the search space defined by those individuals, overemphasizing exploitation.
 In contrast, weak selection pressure can lead to deleterious trait accumulation, via Muller's \citep{muller1964relation, haigh1978accumulation} and/or Ohta's Ratchet \citep{ohta1973slightly, ohta1992nearly}, and inadequate optimization of beneficial traits in natural systems \citep{lynch2016genetic,lahti2009relaxed}.
 Selection schemes that approach random sampling correspond to pure exploration and weak selection pressure, enabling broad coverage of the search space without focus on any particular region.
-Prior work has derived closed-form expressions measuring the selection pressure induced by several widely used selection schemes, providing simplified formulas that clarify their underlying dynamics \citep{blickle1996ss,goldberg1991comparative,back1994selective,lehre2011fitness}.
+Prior work has derived closed-form expressions measuring the selection pressure induced by several widely used selection schemes, providing simplified formulas that clarify their underlying dynamics \citep{blickle1996ss,goldberg1991comparative,back1994selective,lehre2011fitnesslevels}.
 % However, deriving closed-form expressions is not always feasible. 
 % Some selection schemes are inherently complex---such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives---while others emphasize behavioral diversity rather than objective-based performance, as exemplified by novelty search \citep{lehman2011novelty}.
 % Some schemes are simply too complex---such as lexicase selection \citep{helmuth2015lexicase}, which iteratively filters candidates using a randomly ordered set of objectives---while others do not rely on performance metrics at all, as in novelty search \citep{lehman2011novelty}, which prioritizes behavioral diversity over performance.
@@ -128,7 +128,7 @@ Hernandez \textit{et al.} \cite{hernandez2023beyond,hernandez2023suite} introduc
 An evolutionary algorithm designed to make the selection scheme the primary driver of the search was evaluated on each diagnostic task, with a range of selection schemes compared as the dominant search mechanism.
 The DOSSIER suite provided empirical evidence supporting the validity of existing selection pressure expressions, while also offering first-order approximations for selection schemes that previously lacked such expressions \cite{hernandez2023beyond,hernandez2023suite}.
 Additionally, these diagnostics were used to reveal key differences in exploration capability among the various lexicase selection variants \citep{hernandez2022exploration}. %, each incorporating more sophisticated mechanisms than those present in standard lexicase selection.
-Moreover, the DOSSIER suite highlighted the influence of population size on lexicase selection's ability to maintain diversity and specialists \citep{hernandez2025params}, validated by an expression that estimates a theoretical threshold for successful diversity and specialist maintenance \citep{cava2019probabilistic}.
+Moreover, the DOSSIER suite highlighted the influence of population size on lexicase selection's ability to maintain diversity and specialists \citep{hernandez2025params}, validated by an expression that estimates a theoretical threshold for successful diversity and specialist maintenance \citep{lacava2019probabilistic}.
 The existing diagnostics cover only a limited subset of potential exploitation and exploration scenarios, leaving ample opportunity for the development of additional diagnostics that capture additional search space characteristics critical to success and that commonly arise in real-world problem domains.
 
 %
