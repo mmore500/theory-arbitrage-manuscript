@@ -1,5 +1,6 @@
 { pkgs }: {
     deps = [
+      pkgs.moreutils
       pkgs.vim
       pkgs.pandoc
       pkgs.texlive.combined.scheme-full
