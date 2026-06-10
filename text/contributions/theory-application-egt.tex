@@ -1,0 +1,18 @@
+\section{Existing Connections: Evolutionary Graph Theory}
+\label{sec:egt}
+
+Population structure is a necessary consequence of distributed computing approaches, as explored in the previous section, but as discussed earlier can also be incorporated as an intentional strategy to improve evolutionary computation.
+Spatial structure, for instance, is realized in island models, cellular algorithms, and more sophisticated geographical models \citep{whitley1999island,tomassini2005spatially,simon2008biogeographybased}.
+There also is a borader rich body of literature that catalogs how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \cite{moller2019exploring,askari2015analytical,lieberman2005evolutionary,bohm2024reduced}.
+
+Evolutionary graph theory studies population structure by representing individuals as vertices with edges indicating local interactions \citep{ohtsuki2006simple,lieberman2005evolutionary,allen2014games,allen2017evolutionary}.
+Fundamentally, a population is represented as a graph whose nodes hold individuals and whose edges govern population replacement \citep{lieberman2005evolutionary}.
+A central result of the field is that topology can shape evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by raising the fixation probability of advantaged mutants, while other suppress selection \citep{lieberman2005evolutionary,pavlogiannis2018construction}.
+Structure shapes not only whether avariant fixes, but how quickly --- and improving fixation probability typically correlates with longer fixation times \citep{frean2013effect}.
+These effects can be sensitive to the update rule \citep{hindersin2015most} and often assume a single individual per node --- and so do not directly capture island subpopulations \citep{sharma2022suppressors}.
+
+Evolutionary computation has independently developed the notion of takeover time, which measures how quickly the best individual comes to dominate a structured population --- effectively a fixation-time analysis under another name \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection}.
+Recent work has begun to close the gap by recasting topology design as an optimization tool, summarizing a network by an amplification factor that rescales the effective selection coefficient \citep{kuo2024theory} and an acceleration factor that rescales time to fixation \citep{kuo2024evolutionary}.
+Using this formalism, \citet{kuo2024evolutionary} have shown that no single topology is best across problems and that ``decelerator'' structures with slower fixation can reach optima faster on complex landscapes.
+Likewise, \citet{kuo2024evolutionarymutation} analyzes how structure governs the crossing of fitness landscapes themselves.
+A graph-theoretic framing thus offers evolutionary computation both an analytic vocabulary for the structures it already uses and a catalog of theoretical concepts --- amplification, suppression, and motif structure --- available for the taking.

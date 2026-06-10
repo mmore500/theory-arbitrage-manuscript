@@ -1,0 +1,45 @@
+\section{Further Promising Directions}
+
+\subsection{Recombination}
+
+While the importance of recombination in accelerating evolution has long been recognized \citep{felsenstein1976evolutionary}, a purely theoretical perspective may overlook its broader impact on the evolution of the genome itself, including its structural and regulatory organization.
+recombination rates are strongly correlated with genome size \citep{tiley2015relationship}, as recombination is expected to counteract the proliferation of parasitic transposons.
+Furthermore, as recombination itself is non-random and localized to hotspots determined by protein activity \citep{paul2016recombination}, selection can be modulated at finer scales.
+
+The relationship between recombination and modularity \cite{wiser2019horizontal,kreimer2008evolution}.
+For example, HGT has been associated with the expansion of the regulatory factor repertoire of bacteria \cite{price2008horizontal} and the replacement of key genes in essential metabolic pathways \cite{goyal2022horizontal}.
+Recombination in sexual organisms occurs through highly regulated mechanisms that control where double-strand breaks (DSBs) are induced, resulting in non-random crossover points between parental chromosomes \cite{stapley2017recombination}.
+HGT is also not limited to single or small groups of genes: a cluster of 40 photosynthetic genes has moved horizontally multiple times across alphaproteobacterial lineages as a single unit \cite{martin2018physiological, brinkmann2018horizontal}.
+
+\subsection{Coevolution}
+
+Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{willkens2022evolving,popovici2012coevolutionary, ficici2000gametheoretic}, parasitism \citep{hillis1990coevolving,  cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005identifying, bucci2003mathematical, bucci2003focusing, watson2003computational, watson2001coevolutionary}, however, the specific form of co-evolutionary relationship plays an often underappreciated role in these algorithms.
+Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{willkens2022evolving,popovici2012coevolutionary, ficici2000gametheoretic}, parasitism \citep{hillis1990coevolving,  cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005identifying, bucci2003mathematical, bucci2003focusing, watson2003computational, watson2001coevolutionary}.
+
+Under classic framing, evolutionary interactions are transient \citep{potter2000cooperative,ma2018survey, pan2022effective, gong2015distributed, goh2008competitive, antonio2017coevolutionary,hancer2025survey, wiegand2004analysis, garcia2005cooperative, wiegand2001empirical, byrski2015evolutionary} 
+However, this classic framing is a clear case of non-symbiotic co-evolution, because each individual subcomponent is only guaranteed to be evaluated with another individual subcomponent once.
+This structure is analogous to an individual hummingbird visiting an individual flower: they both benefit if the hummingbird's beak happens to perfectly fit the flower's shape, but the hummingbird's fitness is based on how well it matches the flowers on average (taking into account the hummingbird's ability to choose flowers of course) and the flower's fitness is based on how well it matches the visiting pollinators on average.
+A life-long relationship between individuals of different species, i.e., a symbiotic relationship, guarantees that two individuals will continuously interact with each other, regardless of whether the relationship is parasitic or mutualistic.
+These relationships can be highly asymmetric, with one organism being considered a \textit{host} and the other the \textit{symbiont}, in which case the ``life-long'' relationship is only
+Mutualistic symbiosis frequently also involves vertical transmission, where the host offspring is infected with the symbiont's offspring near birth.
+Vertical transmission is most often in the context of a host/symbiont system, i.e., when there is a strong asymmetry in the size and lifespan of the partners.
+This mode of transmission enables the offspring of the partners to continue the same mutualistic relationship.in terms of the shorter of the two lifespans.
+
+For example, it has previously been shown that parasites can increase host behavioral complexity through the Population-Genetic Memory Hypothesis and Red Queen dynamics \citep{ladle1992parasites,zaman2014coevolution}.
+% TODO It has also been hypothesized that the presence of both mutualistic and parasitic interactions in the same system could increase evolved host complexity beyond what the host would reach with only one type of interaction due to the more complex selection pressures from multiple interactions \citep{willkens2022evolving}.
+Theory can also predict the parasitism-mutualism spectrum \citep{vostinar2019spatial,johnson2021coevolutionary}.
+
+TODO cophylogenetic analyses
+
+\subsection{Non-equilibrium Population Dynamics}
+
+Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computation.
+One recent advancement, the theory of adaptive momentum\cite{bohm2024reduced}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged.
+
+When a population is in the midst of a non-equilibrium transition, such as the selective sweep of a beneficial mutation, a territory range expansion, or a carrying capacity increase, some lineages experience weakened purifying selection.
+If a deleterious mutation arises on one of those lineages, it is less likely to be purged.
+Once the population has completed its transition, purifying selection acts with equal strength on all lineages once again.
+Therefore, from the same genetic starting point, a population experiencing one of these transitions will more easily escape a local optimum than a converged population.
+Furthermore, since the selective sweep of a beneficial mutation is one of these transitions, a cascade of local optima escapes is possible, leading to the appearance of adaptive momentum.
+One surprising feature of adaptive momentum is that in multidimensional landscapes, adaptation along one axis can promote discoveries along others.
+This last property of adaptive momentum makes it extremely potent in high-dimensional fitness landscapes.
