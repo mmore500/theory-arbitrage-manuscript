@@ -1,16 +1,3 @@
-\section{Further Promising Directions}
-
-\subsection{Recombination}
-
-While the importance of recombination in accelerating evolution has long been recognized \citep{felsenstein1976evolutionary}, a purely theoretical perspective may overlook its broader impact on the evolution of the genome itself, including its structural and regulatory organization.
-recombination rates are strongly correlated with genome size \citep{tiley2015relationship}, as recombination is expected to counteract the proliferation of parasitic transposons.
-Furthermore, as recombination itself is non-random and localized to hotspots determined by protein activity \citep{paul2016recombination}, selection can be modulated at finer scales.
-
-The relationship between recombination and modularity \cite{wiser2019horizontal,kreimer2008evolution}.
-For example, HGT has been associated with the expansion of the regulatory factor repertoire of bacteria \cite{price2008horizontal} and the replacement of key genes in essential metabolic pathways \cite{goyal2022horizontal}.
-Recombination in sexual organisms occurs through highly regulated mechanisms that control where double-strand breaks (DSBs) are induced, resulting in non-random crossover points between parental chromosomes \cite{stapley2017recombination}.
-HGT is also not limited to single or small groups of genes: a cluster of 40 photosynthetic genes has moved horizontally multiple times across alphaproteobacterial lineages as a single unit \cite{martin2018physiological, brinkmann2018horizontal}.
-
 \subsection{Coevolution}
 
 Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{willkens2022evolving,popovici2012coevolutionary, ficici2000gametheoretic}, parasitism \citep{hillis1990coevolving,  cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005identifying, bucci2003mathematical, bucci2003focusing, watson2003computational, watson2001coevolutionary}, however, the specific form of co-evolutionary relationship plays an often underappreciated role in these algorithms.
@@ -32,17 +19,4 @@ Theory can also predict the parasitism-mutualism spectrum \citep{vostinar2019spa
 Parasite populations suppress fitness for genotypes in large sections of the fitness landscape, making the host populations adapt towards new alternate genotypes \citep{gupta2022hostparasite,zaman2014coevolution,kussell2006polymerpopulation, kumawat2021architecture}.
 This host-parasite feedback has also been shown to aid evolvability in some cases, leading to the emergence of hosts with a genotype that changes phenotype with a single point mutation, and has a larger number of such point mutations that do change phenotype \cite{zaman2014coevolution}.
 
-TODO cophylogenetic analyses
-
-\subsection{Non-equilibrium Population Dynamics}
-
-Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computation.
-One recent advancement, the theory of adaptive momentum\cite{bohm2024reduced}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged.
-
-When a population is in the midst of a non-equilibrium transition, such as the selective sweep of a beneficial mutation, a territory range expansion, or a carrying capacity increase, some lineages experience weakened purifying selection.
-If a deleterious mutation arises on one of those lineages, it is less likely to be purged.
-Once the population has completed its transition, purifying selection acts with equal strength on all lineages once again.
-Therefore, from the same genetic starting point, a population experiencing one of these transitions will more easily escape a local optimum than a converged population.
-Furthermore, since the selective sweep of a beneficial mutation is one of these transitions, a cascade of local optima escapes is possible, leading to the appearance of adaptive momentum.
-One surprising feature of adaptive momentum is that in multidimensional landscapes, adaptation along one axis can promote discoveries along others.
-This last property of adaptive momentum makes it extremely potent in high-dimensional fitness landscapes.
+TODO cophylogenetic analyses?
