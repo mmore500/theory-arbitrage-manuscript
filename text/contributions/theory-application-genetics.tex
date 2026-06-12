@@ -12,7 +12,12 @@ TODO transition
 \label{sec:population-genetics}
 
 Population-genetic theory provides analytical tools for explaining the behavior of evolutionary algorithms.
-Key connections have been established around the Strong-Selection-Weak-Mutation (SSWM) regime, where mutations are rare relative to the time they take to fix --- so that a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
+Core theory been caried into evolutionary computation from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equillibrium, with no correlation between allele co-occurence \citep{geiringer1944probability}.
+In evolutionary computation, this theorem has been generalized from fixed-length strings to variable-length genetic algorithms and genetic programs \citep{poli2002allele}, and subsequently to tree-based GP \citep{mitavskiy2006results}.
+Population-genetic framing also supplices useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}
+Existing work has used these statistics to provide a rigorous explanation for why crossover can encounter difficulty on strongly epistatic fitness landscapes, as it drives a population toward locus-wise independence \citep{chakraborty1997linkage}.
+
+Key connections have also been established around the Strong-Selection-Weak-Mutation (SSWM) regime, where mutations are rare relative to the time they take to fix --- so that a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
 For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.
 Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
 Thus, the product $N s$ provides a simple, dimensionless measure of how effectively selection can overcome drift in populations of constant size \citep{gravel2016selection}, serving as an approximate indicator under idealized conditions.
@@ -25,7 +30,7 @@ This scenario runs parallel with biological intuition that escaping local optima
 Ultimatley, by combining drift theorems from evolutionary computation \citep{TODO} and population genetics, this lens can provide an upper bound on adaptation time across fitness landscapes \citep{heredia2017selection}.
 
 Statistical mechanics can also be used to describe the behavior of a population under selection and drift.
-Originally translated to evolutionarybiology from physics, theory of thermodynamic systems can be used to characterize the steady-state distribution of fixed genotypes and genetic load in finite populations \citep{sella2005application}.
+Originally translated to evolutionary biology from physics, theory of thermodynamic systems can be used to characterize the steady-state distribution of fixed genotypes and genetic load in finite populations \citep{sella2005application}.
 Modeling a genetic algorithm's population as a flow through the space of fitness distributions produces metastability, extended periods of stasis in the absence of convergence to a local optimum \citep{vannimwegen1999statistical}. % TODO improve me
 
 \subsection{Quantitative Genetics}

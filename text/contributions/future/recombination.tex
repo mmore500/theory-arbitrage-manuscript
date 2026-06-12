@@ -2,14 +2,11 @@
 \label{sec:recombination}
 
 The advantage that recombination confers for adaptation has long been recognized in both evolutionary biology and evolutionary computation \citep{felsenstein1976evolutionary,holland1975adaptation}.
-Core theory from biology has alreawdy been caried into evolutionary computation from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equillibrium, with no correlation between allele co-occurence \citep{geiringer1944probability}.
-In evolutionary computation, this theorem has been generalized from fixed-length strings to variable-length genetic algorithms and genetic programs \citep{poli2002allele}, and subsequently to tree-based GP \citep{mitavskiy2006results}.
-Population-genetic framing also supplices useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}
-Past work has used these statistics to provide a rigorous explanation for why crossover can encounter difficulty on strongly epistatic fitness landscapes, as it drives a population toward locus-wise independence \citep{chakraborty1997linkage}.
-
 In addition to crossover, biology also exhibits widespread horizontal gene transfer (HGT) between lineages (i.e., one-way via conjugation between neighboring cells, transduction via viral intermediaries, and transformation by uptake of environmental DNA) \citep{arnold2022horizontal}.
 These processes have profoundly shaped, in particular, the evolutionary trajectories of microorganisms, extending regulatory networks \citep{price2008horizontal}, modifying metabolic pathways \citep{goyal2022horizontal}, and promoting modularity \citep{kreimer2008evolution} --- through transfers of individual genes, or in  clusters of up to 40 genes \citep{brinkmann2018horizontal,martin2018physiological}.
 Despite its potential to benefit the constructive power of evolution \citep{wiser2019horizontal}, HGT has been explored but not yet gained widespread adoption in evolutionary computation \citep{goldbarg2009transgeneic,peralesgravan2008am,harvey2011microbial,mehrafsa2013high,tomko2013unconstrain,atkinson2020horizontal}.
+
+Both of these phenomena create phylogenetic networks --- phylogeny structures that depart from a strict trie of lineage splitting to also have events where lineages combine or interact.
 In explorations of this topic, one important consideration will be being able to characterize the extent and pervasiveness and influence of horizontal gene transfer.
 Such horizontal gene transfer produces a reticulate (non-tree-like DAG) biological history \citep{huson2005application}, which has been the focus of phylogenetic network literature defines several useful descriptors \citep{yu2011coalescent,solislemus2016inferring,choy2004computing,zhang2022weighting}:
 \begin{enumerate}
