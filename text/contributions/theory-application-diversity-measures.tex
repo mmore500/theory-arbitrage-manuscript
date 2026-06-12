@@ -77,14 +77,14 @@ The same analysis was performed using different phenotypic and phylogenetic dive
 %These results show that phylogenetic diversity provides novel information that phenotypic diversity does not.
 
 Another experiment in the same study tested whether one type of diversity can be predictive of another.
-This relationship was demonstrated using transfer entropy, a measure in information theory that captures the flow of information from one variable to another \cite{schreiber2000measuring}.
+This relationship was demonstrated using transfer entropy, a measure in information theory that captures the flow of information from one variable to another \citep{schreiber2000measuring}.
 %Specifically, given two variables $X$ and $Y$, transfer entropy measures how much information past values of $Y$ provide about future values of $X$ beyond what is already explained by the past values of $X$.
 Using this approach, it was shown that phylogenetic diversity can be a predictor of future phenotypic diversity.
 
 Future phenotypic diversity is not the only variable that can be predicted using phylogenetic diversity.
 Phylogenetic diversity has also been shown to be a predictor of future fitness.
-Using the same transfer entropy approach, studies have demonstrated that in selection schemes that maintain diversity, phylogenetic diversity is more predictive of future success than phenotypic diversity \cite{hernandez2022can,shahbandegan2022untangling}.
+Using the same transfer entropy approach, studies have demonstrated that in selection schemes that maintain diversity, phylogenetic diversity is more predictive of future success than phenotypic diversity \citep{hernandez2022can,shahbandegan2022untangling}.
 This finding has important implications for evolutionary computation, as it suggests that monitoring phylogenetic diversity can provide early indicators of an algorithm's potential to discover global optima before it is run for thousands of generations.
 Consequently, this can help choose the right evolutionary algorithm for an optimization problem, or enable the early identification of runs that are unlikely to be successful, reducing the need for computationally expensive long-term executions.
-%
-%
+
+A rich ecosystem of existing software exists to support phylogenetic analyses and visualizations \citep{moreno2024dendropy,talevich2012biophylo,huertacepas2016ete3,aton2026scikitbio,kelleher2019inferring,moshiri2025compacttree,moshiri2020treeswift,ryneches2018suchtree,eaton2019toytree,moreno2026phyloframe,paradis2018ape,lalejini2019data,yu2016ggtree,zanini2025iplotx,sanderson2022taxonium,vaughan2017icytree}.
