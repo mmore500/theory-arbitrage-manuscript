@@ -3,12 +3,12 @@
 
 Population structure is a necessary consequence of distributed computing approaches, as explored in the previous section, but as discussed earlier can also be incorporated as an intentional strategy to improve evolutionary computation.
 Spatial structure, for instance, is realized in island models, cellular algorithms, and more sophisticated geographical models \citep{whitley1999island,tomassini2005spatially,simon2008biogeographybased}.
-There also is a borader rich body of literature that catalogs how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \citep{moller2019exploring,askari2015analytical,lieberman2005evolutionary,bohm2024reduced}.
+There also is a broader rich body of literature that catalogs how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \citep{moller2019exploring,askari2015analytical,lieberman2005evolutionary,bohm2024reduced}.
 
 Evolutionary graph theory studies population structure by representing individuals as vertices with edges indicating local interactions \citep{ohtsuki2006simple,lieberman2005evolutionary,allen2014games,allen2017evolutionary}.
 Fundamentally, a population is represented as a graph whose nodes hold individuals and whose edges govern population replacement \citep{lieberman2005evolutionary}.
-A central result of the field is that topology can shape evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by raising the fixation probability of advantaged mutants, while other suppress selection \citep{lieberman2005evolutionary,pavlogiannis2018construction}.
-Structure shapes not only whether avariant fixes, but how quickly --- and improving fixation probability typically correlates with longer fixation times \citep{frean2013effect}.
+A central result of the field is that topology can shape evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by raising the fixation probability of advantaged mutants, while others suppress selection \citep{lieberman2005evolutionary,pavlogiannis2018construction}.
+Structure shapes not only whether a variant fixes, but how quickly --- and improving fixation probability typically correlates with longer fixation times \citep{frean2013effect}.
 These effects can be sensitive to the update rule \citep{hindersin2015most} and often assume a single individual per node --- and so do not directly capture island subpopulations \citep{sharma2022suppressors}.
 
 Evolutionary computation has independently developed the notion of takeover time, which measures how quickly the best individual comes to dominate a structured population --- effectively a fixation-time analysis under another name \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection}.

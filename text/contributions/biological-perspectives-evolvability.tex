@@ -50,7 +50,7 @@ While a variety of mechanisms or facets have been brought to evolvability \citep
 % If the fitness landscape contains many adjacent mutations that increase fitness, a population is more likely to adapt after one of these mutations appears.
 If most adjacent mutations are deleterious, it severely limits the ability of the population to explore the genotype space \citep{orr2005genetic,bershtein2008advances}.
 % A genotype with many deleterious mutations is essentially a local maximum in the fitness landscape and its presence can immobilize populations in specific genotypic states.
-In evolutionary computation, this can contribute to the challlenge of \textit{premature convergence}, where a population reaches a local optimum but not a global optimum \citep{schmitt2003theory,andre2001improvement,bongard2010guarding,pandey2014comparative}.
+In evolutionary computation, this can contribute to the challenge of \textit{premature convergence}, where a population reaches a local optimum but not a global optimum \citep{schmitt2003theory,andre2001improvement,bongard2010guarding,pandey2014comparative}.
 
 Mutations can be considered ``evolvability enhancing'' if they provide access to later high fitness mutations, which are surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
 % An escalation in mutation rate may also enhance evolvability, but only if the fitness landscape has the potential to generate adaptive mutations \citep{kumawat2024evolution}.
@@ -65,7 +65,7 @@ The structure of the space is strongly tied to the data structure used to encode
 % For example, a 1D optimization problem may be solved by either defining a 1D solution space and then allowing mutational jumps to far-flung solutions, or equivalently, by designing the space in a way that small changes in this representation correspond to large jumps on the domain of the problem.
 % The problem of designing optimal representations is a core research field in EC \citep{ashlock2012representation, rothlauf2003redundant, rothlauf2009representations,mitavskiy2003comparing}.
 
-Unlike EC where the user can design a suitable representation and mutation operator, in nature the ``representation'' for an evolving population is fixed to DNA/RNA sequence space composed of the four nucleotide bases \citep{aguirre2018networked}  (there is some potential to engineer it though, see \citet{zhang2015evolution}).
+Unlike EC where the user can design a suitable representation and mutation operator, in nature the ``representation'' for an evolving population is fixed to DNA/RNA sequence space composed of the four nucleotide bases \citep{aguirre2018networked} (there is some potential to engineer it though, see \citet{zhang2015evolution}).
 % There is little possibility for biological systems to manipulate this representation over microevolutionary time scales.
 % Mutation rates are also subject to biophysical constraints, like the energetics of the DNA polymerase enzyme that replicates the genome \citep{loh2009optimization,fersht1981dna}.
 However, within the exponentially vast space of genotypes \citep{stadler2007fitness,de2014empirical}, evolution can exploit local structural features of the landscape in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
@@ -89,7 +89,7 @@ Regardless, some areas of genome space are likely to have different phenotypes a
 % if the fitness landscape is large and varied, as most biological landscapes are, it is likely to contain genotypes that lie between mutants having phenotypes that are adapted to different environments \citep{wagner2017information}.
 % These phenotypic ``boundaries'' in the genotype space can in turn act as hotspots for evolvability in a changing environment.
 and recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental}.
-(redicting under what conditions a population will localize to different boundary genotypes, however, remains unsolved \citep{kussell2006polymerpopulation}.
+Predicting under what conditions a population will localize to different boundary genotypes, however, remains unsolved \citep{kussell2006polymerpopulation}.
 % \textit{Generalist} genotypes, with a phenotype adapted to multiple environments, are obviously better than evolvable ones, but are unlikely to exist if the alternate environments are characterized by an inherent \textit{fitness tradeoff}.
 % For example, if becoming resistant to an antibiotic requires the expression of a protein that is toxic for the cell, this resistant cell will be out-competed by sensitive cells in an environment where the antibiotic is absent.
 
