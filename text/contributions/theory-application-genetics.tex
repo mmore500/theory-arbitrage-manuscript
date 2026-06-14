@@ -12,9 +12,9 @@ TODO transition
 \label{sec:population-genetics}
 
 Population-genetic theory provides analytical tools for explaining the behavior of evolutionary algorithms.
-Core theory been caried into evolutionary computation from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equillibrium, with no correlation between allele co-occurence \citep{geiringer1944probability}.
+Core theory has been carried into evolutionary computation from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equilibrium, with no correlation between allele co-occurrence \citep{geiringer1944probability}.
 In evolutionary computation, this theorem has been generalized from fixed-length strings to variable-length genetic algorithms and genetic programs \citep{poli2002allele}, and subsequently to tree-based GP \citep{mitavskiy2006results}.
-Population-genetic framing also supplices useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}
+Population-genetic framing also supplies useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}.
 Existing work has used these statistics to provide a rigorous explanation for why crossover can encounter difficulty on strongly epistatic fitness landscapes, as it drives a population toward locus-wise independence \citep{chakraborty1997linkage}.
 
 Key connections have also been established around the Strong-Selection-Weak-Mutation (SSWM) regime, where mutations are rare relative to the time they take to fix --- so that a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
@@ -25,9 +25,9 @@ Thus, the product $N s$ provides a simple, dimensionless measure of how effectiv
 The SSWM regime can be harnessed as a limited model of both evolutionary computation and biological evolution.
 This regime, in particular, can be connected to quantifying how expected time-to-solution is affected by selection configuration, and indicating where acceptance of fitness-decreasing moves diverges meaningfully from a standard elitist algorithm \citep{paixao2016towards}.
 Applied to the topic of fitness valleys, this analytical framework helps distinguish where time-to-solution is governed by valley length versus depth \citep{oliveto2017how}.
-The degree to which a genotype-phenotype map allows for neutral \citep{kimura1983neutral,kimura1991neutral} (or nearly neutral\citep{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \citep{oliveto2017how}
+The degree to which a genotype-phenotype map allows for neutral \citep{kimura1983neutral,kimura1991neutral} (or nearly neutral~\citep{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \citep{oliveto2017how}.
 This scenario runs parallel with biological intuition that escaping local optima requires weak selection sufficient to cross valleys \citep{wright1932roles}.
-Ultimatley, by combining drift theorems from evolutionary computation \citep{TODO} and population genetics, this lens can provide an upper bound on adaptation time across fitness landscapes \citep{heredia2017selection}.
+Ultimately, by combining drift theorems from evolutionary computation \citep{TODO} and population genetics, this lens can provide an upper bound on adaptation time across fitness landscapes \citep{heredia2017selection}.
 
 Statistical mechanics can also be used to describe the behavior of a population under selection and drift.
 Originally translated to evolutionary biology from physics, theory of thermodynamic systems can be used to characterize the steady-state distribution of fixed genotypes and genetic load in finite populations \citep{sella2005application}.
