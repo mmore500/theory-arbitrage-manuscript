@@ -49,31 +49,37 @@ Evolutionary biology interleaves with a large number of allied fields, such as p
 Particularly notable is the subfield of experimental evolution, which moves beyond observational and retrospective approaches to instantiate evolution in action under controlled conditions \citep{kawecki2012experimental} --- much the same as evolutionary computation.
 In the case of so-called ``directed evolution'' experiments, evolutionary optimization may be recruited to a selected objective \citep{cobb2013directed,carroll2014applying}.
 
+One concern in translating biology to EC is substrate specificity.
+While this is a valid concern, generalizing across biology already requires abstractions to stretch across broad and diverse domains of biological life.
+Indeed, computational artificial life approaches, a close cousin of evolutionary computation, take advantage of generalizing biological concepts beyond life-as-we-know-it \citep{cleland2013general,langton1989artificial,pennock2007models}. % ELD: Lots more astrobiology citations we could add here
+
+In many cases, familiarity with biological presents the larger practical obstacle.
+Insofar as content applicable to evolutionary computation exists within biological literature, harnessing it requires sufficient domain knowledge (1) to identify it and (2) to navigate subtleties in aligning appropriate correspondences with EC.
+Given the vastness, context-dependence, and --- at times --- polyonymy of biological theory, interdisciplinary collaborations can be highly productive \citep{goodman2020evolution}.
+
+Investing effort and developing relationships, engaging theory from evolutionary biology can yield substantial value.
+
 As we will review, bioscience knowledge already been had substantial success in evolutionary computation  \citep{hu2010evolvability,dolson2018ecological,paixao2015toward} --- however, we believe much untapped value remains to be ``arbitraged'' from biological literature.
 Subsequently, we will evaluate additional yet-to-be-explored opportunities that might further springboard understanding of evolutionary algorithms off of work in evolutionary biology.
 Throughout, discussion highlights how such theory and analysis can translate to application-oriented objectives of EC.
 
-One concern in transposing knowledge from biology to evolutionary computation is whether the specificity of theory and methods to biological life might make them poorly applicable to evolutionary computation.
-While this is a valid concern, we have found there to be a good amount of work that is useful to evolutionary computation, owing to existing needs in biology to stretch abstractions across vast and diverse domains of biological life.
-Indeed, computational artificial life approaches, a close cousin of evolutionary computation, are a popular technique for exploring the generalizability of biological concepts beyond life-as-we-know-it \citep{cleland2013general,langton1989artificial,pennock2007models}. % ELD: Lots more astrobiology citations we could add here
-Insofar as content applicable to evolutionary computation exists within biological literature, however, applying that knowledge requires sufficient domain knowledge (1) to identify it and (2) to navigate subtleties in aligning appropriate correspondences with EC.
-Given the vastness, context-dependence, and --- at times --- polyonymy of biological theory, interdisciplinary collaborations can be highly productive \citep{goodman2020evolution}.
-
-% such knowledge arbitrage
-With investment of effort, engaging theory from evolutionary biology can yield substantial value.
 Indeed, a good amount of existing research has already taken such an approach (Table \ref{tab:arbitrage-examples}).
-Our review highlights examples across three themes,
+Our review highlights examples across five themes,
 \begin{itemize}
-  \item genotype-phenotype maps and fitness landscapes (Section \ref{sec:TODO});
-  \item ecological assembly and coexistence theory (Section \ref{sec:TODO}); and
-  \item phylogeny for prediction/analysis (Section \ref{sec:TODO}).
+  \item ecology (Section \ref{sec:diversity-maintenance}); and
+  \item biodiversity science (Section \ref{sec:diversity-measurement}).
+  \item evolutionary graph theory (Section \ref{sec:egt}); and
+  \item adaptive landscapes (Section \ref{sec:evolvability}).
 \end{itemize}
-We also review practical work geared at overlapping evolutionary computation with bioinformatics infrastructure,
+
+Additional opportunities for theory arbitrage remain less explored, however --- and we outline several possibilities,
 \begin{itemize}
-  \item sampling-based approaches, which are friendly for decentralized infrastructure (Section \ref{sec:TODO}); and
-  \item interoperation with bioinformatics infrastructure (Section \ref{sec:TODO}).
+  \item best-effort observation (Section \ref{sec:best-effort}),
+  \item replay analyses (Section \ref{sec:replay});
+  \item coevolution (Section \ref{sec:coevolution});
+  \item adaptive momentum (Section \ref{sec:adaptive-momentum}); and
+  \item phylogenetic networks (Section \ref{sec:recombination}).
 \end{itemize}
-Additional opportunities for theory arbitrage remain entirely unexplored, however --- which we also outline (Section \ref{sec:TODO}).
 
 \input{tab/arbitrage-examples.tex}
 
