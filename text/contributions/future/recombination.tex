@@ -1,22 +1,36 @@
 \subsection{Phylogenetic Networks}
 \label{sec:recombination}
 
-The advantage that recombination confers for adaptation has long been recognized in both evolutionary biology and evolutionary computation \citep{felsenstein1976evolutionary,holland1975adaptation}.
-In addition to crossover, biology also exhibits widespread horizontal gene transfer (HGT) between lineages (i.e., one-way via conjugation between neighboring cells, transduction via viral intermediaries, and transformation by uptake of environmental DNA) \citep{arnold2022horizontal} --- through transfers of individual genes, or even in clusters of up to 40 genes \citep{brinkmann2018horizontal,martin2018physiological}.
-These processes have profoundly shaped evolution by extending regulatory networks \citep{price2008horizontal}, modifying metabolic pathways \citep{goyal2022horizontal}, and promoting modularity \citep{kreimer2008evolution}.
-Despite its potential to benefit the constructive power of evolution \citep{wiser2019horizontal}, HGT has been explored but not yet gained widespread adoption in evolutionary computation \citep{goldbarg2009transgeneic,peralesgravan2008am,harvey2011microbial,mehrafsa2013high,tomko2013unconstrain,atkinson2020horizontal}.
+Mixture of genetic information between independent lineages is critical to efficient amplification of beneficial mutations and suppression of harfmul ones in biology and evolutionary computation alike \citep{felsenstein1976evolutionary,holland1975adaptation}.
+Unlike EC, however, such recombination is often highly asymmetric and irregular in biology.
+Among microbes, in particular, widespread horizontal gene transfer (HGT) occurs by conjugation (plasmid exchange), transduction (virus-mediated exchange), and transformation (environmental uptake) \citep{arnold2022horizontal} --- carrying anything from individual genes to broad functional clusters \citep{brinkmann2018horizontal,martin2018physiological}.
+Such HGT has extended regulatory networks \citep{price2008horizontal}, modified metabolic pathways \citep{goyal2022horizontal}, and promoted modularity \citep{kreimer2008evolution}.
 
-Both of these phenomena create phylogenetic networks --- phylogeny structures that depart from a strict trie of lineage splitting to also have events where lineages combine or interact \citep{huson2005application}.
-Such reticulate (non-tree-like DAG) biological history requires considerations and data structures beyond those found in phylogenetic trees.
+While HGT may benefit the constructive power of evolution \citep{wiser2019horizontal}, it remains lightly studied in EC \citep{goldbarg2009transgeneic,peralesgravan2008am,harvey2011microbial,mehrafsa2013high,tomko2013unconstrain,atkinson2020horizontal}.
+These existing studies primarily consider problem-solving outcomes, and do not actually report the extent of HGT incorporations within individual genomes or the structure of successful HGT events in broader evolutionary history.
+Phylogenetic analysis of ancestry (Section \ref{sec:diversity-measurement}) can help address these questions, but lineage reticulations introduced by recombination require extentions beyond purely tree-based approaches --- which assume lineages branch, but do not combine.
 
-In explorations of this topic, one important consideration will be being able to characterize the structure and consequences of lineage convergences; phylogenetic network literature defines several useful descriptors \citep{yu2011coalescent,solislemus2016inferring,choy2004computing,zhang2022weighting}:
+Instead of phylogenetic trees, such histories produce \textit{phylogenetic networks} --- which take the form of a directed acyclic graph (DAG) \citep{huson2005application,baroni2005framework}.
+A wealth of useful visualization and analysis techniques, many with accompanying software, have developed around this class of data \citep{huson2011phylogenetic,solislemus2017phylonetworks,huson2025sketch,panssen2024phylox,schliep2026tanggle,than2008phylonet}.
+In particular, phylogenetic network literature defines several useful metrics describing the frequency, size, structure, and impact of reticulations in evolutionary history \citep{zhang2022weighting}:
 \begin{enumerate}
-\item the number of reticulation nodes,
-\item level, the extent to which reticulation cycles are isolated or overlap and interlock,
-\item $\gamma$, the fractional size of each transfer (i.e., viewing distribution to distinguish few large transfers versus more frequent small transfers),
-\item discordance among per-locus genealogies (e.g., quartet distance) which reflects the cumulative fraction of genomes routed through horizontal transfers, as opposed to vertical edges.
+\item \textit{reticulation/hybridization number}, the number of reticulation events contributing to a lineage's history \citep{baroni2005bounding,baroni2006hybrids};
+\item \textit{level}, the extent to which reticulation cycles are isolated or overlap and interlock \citep{choy2004computing};
+\item \textit{inheritance probability} $\gamma$, the magnitude of individual transfers \citep{yu2011coalescent}; and
+\item isolating a network's \textit{major tree} can distinguish backbone genetic content from lateral transfers \citep{solislemus2016inferring}.
+\unskip\footnote{%
+Other work presents a related concept of ``verticality'' \citep{nagies2020spectrum}.
+}
 \end{enumerate}
-Useful software and techniques for layout and visualization of reticulate networks also exist \citep{huson2011phylogenetic,solislemus2017phylonetworks,huson2025sketch,panssen2024phylox,schliep2026tanggle}.
 
-Recombination, which also confers benefits for adaptation, has long been recognized in both evolutionary biology and evolutionary computation \citep{felsenstein1976evolutionary,holland1975adaptation}, ultimately produces highly reticulated pedigrees called Ancestral Recombination Graphs (ARGs) \citep{nielsen2024inference,lewanski2024era,griffiths1997ancestral} at the level of the individual that are structurally different \citep{godindubois2024apoget,kelleher2019inferring,wong2024args,jeffery2026tskit}.
-This field has developed methodology to allow inference of selection on individual alleles from ARGs \citep{hejase2021deeplearning}.
+Reticulated phylogenetic networks can also be viewed through the lens of individual genes histories (i.e., \textit{gene trees}) \citep{maddison1997gene,avise1989gene,pamilo1988relationships}.
+Discordance among the relatedness of individual genes (e.g., quartet distance) can be applied to characterize the influence of horizontal transfer on genome structure \citep{solislemus2016inferring,zhang2022weighting}.
+
+Recombination via sexual crossover organizes ancestry into yet more densely reticulated pedigree structures.
+In this context, analysis may zoom out to examine more tree-like relationships among species or subpopulations.
+Such abstractions, though, must account for confounding processes like hybridization and incomplete lineage sorting (ILS).
+The former introduces genuine reticulation through gene flow, while the latter only mimics it by chance (shared ancestral variation can link lineages as if genes had crossed between them \citep{tajima1983evolutionary}).
+
+By contrast, other work, under the banner of \textit{Ancestral Recombination Graphs (ARGs)}, also performs analyses over large collections of gene trees \citep{nielsen2024inference,lewanski2024era,griffiths1997ancestral}.
+Specialized software and data structures have been developed to handle the intricate structure of these networks \citep{godindubois2024apoget,kelleher2019inferring,wong2024args,jeffery2026tskit}.
+Among other topics of interest to EC, work with ARGs has developed techniques for inference of selection on individual alleles \citep{hejase2021deeplearning,rasmussen2014genome,vaughn2024fast,korfmann2024simultaneous,hejase2020summary}.
