@@ -20,12 +20,17 @@ Other work has similarly examined the effect of graph toplogy on the fate of del
 Importantly, the field has found structure to shape not only whether a variant fixes, but also how quickly \citep{askari2015analytical} --- with a tradeoff often arising between higher fixation certainty and faster fixation times \citep{frean2013effect}.
 Thematic parallels exist between such work and EC's interest in ``takeover time'' as a mechanism to slow convergence, measured as the duration for advantaged mutations to sweep through a population \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection,sudholt2015parallel}.
 
-Recent work has begun to close the gap by recasting topology design as an optimization tool, summarizing a network by an amplification factor that rescales the effective selection coefficient \citep{kuo2024theory} and an acceleration factor that rescales time to fixation \citep{kuo2024evolutionary}.
-Using this formalism, \citet{kuo2024evolutionary} have shown that no single topology is best across problems and that ``decelerator'' structures with slower fixation can reach optima faster on complex landscapes.
-Likewise, \citet{kuo2024evolutionarymutation} analyzes how structure governs the crossing of fitness landscapes themselves.
-A graph-theoretic framing thus offers evolutionary computation both an analytic vocabulary for the structures it already uses and a catalog of theoretical concepts --- amplification, suppression, and motif structure --- available for the taking.
+As well-known in evolutionary computation \citep{wolpert1997no}, no single population structure can be expected optimal across all optimization tasks.
+Instead, recent work has developed methods to systematically tune population topology to suit particular adaptive landscapes \citep{kuo2024theory,kuo2024evolutionary}.
+This design framework enables manipulation of two evolutionary properties: selection strength (``amplication factor'') \citep{kuo2024theory} and effective population size/fixation time (``acceleration factor'') \citep{kuo2024evolutionary}.
+Critically, the two can be tuned independently, because higher-order motifs such as triangles adjust fixation time without altering fixation probability \citep{kuo2024evolutionary}.
+Testing on two evolutionary optimization problems, \citet{kuo2024evolutionary} find the better choice to be landscape-dependent.
+On a task in which agents evolve spatial navigation behaviors, accelerating fixation speeds discovery of the optimal solution.
+By contrast, on the Rastrigin function --- a rugged fitness landscape --- fast fixation instead  premature convergence, and ``decelerator'' structures with slower fixation more readily reach the global optimum.
+\citet{kuo2024evolutionarymutation} extends analysis to consider valley-crossing behavior, finding that amplification and acceleration factors act jointly to influence the probability of crossing a deleterious intermediate in a two-site fitness landscape.
+Thus, rather than a one-size-fits-all prescription, evolutionary graph theory offers an off-the-shelf system for principled tuning the evolutionary properties of population structures, with accompanying guidance on tailoring it to specific optimization objectives.
 
-Likewise, evolutionary computation has important value to offer in interdisciplinary collaboration.
+As \citet{kuo2024evolutionaryexchange} establish, evolutionary computation also has important value to offer in interdisciplinary collaboration.
 Important limitations of existing work in evolutionary graph theory include the sensitivity of findings to update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and the assumption of single-occupancy population structure \citep{broom2012general}.
 To stress test the robustness of evolutionary graph theory results and assess their substantiveness in practice substrate, EC provides a useful substrate that is tractable and malleable yet nontrivial.
 On an entirely separate front, EC has also shown promise as a mechanism to design population structures with desired evolutionary properties \citep{moller2019exploring}.
