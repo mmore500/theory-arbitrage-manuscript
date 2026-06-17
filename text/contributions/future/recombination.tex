@@ -27,10 +27,13 @@ Reticulated phylogenetic networks can also be viewed through the lens of individ
 Discordance among the relatedness of individual genes (e.g., quartet distance) can be applied to characterize the influence of horizontal transfer on genome structure \citep{solislemus2016inferring,zhang2022weighting}.
 
 Recombination via sexual crossover organizes ancestry into yet more densely reticulated pedigree structures.
-In this context, analysis may zoom out to examine more tree-like relationships among species or subpopulations.
-Such abstractions, though, must account for confounding processes like hybridization and incomplete lineage sorting (ILS).
+Existing work with such histories in EC has allowed detailed examination of example sequences of events that can lead runs to dicover successful solutions \citep{mcphee2016visualizing,mcphee2016using}.
+A key practical challenge, however, arises from the data intensity of exhaustive tracking \citep{mcphee2016using}: compared asexual ancestry trees, many fewer lineges leave no descendants --- and so much more data must be retained \citep{dolson2020interpreting}.
+
+In biology, where such detailed records are typically unavailable, analysis often zooms out to examine more tree-like relationships among species or subpopulations.
+Such abstractions, though, must account for confounding processes like hybridization and incomplete lineage sorting (ILS) that complicate tree representation.
 The former introduces genuine reticulation through gene flow, while the latter only mimics it by chance (shared ancestral variation can link lineages as if genes had crossed between them \citep{tajima1983evolutionary}).
 
-By contrast, other work, under the banner of \textit{Ancestral Recombination Graphs (ARGs)}, also performs analyses over large collections of gene trees \citep{nielsen2024inference,lewanski2024era,griffiths1997ancestral}.
+By contrast, other work, under the banner of \textit{Ancestral Recombination Graphs (ARGs)}, instead performs analyses over large collections of gene trees \citep{nielsen2024inference,lewanski2024era,griffiths1997ancestral}.
 Specialized software and data structures have been developed to handle the intricate structure of these networks \citep{godindubois2024apoget,kelleher2019inferring,wong2024args,jeffery2026tskit}.
 Among other topics of interest to EC, work with ARGs has developed techniques for inference of selection on individual alleles \citep{hejase2021deeplearning,rasmussen2014genome,vaughn2024fast,korfmann2024simultaneous,hejase2020summary}.
