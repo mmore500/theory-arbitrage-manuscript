@@ -4,27 +4,28 @@
 Outside of well-mixed chemostat conditions, spatial structure is inherent across natural biological populations.
 Most evolutionary computation, by contrast, defaults to well-mixed conditions.
 While some work has explored cellular algorithms and more sophisticated geographical models
-\citep{tomassini2005spatially,simon2008biogeographybased}.
-However, the topic of population structure within EC most commonly arises as a conceptual framework to distribute evolutionary computation across parallel and distributed hardware resources, where analogy to island biogeography is drawn upon to instantiate independent subpopulations and connecting them with occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed,cantupaz1999scalability}.
+\citep{tomassini2005spatially,simon2008biogeographybased}, the topic of population structure within EC most commonly arises as a conceptual framework to distribute evolutionary computation across parallel and distributed hardware resources \citep{cantupaz1999scalability}.
+For this purpose, an analogy to island biogeography is drawn to instantiate independent subpopulations across available processors, with interprocess communication handling occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed,}.
 The question of how to best arrange such ``islands'' has attracted substantial attention within EC \citep{whitley1999island,cantupaz1999topologies,rucinski2010impact}.
-Topics of interest have included the influence of migration policy \citep{cantupaz2001migration,cantupaz1999topologies},
+Topics of interest have included migration policy \citep{cantupaz2001migration,cantupaz1999topologies},
 population size \citep{whitley1999island,goldberg1989sizing,cantupaz2001efficient},
-population diversity and premature convergence \citep{tanese1989distributed,whitley1999island},
+premature convergence \citep{tanese1989distributed,whitley1999island},
 and which problem classes benefit from population structure \citep{lassig2013design}.
-Another topic of interest has been takeover time, the duration required for advantaged mutations to sweep through a population under different connectivity structures \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection}.
 
-Similar interest in how spatial structure influences the strength of natural selection arises in the field of evolutionary graph theory \citep{lieberman2005evolutionary}.
-Research in this area considers evolutionary processes over discrete networks, where population structure is generally represented by distributing carrying capacity over a graph structure --- with individuals occupying individual vertices and edges indicating possible routes for lineage spread \citep{pattni2015evolutionary}.
+Outside of evolutionary computation, similar interest in how spatial structure influences the strength of natural selection arises in the field of evolutionary graph theory \citep{lieberman2005evolutionary}.
+Research in this area considers evolutionary processes over discrete networks, where population structure is generally represented by distributing carrying capacity over a topological graph --- with individuals occupying individual vertices and edges indicating possible routes for lineage spread \citep{pattni2015evolutionary}.
 
-A central result of evolutionary graph outcomes is that topology can strongly influence evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by raising the fixation probability of advantaged mutants, while others can suppress fixation probability \citep{lieberman2005evolutionary,pavlogiannis2018construction,allen2017evolutionary}.
-Work has found structure to shape not only whether a variant fixes, but also how quickly \citep{askari2015analytical} --- with a tradeoff often arising between higher-likelihood and faster fixation of beneficial mutations \citep{frean2013effect}.
-Strong parallels exist between this and EC's exploration of takeover time.
+A central result of evolutionary graph theory is that topology can strongly influence evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by making advantaged mutants more likely to fix, while others instead suppress these fixation probabilities \citep{lieberman2005evolutionary,pavlogiannis2018construction,allen2017evolutionary}.
+Other work has similarly examined the effect of graph toplogy on the fate of deleterious mutations \citep{sharma2022suppressors}.
+Importantly, the field has found structure to shape not only whether a variant fixes, but also how quickly \citep{askari2015analytical} --- with a tradeoff often arising between higher fixation certainty and faster fixation times \citep{frean2013effect}.
+Thematic parallels exist between such work and EC's interest in ``takeover time'' as a mechanism to slow convergence, measured as the duration for advantaged mutations to sweep through a population \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection,sudholt2015parallel}.
 
 Recent work has begun to close the gap by recasting topology design as an optimization tool, summarizing a network by an amplification factor that rescales the effective selection coefficient \citep{kuo2024theory} and an acceleration factor that rescales time to fixation \citep{kuo2024evolutionary}.
 Using this formalism, \citet{kuo2024evolutionary} have shown that no single topology is best across problems and that ``decelerator'' structures with slower fixation can reach optima faster on complex landscapes.
 Likewise, \citet{kuo2024evolutionarymutation} analyzes how structure governs the crossing of fitness landscapes themselves.
 A graph-theoretic framing thus offers evolutionary computation both an analytic vocabulary for the structures it already uses and a catalog of theoretical concepts --- amplification, suppression, and motif structure --- available for the taking.
 
-Important limitations of evolutionary graph theory arise in how these effects can be sensitive to the update rule \citep{hindersin2015most} and often assume a single individual per node \citep{broom2012general} --- and so do not directly capture island subpopulations \citep{sharma2022suppressors}.
-Collaboration with EC provides one tractable way to study these effects over malleable, but less trivial, populations with nuanced yet tuneable genetic structure.
-Interestingly, EC has also shown promise as a mechanism to design population structures with desired evolutionary properties \citep{moller2019exploring}.
+Likewise, evolutionary computation has important value to offer in interdisciplinary collaboration.
+Important limitations of existing work in evolutionary graph theory include the sensitivity of findings to update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and the assumption of single-occupancy population structure \citep{broom2012general}.
+To stress test the robustness of evolutionary graph theory results and assess their substantiveness in practice substrate, EC provides a useful substrate that is tractable and malleable yet nontrivial.
+On an entirely separate front, EC has also shown promise as a mechanism to design population structures with desired evolutionary properties \citep{moller2019exploring}.
