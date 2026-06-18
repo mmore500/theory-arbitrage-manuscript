@@ -5,7 +5,7 @@ Outside of well-mixed chemostat conditions, spatial structure is inherent across
 Most evolutionary computation, by contrast, defaults to well-mixed conditions.
 While some work has explored cellular algorithms and more sophisticated geographical models
 \citep{tomassini2005spatially,simon2008biogeographybased}, the topic of population structure within EC most commonly arises as a conceptual framework to distribute evolutionary computation across parallel and distributed hardware resources \citep{cantupaz1999scalability}.
-For this purpose, an analogy to island biogeography is drawn to instantiate independent subpopulations across available processors, with interprocess communication handling occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed,}.
+For this purpose, an analogy to island biogeography is drawn to instantiate independent subpopulations across available processors, with interprocess communication handling occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed}.
 The question of how to best arrange such ``islands'' has attracted substantial attention within EC \citep{whitley1999island,cantupaz1999topologies,rucinski2010impact}.
 Topics of interest have included migration policy \citep{cantupaz2001migration,cantupaz1999topologies},
 population size \citep{whitley1999island,goldberg1989sizing,cantupaz2001efficient},
@@ -16,21 +16,21 @@ Outside of evolutionary computation, similar interest in how spatial structure i
 Research in this area considers evolutionary processes over discrete networks, where population structure is generally represented by distributing carrying capacity over a topological graph --- with individuals occupying individual vertices and edges indicating possible routes for lineage spread \citep{pattni2015evolutionary}.
 
 A central result of evolutionary graph theory is that topology can strongly influence evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by making advantaged mutants more likely to fix, while others instead suppress these fixation probabilities \citep{lieberman2005evolutionary,pavlogiannis2018construction,allen2017evolutionary}.
-Other work has similarly examined the effect of graph toplogy on the fate of deleterious mutations \citep{sharma2022suppressors}.
+Other work has similarly examined the effect of graph topology on the fate of deleterious mutations \citep{sharma2022suppressors}.
 Importantly, the field has found structure to shape not only whether a variant fixes, but also how quickly \citep{askari2015analytical} --- with a tradeoff often arising between higher fixation certainty and faster fixation times \citep{frean2013effect}.
 Thematic parallels exist between such work and EC's interest in ``takeover time'' as a mechanism to slow convergence, measured as the duration for advantaged mutations to sweep through a population \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection,sudholt2015parallel}.
 
 As well-known in evolutionary computation \citep{wolpert1997no}, no single population structure can be expected optimal across all optimization tasks.
 Instead, recent work has developed methods to systematically tune population topology to suit particular adaptive landscapes \citep{kuo2024theory,kuo2024evolutionary}.
-This design framework enables manipulation of two evolutionary properties: selection strength (``amplication factor'') \citep{kuo2024theory} and effective population size/fixation time (``acceleration factor'') \citep{kuo2024evolutionary}.
+This design framework enables manipulation of two evolutionary properties: selection strength (``amplification factor'') \citep{kuo2024theory} and effective population size/fixation time (``acceleration factor'') \citep{kuo2024evolutionary}.
 Critically, the two can be tuned independently, because higher-order motifs such as triangles adjust fixation time without altering fixation probability \citep{kuo2024evolutionary}.
 Testing on two evolutionary optimization problems, \citet{kuo2024evolutionary} find the better choice to be landscape-dependent.
 On a task in which agents evolve spatial navigation behaviors, accelerating fixation speeds discovery of the optimal solution.
-By contrast, on the Rastrigin function --- a rugged fitness landscape --- fast fixation instead  premature convergence, and ``decelerator'' structures with slower fixation more readily reach the global optimum.
+By contrast, on the Rastrigin function --- a rugged fitness landscape --- fast fixation instead drives premature convergence, and ``decelerator'' structures with slower fixation more readily reach the global optimum.
 \citet{kuo2024evolutionarymutation} extends analysis to consider valley-crossing behavior, finding that amplification and acceleration factors act jointly to influence the probability of crossing a deleterious intermediate in a two-site fitness landscape.
-Thus, rather than a one-size-fits-all prescription, evolutionary graph theory offers an off-the-shelf system for principled tuning the evolutionary properties of population structures, with accompanying guidance on tailoring it to specific optimization objectives.
+Thus, rather than a one-size-fits-all prescription, evolutionary graph theory offers an off-the-shelf system for principled tuning of the evolutionary properties of population structures, with accompanying guidance on tailoring it to specific optimization objectives.
 
 As \citet{kuo2024evolutionaryexchange} establish, evolutionary computation also has important value to offer in interdisciplinary collaboration.
 Important limitations of existing work in evolutionary graph theory include the sensitivity of findings to update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and the assumption of single-occupancy population structure \citep{broom2012general}.
-To stress test the robustness of evolutionary graph theory results and assess their substantiveness in practice substrate, EC provides a useful substrate that is tractable and malleable yet nontrivial.
+To stress test the robustness of evolutionary graph theory results and assess their substantiveness in practice, EC provides a useful substrate that is tractable and malleable yet nontrivial.
 On an entirely separate front, EC has also shown promise as a mechanism to design population structures with desired evolutionary properties \citep{moller2019exploring}.
