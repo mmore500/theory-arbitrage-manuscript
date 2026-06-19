@@ -29,7 +29,7 @@
 % \item \citet{bohm2024reduced}
 % \item \citet{ragusa2022augmenting}
 % \item \citet{wright1932roles,wright1982shifting}
-% \item \citet{oliveto2017escape}
+% \item \citet{oliveto2017how}
 % \end{itemize}
 
 % \textbf{Excluded Citations}: \begin{itemize}
@@ -66,19 +66,19 @@ This perspective helps us focus on mechanisms that maintain evolvability without
 % VINNY: this section will have the most overlap with other sections in this paper, and a much better use of this space might be to simply acknowledge those sections as relevant to this topic and refer the reader to them.
 % @mmore500 if this gets ironed out, we should make sure the specific aspects of theory alluded to are cited/name-checked where these topic appear elsewhere in the text
 Many natural mechanisms have been studied which help a population escape from a local optimum, including shifting selection strengths, phenotypic plasticity, neutral variation, and evolving mutation rates, just to name a few.
-Shifting balance theory \cite{wright1932roles,wright1982shifting}, for example, describes how a population can naturally change size, from large to small, and thus weaken selection enough to allow escape from local optima.
-The degree to which a genotype-phenotype map allows for neutral\cite{kimura1983neutral,kimura1991neutral} (or nearly neutral\cite{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \cite{oliveto2017escape}.
+Shifting balance theory \citep{wright1932roles,wright1982shifting}, for example, describes how a population can naturally change size, from large to small, and thus weaken selection enough to allow escape from local optima.
+The degree to which a genotype-phenotype map allows for neutral\citep{kimura1983neutral,kimura1991neutral} (or nearly neutral\citep{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \citep{oliveto2017how}.
 Phenotypic plasticity, too, can mask the effects of deleterious mutations and allow them to avoid immediate purifying selection [CITE].
-So-called `hyper-mutators' can arise in a converged population and subsequently overcome purifying selection with sheer quantity of mutations \cite{goodman2016better}.
+So-called `hyper-mutators' can arise in a converged population and subsequently overcome purifying selection with sheer quantity of mutations \citep{goodman2016better}.
 
-These concepts have been around for some time already, however, and have already been studied as remedies to premature convergence in evolutionary computation: Changing pop size [CITE], neutral diversity\cite{hu2025neutrality,banzhaf1994genotypephenotypemapping}, phenotypic plasticity\cite{behera1997effect,borenstein2006effect}, evolving mutation rates\cite{back1994parallel,smit2009comparing,kramer2010evolutionary}. % rephrase this paragraph to emphasise that although these topics have been studied in EC, evolutionary theory provides both principled reasons for including them, and convey more complexity than the usual EC abstractions have captured, creating opportunities for EC to develop further
+These concepts have been around for some time already, however, and have already been studied as remedies to premature convergence in evolutionary computation: Changing pop size [CITE], neutral diversity\citep{hu2025neutrality,banzhaf1994genotypephenotypemapping}, phenotypic plasticity\citep{behera1997effect,borenstein2006effect}, evolving mutation rates\citep{back1994parallel,smit2009comparing,kramer2010evolutionary}. % rephrase this paragraph to emphasise that although these topics have been studied in EC, evolutionary theory provides both principled reasons for including them, and convey more complexity than the usual EC abstractions have captured, creating opportunities for EC to develop further
 
 
 % --------------------------------
 
 \subsubsection{Adaptive Momentum}
 Newer advances in evolutionary theory, however, provide rich opportunities for new advances in evolutionary computation.
-One recent advancement, the theory of adaptive momentum\cite{bohm2024reduced}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged.
+One recent advancement, the theory of adaptive momentum\citep{bohm2024reduced}, is so named because it explains the tendency for populations that have not yet converged to discover beneficial mutations at a faster rate than populations that have converged.
 
 When a population is in the midst of a non-equilibrium transition, such as the selective sweep of a beneficial mutation, a territory range expansion, or a carrying capacity increase, some lineages experience weakened purifying selection.
 If a deleterious mutation arises on one of those lineages, it is less likely to be purged.
@@ -95,7 +95,7 @@ Weak selection introduces additional risk of losing genetic improvements to drif
 Therefore, to leverage adaptive momentum, we seek scenarios where we increase the time it takes to converge, without lowering the probability of fixing beneficial discoveries.
 
 One simple method of tuning fixation speed is to introduce spatial structure to the population.
-There is a rich body of literature that catalogs how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \cite{moller2019exploring,askari2015analytical,lieberman2005evolutionary,bohm2024reduced}.
+There is a rich body of literature that catalogs how different population structures affect the speed and probability of fixing beneficial mutations when they are discovered \citep{moller2019exploring,askari2015analytical,lieberman2005evolutionary,bohm2024reduced}.
 Introducing these structures into existing evolutionary algorithms should boost the system's ability to leverage adaptive momentum without substantially changing other algorithmic components.
 
 A complementary strategy for leveraging adaptive momentum is to artificially introduce the dynamics of an unconverged population into the evolutionary process.
@@ -103,7 +103,7 @@ For example, increase selection strength when newly discovered beneficial mutati
 In practice, this could correspond to dynamically adjusting tournament size, temperature in an annealing-style controller, or even population size.
 
 Another, more structural way to achieve a similar effect is to maintain a small contingent of lineages that remain unconstrained even when the population is converged.
-One such technique adds ``super-explorers'' \cite{ragusa2022augmenting} to an evolving system.
+One such technique adds ``super-explorers'' \citep{ragusa2022augmenting} to an evolving system.
 Super-explorers undergo Brownian motion in the fitness landscape, seeded at the locations of high-fitness genotypes.
 These super-explorers can buffer an unlimited number of deleterious mutations before being removed due to old age.
 While they explore, they are visible to selection and may introduce their genotype into the main population, giving their discoveries a chance to compete.
@@ -132,11 +132,11 @@ This constant change has given rise to the metaphor of the fitness seascape, one
 % @mmore500 maybe some citations and allusions to where fitness seascape discussions are taking place on the biology side?
 
 For evolutionary computation, these seascapes remind us that fitness functions don't need to be static, and that controlled dynamism can help populations escape from local optima.
-Even applying simple noise to the fitness function can improve rates of adaptation \cite{ragusa2021connections}.
+Even applying simple noise to the fitness function can improve rates of adaptation \citep{ragusa2021connections}.
 
 The introduction of ecology in various forms can also result in a dynamic fitness seascape.
-Natural examples include: parasitism \cite{johnson2025keep}, sexual selection \cite{bohm2019sexual}, predator/prey interactions [cite], cooperative/swarm behavior [cite], ...
-In addition to these, a number of artificial ecological interactions can introduce similar effects: fitness sharing \cite{della2007niches}, crowding penalties \cite{deb2002fast}, and novelty rewards \cite{lehman2011novelty, mouret2015illuminating} are all examples of evolutionary computation techniques that alter the fitness landscape dynamically based on the state or history of the population.
+Natural examples include: parasitism \citep{johnson2025keep}, sexual selection \citep{bohm2019sexual}, predator/prey interactions [cite], cooperative/swarm behavior [cite], ...
+In addition to these, a number of artificial ecological interactions can introduce similar effects: fitness sharing \citep{della2007niches}, crowding penalties \citep{deb2002fast}, and novelty rewards \citep{lehman2011novelty, mouret2015illuminating} are all examples of evolutionary computation techniques that alter the fitness landscape dynamically based on the state or history of the population.
 
 All of these ecological dynamics, natural or artificial, create opportunities for populations to find climbable fitness gradients without crossing a valley in the fitness landscape.
 Once on a climbable gradient, genetic improvements are more easily discovered, leading to adaptive momentum, creating even more opportunities for further developments.

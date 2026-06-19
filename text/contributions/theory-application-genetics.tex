@@ -1,0 +1,49 @@
+\section{Existing Connections: Genetics}
+\label{sec:genetics}
+
+Because evolutionary algorithms instantiate the same core process as biological evolution --- heritable variation under selection \citep{lewontin1970units} --- the mathematical theory to explain natural evolution can also explain evolution \textit{in silico}.
+As \citet{paixao2015toward} highlight, the fields of population genetics and evolutionary computation developed largely in parallel for thirty years, accumulating overlapping results in mutual isolation.
+The genotype-frequency recursions central to population genetics \citep{lewontin1964interaction,slatkin1970selection}, for instance, were independently constructed in computer science as quadratic dynamical systems \citep{rabinovich1992quadratic,rabani1998computational} and within the operator formalism of random heuristic search \citep{vose1999random}.
+\citet{paixao2015toward} close this gap by establishing equivalency between these veins.
+
+TODO transition
+
+\subsection{Population Genetics}
+\label{sec:population-genetics}
+
+Population-genetic theory provides analytical tools for explaining the behavior of evolutionary algorithms.
+Core theory has been carried into evolutionary computation from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equilibrium, with no correlation between allele co-occurrence \citep{geiringer1944probability}.
+In evolutionary computation, this theorem has been generalized from fixed-length strings to variable-length genetic algorithms and genetic programs \citep{poli2002allele}, and subsequently to tree-based GP \citep{mitavskiy2006results}.
+Population-genetic framing also supplies useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}.
+Existing work has used these statistics to provide a rigorous explanation for why crossover can encounter difficulty on strongly epistatic fitness landscapes, as it drives a population toward locus-wise independence \citep{chakraborty1997linkage}.
+
+Key connections have also been established around the Strong-Selection-Weak-Mutation (SSWM) regime, where mutations are rare relative to the time they take to fix --- so that a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
+For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.
+Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
+Thus, the product $N s$ provides a simple, dimensionless measure of how effectively selection can overcome drift in populations of constant size \citep{gravel2016selection}, serving as an approximate indicator under idealized conditions.
+
+The SSWM regime can be harnessed as a limited model of both evolutionary computation and biological evolution.
+This regime, in particular, can be connected to quantifying how expected time-to-solution is affected by selection configuration, and indicating where acceptance of fitness-decreasing moves diverges meaningfully from a standard elitist algorithm \citep{paixao2016towards}.
+Applied to the topic of fitness valleys, this analytical framework helps distinguish where time-to-solution is governed by valley length versus depth \citep{oliveto2017how}.
+The degree to which a genotype-phenotype map allows for neutral \citep{kimura1983neutral,kimura1991neutral} (or nearly neutral~\citep{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \citep{oliveto2017how}.
+This scenario runs parallel with biological intuition that escaping local optima requires weak selection sufficient to cross valleys \citep{wright1932roles}.
+Ultimately, by combining drift theorems from evolutionary computation \citep{TODO} and population genetics, this lens can provide an upper bound on adaptation time across fitness landscapes \citep{heredia2017selection}.
+
+Statistical mechanics can also be used to describe the behavior of a population under selection and drift.
+Originally translated to evolutionary biology from physics, theory of thermodynamic systems can be used to characterize the steady-state distribution of fixed genotypes and genetic load in finite populations \citep{sella2005application}.
+Modeling a genetic algorithm's population as a flow through the space of fitness distributions produces metastability, extended periods of stasis in the absence of convergence to a local optimum \citep{vannimwegen1999statistical}. % TODO improve me
+
+\subsection{Quantitative Genetics}
+\label{sec:quantitative-genetics}
+
+Selection emerges as a statistical consequence of variation in fitness, translating individual reproductive outcomes into systematic genetic and phenotypic trends across generations \citep{gregory2009understanding, endler1986natural}.
+Organisms are subject to many selective pressures (e.g., predation, climate, pathogens, competition), and these forces often simultaneously target multiple, potentially correlated traits \citep{lande1983measurement}.
+As a result, natural selection rarely optimizes a single objective.
+Instead, evolutionary change reflects a balance constrained by genetics, development, and physiology (e.g., pleiotropy, limited genetic variation, linkage) \citep{garland2022trade}.
+Viewed through an optimization lens, natural organisms explore a high-dimensional Pareto surface in which gains along one axis can impose costs along others \citep{shoval2012evolutionary}.
+
+Quantitative genetics models the response of continuous trait distributions to selection \citep{lande1979quantitative,lush1945animal}.
+Imported into evolutionary computation, it can predict a run's fitness trajectory \citep{mhlenbein1997equation}.
+Its multivariate generalization predicts the joint response of several correlated traits from the genetic covariance structure and a vector of selection gradients \citep{lande1983measurement}, mapping naturally onto multi-objective settings in which selection acts on many interacting traits at once.
+
+Relatedly, Price's covariance-and-selection theorem \citep{price1970selection} reveals that progress can be measured as covariance between parent and offspring fitness \citep{altenberg1995schema}.

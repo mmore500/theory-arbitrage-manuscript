@@ -79,7 +79,7 @@ Selection in EC generally relies on three core components:
 and (3) an algorithmic protocol that specifies how candidates are chosen, that is, the procedure that formalizes the selection process.
 These three components are typically integrated into a \textit{selection scheme}, broadly defined as the selection mechanism responsible for choosing candidate solutions for subsequent analysis or use.
 All three core components directly influence the ability of a selection scheme to effectively navigate a search space.
-An insufficiently sized pool of candidate solutions can lead to drift \cite{rogers1999genetic}.
+An insufficiently sized pool of candidate solutions can lead to drift \citep{rogers1999genetic}.
 Inappropriate or misleading quantitative metrics may misguide the search \citep{dolson2018applying}.
 Likewise, an algorithmic protocol ill-suited for the underlying landscape --- such as one that aggressively prioritizes high-performing individuals in a search space containing numerous local optima --- can degrade search performance \citep{mouret2015illuminating,helmuth2015lexicase,lehman2011novelty}.
 % A deeper theoretical understanding and characterization of selection schemes can inform more effective design choices, thereby increasing the likelihood of success on a given problem.
@@ -124,9 +124,9 @@ An analogous perspective can inform the behavioral characteristics and practical
 %  my work
 
 
-Hernandez \textit{et al.} \cite{hernandez2023beyond,hernandez2023suite} introduced DOSSIER (``Diagnostic Overview of Selection Schemes in Evolutionary Runs''), a diagnostic suite of manually designed search spaces, each constructed to demand varying balances of exploration and exploitation for successful problem solving.
+Hernandez \textit{et al.} \citep{hernandez2023beyond,hernandez2023suite} introduced DOSSIER (``Diagnostic Overview of Selection Schemes in Evolutionary Runs''), a diagnostic suite of manually designed search spaces, each constructed to demand varying balances of exploration and exploitation for successful problem solving.
 An evolutionary algorithm designed to make the selection scheme the primary driver of the search was evaluated on each diagnostic task, with a range of selection schemes compared as the dominant search mechanism.
-The DOSSIER suite provided empirical evidence supporting the validity of existing selection pressure expressions, while also offering first-order approximations for selection schemes that previously lacked such expressions \cite{hernandez2023beyond,hernandez2023suite}.
+The DOSSIER suite provided empirical evidence supporting the validity of existing selection pressure expressions, while also offering first-order approximations for selection schemes that previously lacked such expressions \citep{hernandez2023beyond,hernandez2023suite}.
 Additionally, these diagnostics were used to reveal key differences in exploration capability among the various lexicase selection variants \citep{hernandez2022exploration}. %, each incorporating more sophisticated mechanisms than those present in standard lexicase selection.
 Moreover, the DOSSIER suite highlighted the influence of population size on lexicase selection's ability to maintain diversity and specialists \citep{hernandez2025params}, validated by an expression that estimates a theoretical threshold for successful diversity and specialist maintenance \citep{lacava2019probabilistic}.
 The existing diagnostics cover only a limited subset of potential exploitation and exploration scenarios, leaving ample opportunity for the development of additional diagnostics that capture further search space characteristics critical to success and that commonly arise in real-world problem domains.
