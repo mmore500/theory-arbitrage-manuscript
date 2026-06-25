@@ -50,8 +50,10 @@
 % \item \citet{kondratyeva2019reconciling}
 % \item \citet{tian2019diversity} %Diversity assessment in MOO, not really biological
 % \end{itemize}
+Given the central role of diversity in problem-solving outcomes for evolutionary computation \citep{mcphee1999analysis,michalewicz1996genetic,gabor2021productive},
+In all branches of evolutionary computation, maintaining diversity in the population is a crucial factor for effectively solving problems because it prevents premature convergence to local optima and enables broader exploration of the search space ,TODO}.
+For this reason, being able to measure diversity is critical for understanding the behavior of evolutionary computation techniques for theoretical understanding, and to be able to diagnose the performance of algorithms on individual problems on a practicioner level.
 
-In all branches of evolutionary computation, maintaining diversity in the population is a crucial factor for effectively solving problems because it prevents premature convergence to local optima and enables broader exploration of the search space.
 Over the years, numerous strategies have been proposed to measure and maintain diversity within EC.
 However, most existing research focuses only on the content of the population at a single time point \citep{hernandez2022can}.
 These diversity measures are commonly referred to as ``genetic diversity'' or ``phenotypic diversity''.
@@ -59,7 +61,27 @@ In some cases, genetic diversity is quantified simply by counting the number of 
 Other approaches employ metrics that account for how evenly individuals are distributed across types, such as Shannon diversity \citep{burke2002advanced, burke2004diversity}.
 Occasionally more nuanced metrics are used that consider the level of similarity of the types in the population \citep{morrison2002measurement,corriveau2012review,smit2011population}.
 
-In contrast, researchers in ecology and evolutionary biology augment these metrics with a class of phylogenetic diversity measures \citep{tucker2018relationship}, which account for not only individuals in the current population, but also their evolutionary history. %Phylogenetic diversity metrics quantify evolutionary divergence between individuals by incorporating information from the topology of the phylogenetic tree-a tree that represents the ancestral relationships among members of a population. Each node in the tree represents an individual, while the edges show ancestor-descendant relationships.
+Diversity is also of great interest to researchers in biology.
+Most obviously, from a conservation perspective measuring and tracking this diversity has become a race against the clock to be able to track the impacts of anthropogenic change and to prioritize response measures (what interventions will have the greatest benefit to diversity) \citep{pimm2014biodiversity,isaac2007mammals}.
+However, the contributing factors to diversity and its causal implications on evolutionary processes is also of great interest, and an area of active study \citep{fine2015ecological,stein2014environmental,rabosky2013diversitydependence}.
+Diversity can be conceptualized in terms of both composition and structure \citep{noss1990indicators}.
+Classically, diversity has been partitioned across spatial scales according to an alpha/beta/gamma framework \citep{whittaker1960vegetation, whittaker1972evolution}, later extended by \citet{whittaker1977evolution} into a fuller nested hierarchy:
+\begin{enumerate}
+\item \emph{Point} diversity: the diversity of a single sample or microhabitat, the finest scale of observation.
+\item \emph{Alpha} ($\alpha$) diversity: the diversity within a single local community or habitat, typically quantified by richness or one of the within-sample metrics described above.
+\item \emph{Beta} ($\beta$) diversity: the turnover or differentiation in composition \emph{between} local communities, capturing how much communities differ from one another.
+\item \emph{Gamma} ($\gamma$) diversity: the total diversity across a landscape or region encompassing those communities.
+\item \emph{Delta} ($\delta$) diversity: the differentiation \emph{between} landscapes or gamma-scale units, i.e. turnover over wide geographic areas.
+\item \emph{Epsilon} ($\varepsilon$) diversity: the total regional diversity of a group of such landscapes, the coarsest scale.
+\end{enumerate}
+Biodiversity is also considered within a population, at the level of genes rather than communities: the variation among individuals in their alleles, typically quantified as heterozygosity or nucleotide diversity
+\citep{nei1973gene}.
+This genetic diversity constitutes the most fundamental level of the biodiversity hierarchy .
+Functional formuations of biodiversity are also possible \citep{noss1990indicators}.
+
+However, another important aspect of diversity is the history \citep{faith1992conservation}.
+In contrast, researchers in ecology and evolutionary biology augment these metrics with a class of phylogenetic diversity measures \citep{tucker2018relationship}, which account for not only individuals in the current population, but also their evolutionary history.
+
 Similarly, in EC, by tracking the full phylogenetic tree of a population \citep{dolson2020interpreting}, analogous metrics can be derived to quantify how evolutionarily distant the candidate solutions are.
 Existing work has explored two classes of phylogenetic diversity metrics in evolutionary computation:
 
@@ -87,4 +109,14 @@ Using the same transfer entropy approach, studies have demonstrated that in sele
 This finding has important implications for evolutionary computation, as it suggests that monitoring phylogenetic diversity can provide early indicators of an algorithm's potential to discover global optima before it is run for thousands of generations.
 Consequently, this can help choose the right evolutionary algorithm for an optimization problem, or enable the early identification of runs that are unlikely to be successful, reducing the need for computationally expensive long-term executions.
 
+Importantly, a limitation of this work is that it focuses on asexual populations which create strictly branching phylogenetic trees, rather than a more general class of phylogenetic networks when recombination is involved.
+Such trees also apply to populations using speciation techniques, which produce species trees.
+These networks represent a distinct area of evolutionary analysis, covered in Section \ref{sec:recombination}.
+
 A rich ecosystem of existing software exists to support phylogenetic analyses and visualizations \citep{moreno2024dendropy,talevich2012biophylo,huertacepas2016ete3,aton2026scikitbio,kelleher2019inferring,moshiri2025compacttree,moshiri2020treeswift,ryneches2018suchtree,eaton2019toytree,moreno2026phyloframe,paradis2018ape,lalejini2019data,yu2016ggtree,zanini2025iplotx,sanderson2022taxonium,vaughan2017icytree}.
+
+This approach has been extended to geneaologies \citep{burlacu2023population}.
+
+Other work has also investigated runtime applications of phylogenetic diversity measures \citep{burlacu2019online,gabor2018inheritancebased,gabor2018preparing,burke2003increased,lalejini2024phylogenyinformed,lalejini2024runtime,murphy2008simple}.
+
+\citet{burke2002survey} TODO
