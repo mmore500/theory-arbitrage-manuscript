@@ -54,26 +54,27 @@ Given the central role of diversity in problem-solving outcomes for evolutionary
 This capability has applications not only in theory to understand how and why EC algorithms work, but also to the practitioner to diagnose the behavior of EC algorithms on a particular problem.
 
 Most existing approaches to describing diversity in EC focus on describing the content of a population at a single point in time.
-The most common observational approaches to diversity maintenance mirror operational mechanisms used to assess individuals' marginal contributions to diversity (Section \ref{sec:diversity-maintenance}), around describing the genetic content or phenotypic content of individuals \citep{hernandez2022can}.
-Such diversity measures are commonly referred to as ``genetic diversity'' or ``phenotypic diversity''.
-The simplest version of these metrics is simply a count of unique types \citep{TODO}.
-Other approaches employ metrics that account for how evenly individuals are distributed across types, such as Shannon diversity \citep{burke2002advanced, burke2004diversity}.
-More nuanced metrics are also used that consider the level of similarity of the types in the population \citep{morrison2002measurement,corriveau2012review,smit2011population}.
+The most common observational approaches to diversity maintenance mirror operational mechanisms used to assess individuals' marginal contributions to diversity (Section \ref{sec:diversity-maintenance}), around describing the genetic content or phenotypic content of individuals \citep{hernandez2022can,nguyen2006brief}.
+The simplest version of these metrics is simply a count of unique types or unique components \citep{jackson2010promoting,mcphee1999analysis}.
+Other approaches employ metrics that account for how evenly individuals are distributed across types, such as Shannon diversity \citep{burke2002advanced,burke2004diversity}.
+More nuanced metrics are also used that consider the level and distribution of similarity among different types in the population \citep{morrison2002measurement,corriveau2012review,smit2011population,}.
 
-These approaches to measuring diversity have direct analogs in biological studies of diversity, under the banner of $\alpha$, or compositional, diversity \citep{noss1990indicators,whittaker1960vegetation}.
+These approaches to measuring diversity have direct analogs in biological studies of diversity, under the banner of $\alpha$, or compositional, diversity \citep{noss1990indicators,fisher1943relation}.
 Counting the number of unique types present in the population corresponds to a ``richness'' measure in biological parlance \citep{magurran2021measuring}.
-As is the case in EC, compositional measures such as Shannon entropy that take into account relative abundances are also widely used \citep{TODO}.
+As is the case in EC, compositional measures such as Shannon entropy that take into account relative abundances are also widely used \citep{magurran2021measuring}.
+Such indices differ in how  strongly they weight common versus rare types, and \citet{hill1973diversity} showed that a broad family of them (including richness, Shannon entropy, and Simpson diversity) can be unified under a common mathematical framework.
+\citet{jost2006entropy} suggests transformation of such metrics to effective species counts, to provide better interperability and comparability.
 While biodiversity analyses often operate at the level of species, such measures are also considered with respect to the genetic composition of a population, such as the variation among individuals in their alleles, typically quantified as heterozygosity or nucleotide diversity \citep{nei1973gene}.
 
-In an aspect of diversity less commonly considered within EC, biologists are also interested in structural aspects of biodiversity --- so-called $\beta$ diversity \citep{noss1990indicators,whittaker1960TODO}.
+In an aspect of diversity less commonly considered within EC, biologists are also interested in structural aspects of biodiversity --- so-called $\beta$ diversity \citep{noss1990indicators,whittaker1960vegetation}.
 % whittaker1972evolution?
 This framing of diversity looks specifically at how communities and assemblages differ from each other, essentially how uniform --- or disparate --- different ecological assemblages are from one another.
-Such framings only make sense where the idea of local structure is well-defined, and thus may be pertinent to EC in scenarios where local , such as island models or quality-diversity schemes.
+Such framings only make sense where the idea of local structure is well-defined, and thus may be pertinent to EC in scenarios where such structure exists, such as island models or quality-diversity schemes.
 
 Another important aspect of diversity commonly considered in biology is ancestral history \citep{faith1992conservation}.
 Such measures account for not only individuals in the current population, but also their evolutionary history \citep{tucker2018relationship}.
 A huge quantity of overlapping metrics to quantify aspects of phylogenetic structure have arisen, but they can generally be considered across three dimensions: richness (how much evolutionary history is represented), divergence (how much evolutionary distance exists between taxa), and regularity (how symmetrical patterns are within the tree) \citep{tucker2016guide}.
-In biological work, such metrics have been used TODO.
+In biological work, such metrics have been used to guide conservation efforts to maximize preservation of living evolutionary history \citep{isaac2007mammals}.
 
 Given the parallels in ancestry structure between digital and biological evolution, such ancestral information can also meaningfully describe and reflect evolutionary processes \textit{in silico} \citep{dolson2020interpreting}.
 Existing work has explored two particular phylogenetic diversity metrics in EC:
@@ -92,11 +93,12 @@ This relationship was demonstrated using transfer entropy, a measure in informat
 % Specifically, given two variables $X$ and $Y$, transfer entropy measures how much information past values of $Y$ provide about future values of $X$ beyond what is already explained by the past values of $X$.
 Using this approach, it was shown that phylogenetic diversity can be a predictor of future phenotypic diversity.
 Similar analysis also revealed that phylogenetic diversity can also be predictive of potential for future evolutionary innovations.
-For selection schemes incorporating diversity maintenance protocols, phylogenetic diversity exhibits a stronger transfer entropy relationship with future fitness gains than phenotypic diversity, thus providing a stronger predictor of future optimization success \citep{hernandez2022can,shahbandegan2022untangling}.
+For selection schemes incorporating diversity maintenance protocols, phylogenetic diversity exhibits a stronger transfer entropy relationship with future fitness gains than phenotypic diversity, thus providing a stronger predictor of future optimization success \citep{hernandez2022phylogenetic}.
+This predictive power appears strongest in scenarios involving deceptive fitness landscapes, where early adaptation severly constrains later evolutionary discovery \citep{shahbandegan2022untangling}.
 
 Together, these findings suggest that monitoring phylogenetic diversity can provide useful early indicators of an algorithm's potential to discover global optima before it is run for thousands of generations.
 Consequently, this can help choose the right evolutionary algorithm for an optimization problem, or enable the early identification of runs that are unlikely to be successful, reducing the need for computationally expensive long-term executions.
-The capability of selection schemes to maintain phylogenetic diversity has also provided a valuable means to characterize their performance characteristics from a more theoretical bent \citep{dolson2018TODO}.
+The capability of selection schemes to maintain phylogenetic diversity has also provided a valuable means to characterize their performance characteristics from a more theoretical bent \citep{dolson2018ecological}.
 
 Existing phylogeny-based work in EC has only scraped the tip of what is possible in modern phylogenetic analysis.
 Notably, modern work fits sophisticated statistical models to trees that take into account the distribution of traits across the tree in addition to topology.
