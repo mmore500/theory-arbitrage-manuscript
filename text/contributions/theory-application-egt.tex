@@ -22,12 +22,12 @@ Surprisingly, in such scenarios, faster fixation time often comes at the cost of
 Thematic parallels exist between such EGT work and EC's interest in extending duration required for mutational sweeps (``takeover time''), as a mechanism to slow search convergence \citep{goldberg1991comparative,rudolph2000takeover,giacobini2005selection,sudholt2015parallel}.
 
 As well-known in EC \citep{wolpert1997no}, no single search configuration can be expected optimal across all possible fitness landscapes.
-As such, recent work in EGT has develop techniques to engineer bespoke population structures tuned to individual optimization problems \citep{kuo2024theory,kuo2024evolutionary}.
+As such, recent work in EGT has developed techniques to engineer bespoke population structures tuned to individual optimization problems \citep{kuo2024theory,kuo2024evolutionary}.
 This framework revolves around manipulation of two evolutionary properties: selection strength (``amplification factor'') \citep{kuo2024theory} and effective population size/fixation time (``acceleration factor'') \citep{kuo2024evolutionary}.
-Crucially, use of higher-order triangle motifs allows these properties may be tuned independently --- a capability achieved by use of higher-order triangle motifs that alter fixation time without affecting fixation probability \citep{kuo2024evolutionary}.
+Crucially, these properties may be tuned independently --- a capability achieved by use of higher-order triangle motifs that alter fixation time without affecting fixation probability \citep{kuo2024evolutionary}.
 Such principled construction refines earlier reliance on black box optimization (notably, including EC approaches) \citep{moller2019exploring}.
 
-To test population structures constructed using their  method, \citet{kuo2024evolutionary} evaluate performance on EC-style optimization tasks.
+To test population structures constructed using their method, \citet{kuo2024evolutionary} evaluate performance on EC-style optimization tasks.
 On a task in which agents evolve spatial navigation behaviors, accelerated fixation speeds solution discovery.
 By contrast, to prevent premature fixation on a rugged benchmark function, ``decelerator'' motifs enhance solution quality.
 \citet{kuo2024evolutionarymutation} extends analysis to consider valley-crossing behavior.
@@ -37,4 +37,4 @@ As with other facets of bioscience, potential exists to extend formalisms develo
 However, given this recent intervention-oriented framing, EGT increasingly provides off-the-shelf capabilities directly relevant to EC practitioners.
 EC systems fit so well within an EGT framework, in fact, that in many regards they provide an ideal model system to conduct EGT studies.
 Indeed, such work is needed to characterize the limitations of classical EGT assumptions around update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and single-occupancy population structure \citep{broom2012general}.
-Promising early work on this front has explored the influence of EGT-style population structure on longer-term evolutionary outcomes,such as life history trade-offs in digital organisms \citep{gordon2025environmental}.
+Promising early work on this front has explored the influence of EGT-style population structure on longer-term evolutionary outcomes, such as life history trade-offs in digital organisms \citep{gordon2025environmental}.
