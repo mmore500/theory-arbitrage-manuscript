@@ -38,3 +38,6 @@ git config --global core.hooksPath /tmp/hooks
 
 sleep 1
 clear
+
+alias clauded='claude --dangerously-skip-permissions'
+alias claudet='claude --permission-mode auto'
