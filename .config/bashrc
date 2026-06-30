@@ -25,6 +25,7 @@ if [ ! -d "/tmp/wtf" ]; then
 fi
 # Ensure the target directory for the symlink exists
 mkdir -p ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
 # Create a symlink for 'wtf', overwriting if it exists
 ln -sfn /tmp/wtf/wtf ~/.local/bin/wtf
 # Prepare the hooks directory
