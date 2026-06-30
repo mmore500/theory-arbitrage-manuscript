@@ -21,16 +21,6 @@
 \subsection{Fitness Landscapes}
 \label{sec:fitness-landscapes}
 
-\begin{itemize}
-\item \citet{eppstein2016quantifying} use an empirical fitness landscape for $\beta$-lactam antibiotic resistance to quantify deception in evolutionary search, applying evolutionary-computation diagnostics to a biologically grounded mutational graph.
-Their case study shows that real drug-resistance landscapes can exhibit substantial deception, and they introduce a framework for characterizing how landscape topography misleads adaptive walks toward suboptimal peaks.
-\item \citet{schaper2014arrival} argue that strong bias in genotype-phenotype maps --- where some phenotypes are encoded by exponentially more genotypes than others --- systematically channels populations toward ``frequent'' phenotypes regardless of their fitness.
-They show via theory and simulation that this ``arrival of the frequent'' can trap populations on locally suboptimal phenotypes long before selection can act, complicating the standard ``survival of the fittest'' picture of adaptation.
-\item \citet{fragata2019evolution} review recent theoretical and empirical progress in fitness landscape theory, surveying how high-throughput measurements of landscape topography are reshaping understanding of epistasis, ruggedness, and accessibility of adaptive paths.
-The review argues that landscape thinking remains a powerful organizing framework for evolutionary biology, but emphasizes that effective use requires integrating empirical landscape data with population-genetic models of mutation, drift, and selection.
-\item \citet{altenberg1995genome} evelops a theoretical framework in which genome growth via gene duplication interacts with the structure of the genotype-phenotype map to drive the evolution of evolvability.
-He introduces ``constructional selection,'' a second-order process in which newly added genes are retained when their pleiotropic effects tend to produce fitness improvements, thereby biasing genome architecture over time toward representations more conducive to adaptive evolution.
-\end{itemize}
 
 The \textit{fitness landscape} is a fundamental concept in evolutionary biology that builds upon the idea of a \textit{genotype space} --- the space of all possible genetic states that an organism can be in \citep{fragata2019evolution, castle2021towards}.
 To motivate the general structure of genotype spaces, consider the set of all permutations of a sequence of length $N$, each site in which can contain one of $K$ possible allelic variants.
