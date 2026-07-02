@@ -35,43 +35,31 @@
 % \item mystery citations \citep{schmitt2003theory,andre2001improvement,bongard2010guarding,pandey2014comparative,crepinsek2013exploration,iwasa2004stochastic,peniston2020environmental,steinberg2016environmental,devos2015breaking}.
 % \end{itemize}
 
-The fundamental property differentiating evolution from random search is mutational locality --- the tendency for mutation to preserve some aspects of phenotypes \citep{maynardsmith1970natural,galvanlopez2011defining,ashlock2012representation,back1996evolutionary,foster2001evolutionary,richter2014fitness}.
+A fundamental property differentiating evolution from random search is mutational locality, the tendency for a mutant to resemble its parent \citep{maynardsmith1970natural,galvanlopez2011defining,ashlock2012representation,back1996evolutionary,foster2001evolutionary,richter2014fitness}.
+This property depends on the geometry of genotype space --- the set of all possible genetic sequences, arranged by mutational neighborhood \citep{fragata2019evolution,castle2021towards}.
+Although classic visualizations often paint genotype space in one or two dimensions \citep{mcleish2015there,greenbury2022structure,gordon1994evolution,gavrilets1997evolution}, it is more accurately conceptualized as a dense network where each genotype is surrounded by numerous single-mutant neighbors (Figure \ref{fig:fitness_landscapes}, left).
 
-The property stems from the geometry from genotype space, which arranges all possible genetic sequences into sets of mutational neighbors  \citep{fragata2019evolution,castle2021towards}.
-While classic visualizations often cast it in one or two dimensions \citep{mcleish2015there,greenbury2022structure,gordon1994evolution,gavrilets1997evolution}, genotype space is more accurately conceptualized as a dense network where each genotype is surrounded by numerous single-mutant neighbors (Figure \ref{fig:fitness_landscapes}, left).
-The extreme size and high dimensionality and reason about and even visualize \citep{dolsonTODO}, with matters is further complicated by recombination processes that can allow far-reaching jumps \citep{li2024rapid,doerr2008crossover,fogel1994effectiveness}.
+A second fundamental prerequisite of evolution by natural selection is variation in fitness between points in genotype space, which bias the trajectories of populations under mutation --- creating a so-called ``fitness landscape'' (Figure \ref{fig:fitness_landscapes}, middle).
+In scenarios where fitness values may change over time (e.g., depending on ecological or environmental factors \citep{olson2014dynamic,kaplan2008end,dolson2021digital}), such a fitness landscape may instead be termed a``fitness seascape'' \citep{cairns2022strong,mustonen2009fitness}.
+In the face of such fitness volatility, another useful abstraction genotype-phenotype map \citep{ahnert2017structural,aguilar2018architecture,stadler2003landscapes}.
+As a biological phenotype (observable traits) can often be more readily and consistently measured than fitness, it often provides a more tractable target for study \citep{chen2022environmental,ahnert2017structural,wagner2011pleiotropic,aguilar2018architecture}.
+In EC, the genotype-phenotype map abstraction encapsulates indirect encoding techniques, which construct a (typically) lower-dimensional genotype space by defining a ``developmental'' mapping into phenotype (i.e., solution) space \citep{stanley2007compositional,stanley2003taxonomy,stanley2009hypercubebased,clune2011performance,kitano1990designing,hornby2002creating}.
 
-The second major factor distinguishing evolution from random search is variation in fitness across genotype space, which strongly biases population trajectories.
-Thus, genotype space is often viewed through the lens of a fitness landscape, where assigns each genotype a corresponding fitness value (Figure \ref{fig:fitness_landscapes}, middle).
-In scenarios where fitness values may change over time depending on ecological or environmental factors \citep{olson2014dynamic,kaplan2008end,dolson2021digital}, a fitness landscape may instead be termed a ``fitness seascape'' \citep{cairns2022strong,mustonen2009fitness}.
+Much of the terminology used to describe the evolutionary characteristics of an adaptive landscape are shared in common between EC and evolutionary biology.
+A key property of an adaptive landscape is its ``rugedness'' \citep{papkou2023rugged,reidys2001neutrality} --- the extent to which ``peaks'' and ``valleys'' arise that constrain evolutionary exploration \citep{martin2013multiple,steinberg2016environmental,li2025probability,bank2022epistasis,neidhart2014adaptation,orr2005genetic,bershtein2008advances}.
+Another property of interest in mutational landscapes is ``neutrality'' --- the availability of mutations that produce no, or negligible, effect \citep{kimura1983neutral,kimura1991neutral,ohta1992nearly,ohta2002near}.
+While such neutrality can inhibit short-term discovery of phenotypic variation \citep{van1999neutral,TODO}, it can also promote exploration and long-term innovations by allowing TODO \citep{reidys2001neutrality,ahnert2017structural,croitoru2022punctuated,galvanlopez2011neutrality,jorg2008neutral,huynen1996smoothness,shackleton2000investigation,huynen1996exploring,amitai2007latent,banzhaf2006evolution,hu2025neutrality,oliveto2017how,wagner2008robustness,wagner2013robustness,masel2010robustness,hu2018neutrality}.
+The high dimensionality of genotype space \citep{franke2011evolutionary} and possibility of far-reaching jumps between mutational neighborhoods may occur in systems with recombination processes \citep{li2024rapid,doerr2008crossover,fogel1994effectiveness} can also help escape local optima.
 
-A useful decomposition of adaptive landscapes, arising in both evolutionary computation and evolutionary biology, is the genotype-phenotype map \citep{ahnert2017structural,aguilar2018architecture,stadler2003landscapes}.
-In biology, phenotype (the observable traits of an organism) can often be more readily and consistently observed than fitness, making it a more tractable target of study \citep{chen2022environmental,ahnert2017structural,wagner2011pleiotropic,aguilar2018architecture}.
-In evolutionary computation, discussion of the genotype-phenotype map typically revolves around the theme of indirect encoding, where a genotype space with desirable properties is constructed by defining a mapping function into phenotype (i.e., solution) space \citep{stanley2007compositional,stanley2003taxonomy,stanley2009hypercubebased,clune2011performance,kitano1990designing,hornby2002creating}.k
-
-\subsection{Ruggedness}
-
-A key property of such a landscape is its ``rugedness'' \citep{papkou2023rugged,reidys2001neutrality} --- the extent to which ``peaks'' and ``valleys'' arise that constrain evolutionary exploration \citep{martin2013multiple,steinberg2016environmental}.
-This ruggedness makes it difficult for adaptive evolution to explore the genotype space exhaustively, as populations may get stuck on locally optimal peaks \citep{li2025probability,bank2022epistasis,neidhart2014adaptation}.
-If most adjacent mutations are deleterious, it severely limits the ability of the population to explore the genotype space \citep{orr2005genetic,bershtein2008advances}.
-In evolutionary computation, this can contribute to the challenge of \textit{premature convergence}, where a population reaches a local optimum but not a global optimum.
-
-\subsection{Neutrality}
-
-Another geometric property of interest in mutational landscapes is neutral networks, which can connect ``neutrally'', without any effect on phenotypes or fitness and promote exploration and long-term innocations \citep{reidys2001neutrality,ahnert2017structural,croitoru2022punctuated,galvanlopez2011neutrality,jorg2008neutral,huynen1996smoothness,shackleton2000investigation,huynen1996exploring,amitai2007latent,banzhaf2006evolution,hu2025neutrality}.
-Neutral networks have also been connected to \textit{mutational robustness} as a genotype within a neutral network can acquire many successive mutations without any apparent effect on fitness \citep{van1999neutral}.
-This process has been used to resolve a long debate on tradeoffs between robustness and evolvability in such genotype spaces --- mutational robustness may inhibit evolutionary innovation on short time scales but can promote it over the long term \citep{wagner2008robustness,wagner2013robustness,masel2010robustness,hu2018neutrality}.
-The degree to which a genotype-phenotype map allows for neutral \citep{kimura1983neutral,kimura1991neutral} (or nearly neutral \citep{ohta1992nearly,ohta2002near}) mutations greatly assists a population in escaping local optima, since selection is less able to prevent exploration \citep{oliveto2017how}.
-Neutral networks complement the dimensional property of genotype space,
-Thus, while genotype space is combinatorially vast, it  through only a few mutational steps, especially in spaces with a high dimensionality \citep{franke2011evolutionary} which can make it is possible to more easily reach global optima.
-
-\subsection{Evolvability}
-
+Despite common interest and vocabulary, EC and biology diverge on the topic of evolvability.
+TODO introduce evolvability and section and can save.
 In evolutionary computation, the genotype-phenotype map is widely discussed in the context of the problem of evolvability.
 
 Evolvability refers to
 In a biological context, evolvability is defined as the capacity of a population to generate heritable phenotypic variation that facilitates adaptive evolution \citep{payne2018causes,kirschner1998evolvability}.
 While a variety of mechanisms or facets have been brought to evolvability \citep{clune2008natural,hu2010evolvability,altenberg1994evolution,mengistu2016evolvability,riederer2022capturing}, it is typically thought of as related to the local structure of the fitness landscape defined with respect to available mutations \citep{wagner2017information,wagner2023evolvability}.
+
+\subsection{Evolvability in Evolutionary Computation}
 
 A key distinction in the approach arises because of the artificial nature of EC systems.
 Because EC systems represent a of independent originations under bespoke rules,
@@ -83,13 +71,12 @@ On-line optimization of parameters during evolutionary searches is also a promis
 Alternately, restarts or stochastic algorithms that can move vast distances in the genotype space in a few steps are sometimes necessary to sample the solution space somewhat exhaustively \citep{fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}.
 New algorithms may be selected for a given problem based on metaheuristic analyses that try to take these representations into account \citep{wang2018population}.
 
-However, most effort goes into \textit{designing} evolvable adaptive landscapes.
+However, most effort has gone into \textit{designing} evolvable adaptive landscapes.
 The structure of the space is strongly tied to the data structure used to encode the solutions and is generally referred to as a \textit{representation} \citep{ashlock2012representation,rothlauf2003redundant, rothlauf2009representations,mitavskiy2003comparing}, which together with the mutation operator controls how EC explores new solutions \citep{stark2004rate}.
-
 A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising}.
 Under this framing, TODO
 
-\subsection{Landscape Locality}
+\subsection{Evolvability in Evolutionary Biology}
 
 Unlike EC where the user can design a suitable representation and mutation operator, in nature the ``representation'' for an evolving population is fixed to DNA/RNA sequence space composed of the four nucleotide bases \citep{aguirre2018networked} (there is some potential to engineer it though, see \citet{zhang2015evolution}).
 Because natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome}.
@@ -104,11 +91,12 @@ It is plausible that certain selection schemes used regularly in EC are already 
 Systematic effort towards a taxonomy of second-order optimization protocols needs to be undertaken in future work \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
 The above discussion on biological outcomes provides some hints to guide their design.
 
-Regardless, some areas of genome space are likely to have different phenotypes available locally \citep{wagner2017information},
-and recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental,kussell2006polymerpopulation,ancel2005evolution}.
+Regardless, some areas of genome space are likely to have different phenotypes available locally \citep{wagner2017information}, and recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental,kussell2006polymerpopulation,ancel2005evolution}.
 Further, the structure of the fitness landscape may limit the effectiveness of evolutionary control methods used to suppress the growth of harmful microbial populations or for directed evolution.
 Environmental change induced deformations in the fitness landscape can push the population away from genotypes that are locally fit in a specific environment, which in turn allows the population to sample new genotypes in the landscape \citep{steinberg2016environmental}.
 The role of such changing fitness landscapes, or seascapes, in EC optimization problems remains insufficiently explored \citep{grefenstette1999evolvability,richter2009detecting}.
+
+\subsection{Evolvability Opportunities}
 
 Biologists have developed several useful measures to quantify the ease with which evolution can respond to changing environment selection.
 For example, researchers have shown that abundant edge-flips in a fitness landscape --- i.e., single mutation edges that change the direction of adaptation between two mutants in two environments --- can allow us to predict the efficacy of intermittent antimicrobial therapy \citep{chen2024inverted}.
@@ -116,6 +104,7 @@ Similarly, a measure called the mutation effect reaction norm (Mu-RN) has been u
 Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes, which is the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
 Biological literature thus provides an abundance of structural properties that can be directly translated into the EC domain to motivate the design of solution spaces and algorithms that leverage second-order outcomes of the evolutionary process.
 Much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes, \citep{kussell2006polymerpopulation}, which may be an opportunity for EC to contribute.
+TODO more on edge-flips and other metrics.
 
 A key challenge for these two fields is to unite their approach, to think about how learned encodings can translate into movement within a space rather than shaping a space.
 However, we believe that application-oriented genetic programming and genetic algorithms have special value to offer in the realm of genotype-phenotype maps and evolvability.
