@@ -72,22 +72,33 @@ In this spirit, we review work on evolvability across both field to highlight op
 Given the objective-oriented nature of evolutionary computation, interest in evolvability stems from problems with premature convergence, and guarding against it by balancing exploration against exploitation remains a persistent concern \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative}.
 While alternate strategies can help address these symptoms (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{TODOsuperexplorers,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, most effort, however, has gone into \textit{designing} evolvable adaptive landscapes outright.
 
+
+% TODO https://claude.ai/chat/36496fab-329f-4521-ad00-a95254b3bc04
+
 Numerous desirable properties of an evolvable representation have been highlighted \citep{moreno2017evolvability}:
 \begin{itemize}
-\item modularity, the capability to tune independent properties of a phenotype independently \citep{TODO}
-\item pleiotropy, the capability to make large coordinated changes to phenotype \citep{TODO}
-\item canalization, the tendency for self-repair and balancing \citep{TODO}
-\item degeneracy, standing variation at the mechanistic level (i.e., to maintain cryptic variation) \citep{TODO}.
-\item bias, the over-representation of high-fitness phenotypes \citep{TODO}
-\item symmmetry/regularity, bias specifically towards phenotypic structure \citep{TODO}.
+\item modularity, the capability to tune independent properties of a phenotype independently \citep{kashtan2005spontaneous,kashtan2007varying,wilder2015reconciling,owens2003quest}
+\item pleiotropy, the capability to make large coordinated changes to phenotype \citep{rimbault2013derived,kirschner1998evolvability,cheney2014unshackling}
+\item degeneracy, standing variation at the mechanistic level (i.e., to maintain cryptic variation) \citep{whitacre2010degeneracy,wagner2003evolutionary}.
+\item bias, the over-representation of certain phenotypes \citep{schaper2014arrival,borenstein2008end}
+\item canalization, the tendency for self-repair and balancing \citep{gibson2004uncovering,paaby2014cryptic}
+\item symmmetry/regularity, bias specifically towards phenotypic structure \citep{coyne1987lack,clune2011performance,tonelli2013relationships,cheney2014unshackling}.
 \end{itemize}
 
 A typical EC framing defines evolvability as the genotype space as containing viable and novel solutions \citep{tarapore2015evolvability}.
 The \textit{evolvability signature}, for instance, profiles the distribution of phenotypic variation reachable from a genotype, enabling encodings to be compared beyond raw task performance \citep{tarapore2015evolvability}.
+This measure samples possible mutations from members of a population, and examines the distribution of novelty (how much phenotype changes) and adaptation (how much fitness changes) across these mutations.
+The extent to which novelty is available, and is available without strong deleterious effects, can then be visualized.
 
-A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising}.
-Under this framing, is considered as an embedding of a manifold within phenotype space.
-While a number of possible frameworks exist, a popular notion has beenn that of the autoencoder where a lower-dimennsional representation can be automatically learned by piping an encoder and a decoder on training examples.
+A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,TODO}.
+Under this framing, evolutionary history is considered as an unsupervised training data set.
+Importantly, the set of possible ancestral phenotypes represent only a small fraction of phenotype space --- the vast majority of which, typically, is of low viability.
+One terminology for this is that viable phenotypes might occupy a manifold, or lower-dimensional embedding, within phenotype space \citep{tenenbaum2000global,roweis2000nonlinear}.
+
+Unsupervised learning approaches allow patterns of such manifolds within a larger space to be learned, and can facilitate sampling from that manifold; for instance, images of human faces represent a very small manifold within the larger space of all possible images, and it is possible to use example images of faces to learn this manifold and sample from it \citep{radford2015unsupervised,turk1991eigenface,white2016sampling,frowd2004evofit}.
+Thus, an unsupervised learning approach over the set of viable phenotypes can produce a representation that aids in exploring and generating viable phenotypes.
+This can be accomplished by reducing the dimensionality of genotype space (e.g., bottleneck autoencoder or generative adversarial network) and/or by repairing inviable phenotypes to map them back onto surface of the manifold (e.g., denoising autoencoder).
+Learned mutational operators may also be possible \citep{lehman2023evolution,meyerson2024language}.
 
 \subsection{Evolvability in Evolutionary Biology}
 
@@ -98,42 +109,49 @@ For instance, in a 20-site strand, upwards of 2.59 million sequences exist such 
 For comparison, on the order of $10^{88}$ photons have been estimated to exist in the observable universe \citep{dimopoulos1978baryon}.
 Given these many distinct regions, opportunities where meaningful variability exists in local structural features of the landscape evolution can be exploited by evolution in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
 
-Under such a framing, mutations can be considered ``evolvability enhancing'' if they provide access to later high fitness mutations, which are surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
-This process, however, requires selection to act on properties of a genome based on its broader neighborhood, in addition to its own fitness.
-A key problem arises, thus, in that natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,akay2016there}.
-The idea that mutation and selection can select for better long-term outcomes has been conclusively shown in both biological and computational evolving systems \citep{sung2012driftbarrier, wilke2001evolution, pyo2025evolutionary, wagner2021adaptive, akay2016there, keller1999levels, wagner2017information, kumawat2024evolution, barnett2025experimental, steinberg2016environmental, hayden2011cryptic, gupta2022hostparasite, zaman2014coevolution}.
+Under a localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
+Such mutations are surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
 
-Another framing of this issue is that of lineage selection, an emerging view that, under certain conditions, evolution can act not just to optimize instantaneous fitness, but rather the long-term growth rate among competing lineages \citep{akay2016there,yoshimura1996evolution,yoshimura1991individual}.
-In a static environment, Survival of the flattest TODO
-Longer-term lineage selection, operating at the macroevolutionary level of species, has also been postulated TODO.
+Localization to evolvable regions, however, requires selection to act on properties of a genome based on its broader neighborhood, in addition to its own fitness.
+Because natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,akay2016there,yoshimura1996evolution,yoshimura1991individual}.
+Such lineage selection effects may operate at various scales, even being postulated to act in a macroevolutionary fashion on species \citep{TODO}.
+In certain scenarios, such selection for long-term outcomes has indeed been conclusively demonstrated in both biological and computational evolving systems \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution}.
 
 Particular interest has arisen around the idea that changing environments can help exert lineage selection.
-In a changing environment with varying requirement for survival \citep{bell2017evolutionary,bell2010fluctuating}, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.For instance, in a changing environment, a high-fitness genotype may be out-competed by genotypes that are lower in fitness, but belong to a lineage that switches quickly between phenotypes adapted to alternate environments \citep{woods2011secondorder}.
+In a changing environment with varying requirement for survival \citep{bell2017evolutionary,bell2010fluctuating}, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.
+For instance, in a changing environment, a high-fitness genotype may be out-competed by genotypes that are lower in fitness, but belong to a lineage that switches quickly between phenotypes adapted to alternate environments \citep{woods2011secondorder}.
 Recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental,kussell2006polymerpopulation,ancel2005evolution}.
-Systematic effort towards a taxonomy of second-order optimization protocols needs to be undertaken in future work \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
 
-Biologists have developed several useful measures to quantify the ease with which evolution can respond to changing environment selection.
+Biologists have developed several useful measures to quantify the how challenging it is to co-optimize on multiple adaptive landscapes.
+Such a measure allows prediction of how readily a population adapting under one environment can continue to adapt once the environment shfits, and hence of how therapeutic strategies might be designed to steer or stall that adaptation.
 For example, researchers have shown that abundant edge-flips in a fitness landscape --- i.e., single mutation edges that change the direction of adaptation between two mutants in two environments --- can allow us to predict the efficacy of intermittent antimicrobial therapy \citep{chen2024inverted}.
 Similarly, a measure called the mutation effect reaction norm (Mu-RN) has been used to quantify the effect of mutations across environments \citep{ogbunugafor2022mutation}.
+With respect to evolvability, such measures may predict when fluctuating selection may favor flexibility over local fitness.
+
 Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes, which is the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
+These are quantified measuring the fraction of individuals possessing misleading mutation combinations --- combinations providing higer-than-average fitness, even though they lead away from the global optimum.
+The measure may also be weighted by the magnitude of misleading mutations' adaptive advantage.
 
 \subsection{Interdisciplinary Exchanges on Evolvability}
 
-TODO It is plausible that certain selection schemes used regularly in EC are already good at optimizing lineage-level aggregate fitness, and at converging to high-fitness solutions \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}.
+Localized conceptions of evolvability have been explored in evolutionary computation \citep{mengistu2016evolvability,noveltysearchTODO,TODO}.
+In fact, notable success has had in directly selecting for evolvability \citep{mengistu2016evolvability}, but the second-order processes such as changing fitness landscapes that drive it are less thoroughly characterized in EC \citep{grefenstette1999evolvability,richter2009detecting}.
+Biological literature provides insight into how second-order outcomes of the evolutionary process might shape evolvability, as well as an abundance of structural properties that can be directly translated into the EC domain.
+Much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}, however, and so there is also an opportunity for EC to contribute in developing this area of knowledge.
+In fact, it is plausible that certain selection schemes used regularly in EC already exhibit second-order optimization lineage-level aggregate fitness \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}.
+However, systematic effort towards a taxonomy of second-order optimization protocols needs to be undertaken in future work \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
 
-TODO The role of such changing fitness landscapes, or seascapes, in EC optimization problems remains insufficiently explored \citep{grefenstette1999evolvability,richter2009detecting}.
-
-while evolvability search selects directly for this capacity in order to study and produce it \citep{mengistu2016evolvability}.
-
-Biological literature provides an abundance of structural properties that can be directly translated into the EC domain to motivate the design of solution spaces and algorithms that leverage second-order outcomes of the evolutionary process.
-Much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes, \citep{kussell2006polymerpopulation}, which may be an opportunity for EC to contribute.
+It would be particularly interesting to unite some of the representational approaches drawing upon machine learning, unsupervised
 
 A key challenge for these two fields is to unite their approach, to think about how learned encodings can translate into movement within a space rather than shaping a space.
 However, we believe that application-oriented genetic programming and genetic algorithms have special value to offer in the realm of genotype-phenotype maps and evolvability.
 On account of connections to machine learning concepts, the question of generalization and double-descent are unique ideas that have ben led into biology from EC.
+
 Corresponding work in biology, however, is only fledgling.
 Indeed, such work considering evolvability as an unsupervised learning process has notably already been driven forward through collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes}.
-Some authors have suggested that the evolutionary process can in some ways ``learn'' from previous environments to prevent overfitting \citep{kouvaris2017evolution, watson2016how, watson2014evolution}.
+Some authors have suggested that the evolutionary process can in some ways ``learn'' from previous environments to prevent overfitting \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
+TODO double descent \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
+
 This theory may help to explain, as well as to attain more evolvable mappings.
 Boundary localization generalizes to representation-based framings of evolvability \citep{reisinger2006selecting} --- although this may unfold on a slower (e.g., macro) evolutionary timescale \citep{reznick2009darwin}.
 Thus, using large search spaces with a \textit{representation optimizing} algorithm can give better overall results than directly trying to find a good representation \citep{hewlett2008optimization,gajewski2019evolvability,mengistu2016evolvability}.
