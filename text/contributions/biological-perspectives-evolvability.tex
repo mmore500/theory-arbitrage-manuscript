@@ -69,7 +69,7 @@ In this spirit, we review work on evolvability across both field to highlight op
 
 \subsection{Evolvability in Evolutionary Computation}
 
-Given the objective-oriented nature of evolutionary computation, interest in evolvability stems from problems with premature convergence, and guarding against it by balancing exploration against exploitation remains a persistent concern \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative}.
+Given the objective-oriented nature of evolutionary computation, interest in evolvability stems from problems with premature convergence, and guarding against it by balancing exploration against exploitation remains a persistent concern \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
 While alternate strategies can help address these symptoms (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{TODOsuperexplorers,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, most effort, however, has gone into \textit{designing} evolvable adaptive landscapes outright.
 
 
@@ -90,7 +90,7 @@ The \textit{evolvability signature}, for instance, profiles the distribution of 
 This measure samples possible mutations from members of a population, and examines the distribution of novelty (how much phenotype changes) and adaptation (how much fitness changes) across these mutations.
 The extent to which novelty is available, and is available without strong deleterious effects, can then be visualized.
 
-A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,TODO}.
+A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,bontrager2018deepmasterprints,rodrigueztorrado2020bootstrapping,volz2018evolving,rakicevic2021policy,thakkar2019autoencoder,yosinski2012visually,feng2017autoencoding,stuurman2023approach,li2024generating,li2024generating,song2024morphvae}.
 Under this framing, evolutionary history is considered as an unsupervised training data set.
 Importantly, the set of possible ancestral phenotypes represent only a small fraction of phenotype space --- the vast majority of which, typically, is of low viability.
 One terminology for this is that viable phenotypes might occupy a manifold, or lower-dimensional embedding, within phenotype space \citep{tenenbaum2000global,roweis2000nonlinear}.
@@ -148,7 +148,7 @@ However, we believe that application-oriented genetic programming and genetic al
 On account of connections to machine learning concepts, the question of generalization and double-descent are unique ideas that have ben led into biology from EC.
 
 Corresponding work in biology, however, is only fledgling.
-Indeed, such work considering evolvability as an unsupervised learning process has notably already been driven forward through collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes}.
+Indeed, such work considering evolvability as an unsupervised learning process has notably already been driven forward through collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic}.
 Some authors have suggested that the evolutionary process can in some ways ``learn'' from previous environments to prevent overfitting \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
 TODO double descent \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
 
