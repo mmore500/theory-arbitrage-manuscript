@@ -55,6 +55,7 @@ Even where evolutionary exploration is aided by large genome size \citep{franke2
 As such, adaptive landscape theory has assumed a central role in the study of \textit{evolvability} --- defined broadly as the capability of a population to generate and maintain adaptive genetic variation \citep{payne2018causes,kirschner1998evolvability}.
 \unskip\footnote{%
 Other factors from population genetics (e.g.,  standing variation) also arise in some discussions of evolvability \citep{TODO}.
+% TODO wilder2015reconciling
 }
 Conditions where an adaptive landscape supplies ample mutational opportunity are described as having high evolvability, and vice versa.
 
@@ -113,7 +114,7 @@ Under a localized framing of evolvability, mutations can be considered ``evolvab
 Such mutations are surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
 
 Localization to evolvable regions, however, requires selection to act on properties of a genome based on its broader neighborhood, in addition to its own fitness.
-Because natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,akay2016there,yoshimura1996evolution,yoshimura1991individual}.
+Because natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}.
 Such lineage selection effects may operate at various scales, even being postulated to act in a macroevolutionary fashion on species \citep{TODO}.
 In certain scenarios, such selection for long-term outcomes has indeed been conclusively demonstrated in both biological and computational evolving systems \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution}.
 
@@ -134,7 +135,9 @@ The measure may also be weighted by the magnitude of misleading mutations' adapt
 
 \subsection{Interdisciplinary Exchanges on Evolvability}
 
-Localized conceptions of evolvability have been explored in evolutionary computation \citep{mengistu2016evolvability,noveltysearchTODO,TODO}.
+
+Localized conceptions of evolvability have been explored in evolutionary computation \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring}.
+The concept has been framed as a distinction between the inherent evolvability of a representation, and the acquired evolvability, which is related to a specific position in the search space \citep{reisinger2005towards}.
 In fact, notable success has had in directly selecting for evolvability \citep{mengistu2016evolvability}, but the second-order processes such as changing fitness landscapes that drive it are less thoroughly characterized in EC \citep{grefenstette1999evolvability,richter2009detecting}.
 Biological literature provides insight into how second-order outcomes of the evolutionary process might shape evolvability, as well as an abundance of structural properties that can be directly translated into the EC domain.
 Much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}, however, and so there is also an opportunity for EC to contribute in developing this area of knowledge.
