@@ -53,7 +53,7 @@ Though evolutionary adaptiation progresses most efficiently on landscapes that a
 Instead, adaptive landscapes often exhibit \textit{rugedness} \citep{papkou2023rugged,reidys2001neutrality} and \textit{neutrality} (or near-neutrality) \citep{kimura1983neutral,kimura1991neutral,ohta1992nearly,ohta2002near}.
 Even where evolutionary exploration is aided by the mutational dimensionality large genomes \citep{franke2011evolutionary,greenbury2022structure}, drift effects \citep{reidys2001neutrality,ahnert2017structural,croitoru2022punctuated,galvanlopez2011neutrality,jorg2008neutral,huynen1996smoothness,shackleton2000investigation,huynen1996exploring,amitai2007latent,banzhaf2006evolution,hu2025neutrality,oliveto2017how,wagner2008robustness,wagner2013robustness,masel2010robustness,hu2018neutrality}, and far-reaching jumps via recombination \citep{li2024rapid,doerr2008crossover,fogel1994effectiveness} --- such properties can nonetheless meaningfully impede adaptation by restricting discovery of beneficial mutations \citep{martin2013multiple,steinberg2016environmental,li2025probability,bank2022epistasis,neidhart2014adaptation,orr2005genetic,bershtein2008advances,van1999neutral}.
 
-Given its strong influence on mutational supply, adaptive landscape analyses has assumed a central role in the study of \textit{evolvability} --- defined broadly as the capability of a population to produce adaptive genetic variation \citep{payne2018causes,kirschner1998evolvability,wilder2015reconciling,pigliucci2008evolvability}.
+Given its strong influence on mutational supply, adaptive landscape analyses have assumed a central role in the study of \textit{evolvability} --- defined broadly as the capability of a population to produce adaptive genetic variation \citep{payne2018causes,kirschner1998evolvability,wilder2015reconciling,pigliucci2008evolvability}.
 \unskip\footnote{%
 In addition to local adaptive landscape topology, within-population heterogeneity can also factor in to discussions of evolvability \citep{wilder2015reconciling,houle1992comparing}.
 }
@@ -65,32 +65,26 @@ However, because known life adheres to a common DNA/RNA representation \citep{ag
 Instead, over the course of hundreds of millions of years, natural history has traversed vast portions of genetic sequence space.
 Thus, to evolutionary biologists, evolvability is more naturally framed as a local property of regions within a large genotype space \citep{wagner2017information,wagner2023evolvability}.
 
-On account of their alternate formulations, biological and computational perspectives on evolvability have exerted strong reciporical influences \citep{kirschner1998evolvability,dawkins1989evolution,nuodelarosa2017computing}.
-More broadly, the prowess of nature proves sophisticated evolvability can emerge undesigned, while challenges encountered by artificial models makes clear it is by no means for granted.
+On account of these alternate formulations, biological and computational perspectives on evolvability have exerted strong reciporical influences \citep{kirschner1998evolvability,dawkins1989evolution,nuodelarosa2017computing}.
 In this spirit, we review work on evolvability across both field to highlight opportunities --- in both directions --- for interdisciplinary exchange.
 
 \subsection{Evolvability in Evolutionary Computation}
 
-Given the objective-oriented nature of evolutionary computation, interest in evolvability stems from problems with premature convergence, and guarding against it by balancing exploration against exploitation remains a persistent concern \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
-While alternate strategies can help address these symptoms (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{TODOsuperexplorers,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, most effort, however, has gone into \textit{designing} evolvable adaptive landscapes outright.
+Given the objective-oriented nature of EC, much of interest in evolvability revolves around problems where evolution gets stuck \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
+In addition to numerous \textit{ad hoc} remedies (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{ragusa2022augmenting,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, a common strategy to address such premaure convergence is to rearrange search space.
 
+Framed around capability for continued evolutionary progress, \citet{tarapore2015evolvability} define evolvability as capability to produce variation that is both (1) viable and (2) novel.
+These properties can be tested using an \textit{evolvability signature} assay, which samples outcomes produced under mutation to assess how strongly fitness constraints penalize phenotypic change.
 
-% TODO https://claude.ai/chat/36496fab-329f-4521-ad00-a95254b3bc04
-
-Numerous desirable properties of an evolvable representation have been highlighted \citep{moreno2017evolvability}:
+At a mechanistic level, numerous desirable properties of an ``evolvable'' representation have been proposed \citep{moreno2017evolvability}:
 \begin{itemize}
-\item modularity, the capability to tune independent properties of a phenotype independently \citep{kashtan2005spontaneous,kashtan2007varying,wilder2015reconciling,owens2003quest}
-\item pleiotropy, the capability to make large coordinated changes to phenotype \citep{rimbault2013derived,kirschner1998evolvability,cheney2014unshackling}
-\item degeneracy, standing variation at the mechanistic level (i.e., to maintain cryptic variation) \citep{whitacre2010degeneracy,wagner2003evolutionary}.
-\item bias, the over-representation of certain phenotypes \citep{schaper2014arrival,borenstein2008end}
-\item canalization, the tendency for self-repair and balancing \citep{gibson2004uncovering,paaby2014cryptic}
-\item symmmetry/regularity, bias specifically towards phenotypic structure \citep{coyne1987lack,clune2011performance,tonelli2013relationships,cheney2014unshackling}.
+\item \textit{modularity}, mechanistic decoupling between phenotypic traits that allows them to vary independently \citep{kashtan2005spontaneous,kashtan2007varying,wilder2015reconciling,owens2003quest};
+\item \textit{pleiotropy}, the capability for mutation to affect coordinated change across multiple phenotypic traits \citep{rimbault2013derived,kirschner1998evolvability,cheney2014unshackling};
+\item \textit{degeneracy}, overlapping function among structurally distinct elements which can enhance opportunity for variation \citep{whitacre2010degeneracy,wagner2003evolutionary};
+\item \textit{canalization}, buffering of phenotypic traits against environmental and genetic perturbation (e.g., self-repair, compensatory balancing) \citep{gibson2004uncovering,paaby2014cryptic};
+\item \textit{anisotropy}, biased over-representation certain phenotypes in genotype space \citep{schaper2014arrival,borenstein2008end,brunusan2025minimal,rohner2025macroevolution,herreralvarez2025structure}; and
+\item \textit{symmmetry}, bias specifically toward phenotypic structure exhibiting regularity and repition \citep{coyne1987lack,clune2011performance,tonelli2013relationships,cheney2014unshackling}.
 \end{itemize}
-
-A typical EC framing defines evolvability as the genotype space as containing viable and novel solutions \citep{tarapore2015evolvability}.
-The \textit{evolvability signature}, for instance, profiles the distribution of phenotypic variation reachable from a genotype, enabling encodings to be compared beyond raw task performance \citep{tarapore2015evolvability}.
-This measure samples possible mutations from members of a population, and examines the distribution of novelty (how much phenotype changes) and adaptation (how much fitness changes) across these mutations.
-The extent to which novelty is available, and is available without strong deleterious effects, can then be visualized.
 
 A particularly promising line of EC work has sprung up in investigating how to harness unsupervised learning (e.g., autoencoders, LLMs) to generate evolvable genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,bontrager2018deepmasterprints,rodrigueztorrado2020bootstrapping,volz2018evolving,rakicevic2021policy,thakkar2019autoencoder,yosinski2012visually,feng2017autoencoding,stuurman2023approach,li2024generating,li2024generating,song2024morphvae}.
 Under this framing, evolutionary history is considered as an unsupervised training data set.
@@ -136,6 +130,7 @@ The measure may also be weighted by the magnitude of misleading mutations' adapt
 
 \subsection{Interdisciplinary Exchanges on Evolvability}
 
+More broadly, natural history proves sophisticated evolvability can emerge undesigned, while challenges encountered by artificial models makes clear such evolvability is by no means for granted.
 
 Localized conceptions of evolvability have been explored in evolutionary computation \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring}.
 The concept has been framed as a distinction between the inherent evolvability of a representation, and the acquired evolvability, which is related to a specific position in the search space \citep{reisinger2005towards}.
