@@ -98,33 +98,31 @@ Learned mutational operators have also been proposed to similar effect \citep{le
 
 \subsection{Evolvability in Evolutionary Biology}
 
-Biological genotype space is exponentially vast \citep{stadler2007fitness,de2014empirical}.
-Even at just 20 sites, upwards of a quintillion mutational paths exist between any two strands of RNA \citep{greenbury2022structure}.
-This vastness supplies many distinct local neighborhoods \citep{wagner2017information}.
+Compared to that typical in EC, biological genotype space is staggeringly, exponentially vast \citep{stadler2007fitness,de2014empirical}.
+For instance, even at just 20 sites, upwards of a quintillion mutational paths exist between any two strands of RNA \citep{greenbury2022structure}.
+Despite dense mutational connectivity, the vastness of sequence space nonetheless affords numerous meaningfully self-contained local neighborhoods \citep{wagner2017information}.
 For instance, in a 20-site strand, upwards of 2.59 million sequences exist such that all are at least 5 mutations apart; for 40, 400, and 4,000 site strands, the number of sequences at least 25\% mutually distinct grows as $2.03 \times 10^{11}$, $4.64 \times 10^{97}$, and $9.60 \times 10^{956}$ \citep{gilbert1952comparison,varshamov1957estimate}.
-For comparison, on the order of $10^{88}$ photons have been estimated to exist in the observable universe \citep{dimopoulos1978baryon}.
-Given these many distinct regions, opportunities where meaningful variability exists in local structural features of the landscape evolution can be exploited by evolution in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
+As a point of comparison, only on the order of $10^{88}$ photons have been estimated to exist in the observable universe \citep{dimopoulos1978baryon}.
 
-Under a localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
-Such mutations are surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
+This abundance affords evolution ample opportunity to exploit variation in local landscape structure in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
+Under t localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
+Such mutations can be surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
 
-Localization to evolvable regions, however, requires selection to act on properties of a genome based on its broader neighborhood, in addition to its own fitness.
-Because natural selection only operates on the current environment \citep{watson2016how}, whether it can allow optimization for long-term outcomes is heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}.
-Such lineage selection effects may operate at various scales, even being postulated to act in a macroevolutionary fashion on species \citep{TODO}.
-In certain scenarios, such selection for long-term outcomes has indeed been conclusively demonstrated in both biological and computational evolving systems \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution}.
+The plausibility of discovering genetic neighborhods with evolvable characteristics, however, hinges on the extent to which --- in addition to instantaneous fitness \citep{watson2016how} --- biases in mutational composition can steer evolution.
+While such second-order effects heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}, they have been conclusively demonstrated in specific instances across both biological and computational models \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution}.
 
-Particular interest has arisen around the idea that changing environments can help exert lineage selection.
-In a changing environment with varying requirement for survival \citep{bell2017evolutionary,bell2010fluctuating}, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.
+While some second-order effects are studied at macroevolutionary scope (e.g., species selection) \citep{jablonski2008species,stanley1975theory}, particular interest has arisen around the idea that environmental fluctuations acting at generational timescales \citep{bell2017evolutionary,bell2010fluctuating} can exert lineage selection for evolvability.
+Under such conditions, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.
 For instance, in a changing environment, a high-fitness genotype may be out-competed by genotypes that are lower in fitness, but belong to a lineage that switches quickly between phenotypes adapted to alternate environments \citep{woods2011secondorder}.
 Recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental,kussell2006polymerpopulation,ancel2005evolution}.
 
-Biologists have developed several useful measures to quantify the how challenging it is to co-optimize on multiple adaptive landscapes.
-Such a measure allows prediction of how readily a population adapting under one environment can continue to adapt once the environment shfits, and hence of how therapeutic strategies might be designed to steer or stall that adaptation.
+The strength of environmental fluctuations in driving second-order selection depends fundamentally on the scarcity of local optima that remain stable across conditions --- in other words, the difficulty of co-optimizing alternate fitness landscapes.
+Predicting adaptive outcomes under shfiting conditions has become an area of active research, with several useful landscape metrics recently proposed.
 For example, researchers have shown that abundant edge-flips in a fitness landscape --- i.e., single mutation edges that change the direction of adaptation between two mutants in two environments --- can allow us to predict the efficacy of intermittent antimicrobial therapy \citep{chen2024inverted}.
-Similarly, a measure called the mutation effect reaction norm (Mu-RN) has been used to quantify the effect of mutations across environments \citep{ogbunugafor2022mutation}.
-With respect to evolvability, such measures may predict when fluctuating selection may favor flexibility over local fitness.
+Similarly, the mutation effect reaction norm (Mu-RN) quantifies how epistatic interactions and the fitness consequences of mutations change across distinct environmental contexts \citep{ogbunugafor2022mutation}. By mapping these environmentally dependent mutational effects in drug-resistant pathogens, such measures can predict when fluctuating selection will favor sustained evolutionary flexibility over immediate local fitness.
 
-Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes, which is the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
+Much of this work on adaptive landscapes centers in evolutionary medicine, which seeks to manage microbial or tumor cell populations over courses of treatment.
+Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes --- the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
 These are quantified measuring the fraction of individuals possessing misleading mutation combinations --- combinations providing higer-than-average fitness, even though they lead away from the global optimum.
 The measure may also be weighted by the magnitude of misleading mutations' adaptive advantage.
 
