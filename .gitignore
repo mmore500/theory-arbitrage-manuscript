@@ -1,6 +1,20 @@
 # Created by https://www.toptal.com/developers/gitignore/api/latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=latex
 
+.claude/
+.cursorignore
+.cursorindexingignore
+.cursor/
+.clinerules
+.roo-cline/
+.windsurf/
+.context/
+
+# marimo
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
