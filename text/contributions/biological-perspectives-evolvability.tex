@@ -68,12 +68,12 @@ Thus, to evolutionary biologists, evolvability is more naturally framed as a loc
 On account of these alternate formulations, biological and computational perspectives on evolvability have exerted strong reciporical influences \citep{kirschner2017plausibility,dawkins1989evolution,nuodelarosa2017computing}.
 In this spirit, we review work on evolvability across both field to highlight opportunities --- in both directions --- for interdisciplinary exchange.
 
-\subsection{Evolvability in Evolutionary Computation}
+\subsection{Global Perspectives on Evolvability}
 
 Given the objective-oriented nature of EC, much of interest in evolvability revolves around problems where evolution gets stuck \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
 In addition to numerous \textit{ad hoc} remedies (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{ragusa2022augmenting,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, a common strategy to address such premaure convergence is to rearrange search space.
 
-Framed around capability for continued evolutionary progress, \citet{tarapore2015evolvability} define evolvability as capability to innovate by producing variation that is both (1) viable and (2) novel.
+Framed around capability for continued evolutionary progress inspired by \citet{kirschner2017plausibility}'s theory of facilitated variation, \citet{tarapore2015evolvability} define evolvability as capability to innovate by producing variation that is both (1) viable and (2) novel.
 These properties can be tested using an \textit{evolvability signature} assay, which samples outcomes produced under mutation to assess how strongly fitness constraints penalize phenotypic change.
 
 At a mechanistic level, numerous  properties of an ``evolvable'' representation that can support such innovation have been proposed \citep{moreno2017evolvability}:
@@ -96,7 +96,7 @@ Likewise, bottlenecked and error-correcting autoencoder architectures can distil
 These capabilities lend themselves naturally to genotype-phenotype maps, making unsupervised learning a concise, and actionable, framing of evolvability.
 Learned mutational operators have also been proposed to similar effect \citep{lehman2023evolution,meyerson2024language}.
 
-\subsection{Evolvability in Evolutionary Biology}
+\subsection{Local Perspectives on Evolvability}
 
 Compared to that typical in EC, biological genotype space is staggeringly, exponentially vast \citep{stadler2007fitness,de2014empirical}.
 For instance, even at just 20 sites, upwards of a quintillion mutational paths exist between any two strands of RNA \citep{greenbury2022structure}.
@@ -105,13 +105,15 @@ For instance, in a 20-site strand, upwards of 2.59 million sequences exist such 
 As a point of comparison, only on the order of $10^{88}$ photons have been estimated to exist in the observable universe \citep{dimopoulos1978baryon}.
 
 This abundance affords evolution ample opportunity to exploit variation in local landscape structure in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
-Under t localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
+Under a localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
 Such mutations can be surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
+Localized notions of evolvability arise also in EC \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring,reisinger2006selecting}, referred to as \textit{acquired evolvability} \citep{reisinger2005towards}.
+Notable EC work has demonstrated such acquired evolvability, interestingly, can be directly selected for \citep{mengistu2016evolvability}.
 
 The plausibility of discovering genetic neighborhods with evolvable characteristics, however, hinges on the extent to which --- in addition to instantaneous fitness \citep{watson2016how} --- biases in mutational composition can steer evolution.
-While such second-order effects heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}, they have been conclusively demonstrated in specific instances across both biological and computational models \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution}.
+While such second-order effects heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}, they have been conclusively demonstrated in specific instances across both biological and computational models \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution,richter2009detecting,grefenstette1999evolvability}.
 
-While some second-order effects are studied at macroevolutionary scope (e.g., species selection) \citep{jablonski2008species,stanley1975theory}, particular interest has arisen around the idea that environmental fluctuations acting at generational timescales \citep{bell2017evolutionary,bell2010fluctuating} can exert lineage selection for evolvability.
+While some second-order effects are studied at macroevolutionary scope (e.g., species selection) \citep{jablonski2008species,stanley1975theory,reznick2009darwin}, particular interest has arisen around the idea that environmental fluctuations acting at generational timescales \citep{bell2017evolutionary,bell2010fluctuating} can exert lineage selection for evolvability.
 Under such conditions, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.
 For instance, in a changing environment, a high-fitness genotype may be out-competed by genotypes that are lower in fitness, but belong to a lineage that switches quickly between phenotypes adapted to alternate environments \citep{woods2011secondorder}.
 Recent work has shown that environmental change pushes populations to these boundaries where they can more freely mutate between alternate phenotypes \citep{kumawat2024evolution,barnett2025experimental,kussell2006polymerpopulation,ancel2005evolution}.
@@ -119,37 +121,26 @@ Recent work has shown that environmental change pushes populations to these boun
 The strength of environmental fluctuations in driving second-order selection depends fundamentally on the scarcity of local optima that remain stable across conditions --- in other words, the difficulty of co-optimizing alternate fitness landscapes.
 Predicting adaptive outcomes under shfiting conditions has become an area of active research, with several useful landscape metrics recently proposed.
 For example, researchers have shown that abundant edge-flips in a fitness landscape --- i.e., single mutation edges that change the direction of adaptation between two mutants in two environments --- can allow us to predict the efficacy of intermittent antimicrobial therapy \citep{chen2024inverted}.
-Similarly, the mutation effect reaction norm (Mu-RN) quantifies how epistatic interactions and the fitness consequences of mutations change across distinct environmental contexts \citep{ogbunugafor2022mutation}. By mapping these environmentally dependent mutational effects in drug-resistant pathogens, such measures can predict when fluctuating selection will favor sustained evolutionary flexibility over immediate local fitness.
+Similarly, the mutation effect reaction norm (Mu-RN) quantifies how epistatic interactions and the fitness consequences of mutations change across distinct environmental contexts \citep{ogbunugafor2022mutation}.
+By mapping these environmentally dependent mutational effects in drug-resistant pathogens, such measures can predict when fluctuating selection will favor sustained evolutionary flexibility over immediate local fitness.
 
-Much of this work on adaptive landscapes centers in evolutionary medicine, which seeks to manage microbial or tumor cell populations over courses of treatment.
+Despite these analytical footholds, much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}.
+The unique tractability of EC systems make them an ideal candidate for such work.
+Indeed, in EC, it is plausible that existing selection schemes can already exhibit strong second-order selection for evolvability \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}, but systematic effort towards a taxonomy of second-order optimization protocols is needed to address such questions \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
+
+In addition to the study of environmental shifts, much other work key work on adaptive landscapes notably centers in evolutionary medicine, which seeks to manage microbial or tumor cell populations over courses of treatment.
 Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes --- the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
 These are quantified measuring the fraction of individuals possessing misleading mutation combinations --- combinations providing higer-than-average fitness, even though they lead away from the global optimum.
 The measure may also be weighted by the magnitude of misleading mutations' adaptive advantage.
 
 \subsection{Interdisciplinary Exchanges on Evolvability}
 
-More broadly, natural history proves sophisticated evolvability can emerge undesigned, while challenges encountered by artificial models makes clear such evolvability is by no means for granted.
+Taken together, evolutionary computation and evolutionary biology can paint a more complete picture of evolvability than either can alone.
+Natural history proves sophisticated evolvability can emerge undesigned, while extensive challenges in this area encountered by artificial models makes clear such evolvability is by no means for granted.
 
-Localized conceptions of evolvability have been explored in evolutionary computation \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring}.
-\citet{kirschner2017plausibility} theory of facilitated variation
-The concept has been framed as a distinction between the inherent evolvability of a representation, and the acquired evolvability, which is related to a specific position in the search space \citep{reisinger2005towards}.
-In fact, notable success has had in directly selecting for evolvability \citep{mengistu2016evolvability}, but the second-order processes such as changing fitness landscapes that drive it are less thoroughly characterized in EC \citep{grefenstette1999evolvability,richter2009detecting}.
-Biological literature provides insight into how second-order outcomes of the evolutionary process might shape evolvability, as well as an abundance of structural properties that can be directly translated into the EC domain.
-Much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}, however, and so there is also an opportunity for EC to contribute in developing this area of knowledge.
-In fact, it is plausible that certain selection schemes used regularly in EC already exhibit second-order optimization lineage-level aggregate fitness \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}.
-However, systematic effort towards a taxonomy of second-order optimization protocols needs to be undertaken in future work \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
+A key challenge across both fields is to unite global and local framings of evolvability.
+Promising work has taken key steps in extending a machine learning framing of evolvability, wherein evolution may ``learn'' from past environments, to mechanisms driven purely by selection and impliit regularization constraints driven by metabolic costs  \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
+Notably, such work has advanced heavily in collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic}.
+Contemporary developments in machine learning theory remain to be integrated in this framework, however --- such as double descent, which reveals how growth in model size beyond the interpolation threshold can improve, rather than worsen, overfitting \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
+Such collaborations may ultimately help guide effective use of large search spaces with representation optimizing algorithms in EC, to provide better overall results than directly trying to find a good representation \citep{hewlett2008optimization,gajewski2019evolvability,mengistu2016evolvability}.
 
-It would be particularly interesting to unite some of the representational approaches drawing upon machine learning, unsupervised
-
-A key challenge for these two fields is to unite their approach, to think about how learned encodings can translate into movement within a space rather than shaping a space.
-However, we believe that application-oriented genetic programming and genetic algorithms have special value to offer in the realm of genotype-phenotype maps and evolvability.
-On account of connections to machine learning concepts, the question of generalization and double-descent are unique ideas that have ben led into biology from EC.
-
-Corresponding work in biology, however, is only fledgling.
-Indeed, such work considering evolvability as an unsupervised learning process has notably already been driven forward through collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic}.
-Some authors have suggested that the evolutionary process can in some ways ``learn'' from previous environments to prevent overfitting \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
-TODO double descent \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
-
-This theory may help to explain, as well as to attain more evolvable mappings.
-Boundary localization generalizes to representation-based framings of evolvability \citep{reisinger2006selecting} --- although this may unfold on a slower (e.g., macro) evolutionary timescale \citep{reznick2009darwin}.
-Thus, using large search spaces with a \textit{representation optimizing} algorithm can give better overall results than directly trying to find a good representation \citep{hewlett2008optimization,gajewski2019evolvability,mengistu2016evolvability}.
