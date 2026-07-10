@@ -103,10 +103,6 @@ To predict adaptive outcomes under shifting conditions, several useful landscape
 For example, numerous edge-flips in a fitness landscape --- i.e., mutational edges that invert between adaptive and deleterious --- can predict the efficacy of intermittent antimicrobial therapy \citep{chen2024inverted}.
 Other work has developed the mutation effect reaction norm (Mu-RN) measure of change in mutational effects and interactions, which can predict when fluctuating selection will favor evolutionary flexibility over immediate fitness \citep{ogbunugafor2022mutation}.
 
-Despite these analytical footholds, much unsolved work remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}.
-The unique tractability of EC systems makes them ideal candidates for such work.
-Indeed, in EC, it is plausible that existing selection schemes can already exhibit strong second-order selection for evolvability \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}, but systematic effort towards a taxonomy of second-order optimization protocols is needed to address such questions \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
-
 In addition to the study of environmental shifts \citep{king2025fitness,gatenby2020integrating,acar2020exploiting,goulart2013designing}, much other key work on adaptive landscapes notably centers in evolutionary medicine, which seeks to manage microbial or tumor cell populations over courses of treatment.
 Work on drug resistant mutations has also formalized the idea of \textit{deception} on fitness landscapes --- the presence of epistatic mutations that lead populations away from global optima \citep{eppstein2016quantifying,ogbunugafor2016competition}.
 These are quantified by measuring the fraction of individuals possessing misleading mutation combinations --- combinations providing higher-than-average fitness, even though they lead away from the global optimum.
@@ -117,9 +113,12 @@ The measure may also be weighted by the magnitude of misleading mutations' adapt
 Taken together, evolutionary computation and evolutionary biology can paint a more complete picture of evolvability than either can alone.
 Natural history proves sophisticated evolvability can emerge undesigned, while extensive challenges in this area encountered by artificial models make clear such evolvability is by no means for granted.
 
-A key challenge across both fields is to unite global and local framings of evolvability.
 TODO concise but artificial.
 Promising work has taken key steps in extending a machine learning framing of evolvability, wherein evolution may ``learn'' from past environments, to mechanisms driven purely by selection and implicit regularization constraints driven by metabolic costs  \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
 Notably, such work has advanced heavily in collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic}.
 Contemporary developments in machine learning theory remain to be integrated in this framework, however --- such as double descent, which reveals how growth in model size beyond the interpolation threshold can improve, rather than worsen, overfitting \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
 Such collaborations may ultimately help guide effective use of large search spaces with representation optimizing algorithms in EC, to provide better overall results than directly trying to find a good representation \citep{hewlett2008optimization,gajewski2019evolvability,mengistu2016evolvability}.
+
+Much unsolved work also remains in predicting under what conditions a population will localize to different boundary genotypes \citep{kussell2006polymerpopulation}.
+The unique tractability of EC systems makes them ideal candidates for such work.
+Indeed, in EC, it is plausible that existing selection schemes can already exhibit strong second-order selection for evolvability \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}, but systematic effort towards a taxonomy of second-order optimization protocols is needed to address such questions \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
