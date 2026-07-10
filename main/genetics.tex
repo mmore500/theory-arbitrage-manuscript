@@ -1,5 +1,5 @@
 % \section{Existing Connections: Genetics}
-\section{Genetics} %@AML: strange for this to be the only 'Existing connections' labeled section. Works fine to remove?
+\section{Genetics} %@AML: strange for this to be the only 'Existing connections' labeled section.
 \label{sec:genetics}
 
 As \citet{paixao2015toward} highlight, the fields of population genetics and EC developed largely in parallel for thirty years, independently accumulating overlapping results.  % @MAM this paper advances a message very closely in line with the overall message of this paper, so is a key foundational citations
@@ -21,7 +21,7 @@ Existing work has used these statistics to provide a rigorous explanation for wh
 
 Another topic of great interest in EC theory is population size \citep{harik1999gamblers,goldberg1991genetic}.
 Due to the role of random chance in evolution, the capability of selection to reliably favor advantageous traits fundamentally depends on the number of population members on which selection is sampled \citep{gravel2016selection}.
-For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.  % @MAM could note haploid populations
+For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.  % @MAM could note haploid populations @AML: yup, haploid seems even more relevant to most ec populations
 Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
 This latter so-called Strong Selection/Weak Mutation regime is of particular interest to theorists: where mutations are rare relative to the time they take to fix, a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
 
@@ -43,6 +43,8 @@ A key complication of evolution, both \textit{in silico} and \textit{in vivo}, i
 The foundations of modern quantitative genetics are multivariate generalizations of the breeder's equations, which predict the joint response of correlated traits from their genetic covariance and individual selection gradients \citep{lande1979quantitative}.
 Direct correspondences exist between such analysis and the problem of multi-objective optimization.
 Indeed, existing work in evolutionary biology has drawn on an optimization lens to help explain phenotypic trait distributions in natural populations, posing natural organisms as exploring a high-dimensional Pareto surface \citep{shoval2012evolutionary}.
-However, the multivariate breeder's equation has yet to see much application in EC. % @MAM at least, I haven't turned any up though they could exist?
+Even more closely related to EC, modern quantitative genetics have been used to help guide artificial selection and plant breeding decisions when simultaneously optimizing across multiple traits \citep{jesus_ceron-rojas2026nonlinear,olivoto2021mgidi}. % @AML added connection to plant breeding; many more citations possible here. This is a pretty common thing to want to do in modern plant breeding!
+\citet{santana2011quantitative} introduced how conditional dominance, conditional conflicting dominance, and genetic covariance matrices might be used to enhance and analyze multi-objective evolutionary optimization algorithms. % ... <-- was a very brief extended abstract, and I don't see
+% However, the multivariate breeder's equation has yet to see much application in EC. % @MAM at least, I haven't turned any up though they could exist? % @AML found one (brief extended abstract from gecco): santana2011quantitative
 
 Price's covariance-and-selection theorem \citep{price1970selection} has also found several applications in evolutionary computation \citep{altenberg1995schema,bassett2004looking,bassett2005applying,potter2003visualizing,altenberg1994evolution,card2008towards,wang2006estimation}.  % TODO
