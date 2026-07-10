@@ -25,7 +25,7 @@ For evolution by natural selection, fitness must vary across genotype space --- 
 Where fitness can vary (e.g., ecological or environmental fluctuations \citep{olson2014dynamic,kaplan2008end,dolson2021digital}), a fitness landscape may instead be termed a ``fitness seascape'' \citep{cairns2022strong,mustonen2009fitness}.
 Often, it is useful to decompose genotype-fitness relationships to isolate the \textit{genotype-phenotype map} (Figure \ref{fig:fitness_landscapes}, right) \citep{ahnert2017structural,aguilar2018architecture,stadler2003landscapes}.
 Biological phenotype (i.e., observable traits) can often be more conveniently and consistently measured than fitness \citep{chen2022environmental,ahnert2017structural,wagner2011pleiotropic,aguilar2018architecture}.
-In EC, genotype-phenotype relationships cover indirect encoding techniques, which devise a (typically) lower-dimensional genetic \textit{representation} for hard problems \citep{ashlock2012representation,rothlauf2003redundant,rothlauf2009representations,mitavskiy2003comparing} and defining a ``developmental'' translation into phenotype (i.e., solution) space \citep{stanley2007compositional,stanley2003taxonomy,stanley2009hypercubebased,clune2011performance,kitano1990designing,hornby2002creating}.
+In EC, genotype-phenotype relationships cover indirect encoding techniques, which devise a (typically) lower-dimensional genetic \textit{representation} for hard problems \citep{ashlock2012representation,rothlauf2003redundant,rothlauf2009representations,mitavskiy2003comparing} and define a ``developmental'' translation into phenotype (i.e., solution) space \citep{stanley2007compositional,stanley2003taxonomy,stanley2009hypercubebased,clune2011performance,kitano1990designing,hornby2002creating}.
 
 Given its strong influence on realized variation, the structure of adaptive landscapes acts as a core determinant of evolutionary outcomes.
 Though evolutionary adaptation progresses most efficiently on landscapes that are monotonic and smooth, such conditions rarely occur.
@@ -87,7 +87,7 @@ As comparison, $10^{88}$ photons have been estimated within the observable unive
 
 Evolution thus enjoys ample opportunity to exploit variation in local landscape structure in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
 Under a neighborhood-based framing, mutations can be considered ``evolvability enhancing'' if they provide access to later high fitness mutations.
-Such mutations can be surprisingly abundant \citep{wagner2023evolvability}, although generality across in biological fitness landscapes remains unexplored \citep{ogbunugafor2023mutations}.
+Such mutations can be surprisingly abundant \citep{wagner2023evolvability}, although generality across biological fitness landscapes remains unexplored \citep{ogbunugafor2023mutations}.
 Neighborhood-based evolvability arises also in EC \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring,reisinger2006selecting}, described as \textit{acquired evolvability} \citep{reisinger2005towards}.
 
 Although it is possible to select directly for acquired evolvability in EC \citep{mengistu2016evolvability}, the plausibility of natural evolution favoring genetic neighborhoods with evolvable characteristics hinges on the extent to which --- in addition to instantaneous fitness \citep{watson2016how} --- biases in mutational composition can steer evolution.
@@ -105,19 +105,19 @@ Other work has developed the mutation effect reaction norm (Mu-RN) measure of ch
 
 In addition to environmental shifts \citep{king2025fitness,gatenby2020integrating,acar2020exploiting,goulart2013designing}, much other work on adaptive landscapes stems from challenges in evolutionary medicine managing microbial or tumor cell populations during treatment.
 For instance, drug resistance mutations have motivated metrics to quantify fitness landscape \textit{deception} acting on a population, according to the fraction of members possessing misleading mutation combinations that provide higher-than-average fitness despite leading away from the global optimum \citep{eppstein2016quantifying}.
-Related work has explored how clonal interefence effects driven by the distribution of fitness effect sizes along adaptive trajectories shapes evolutionary outcomes \citep{ogbunugafor2016competition}.
+Related work has explored how clonal interference effects driven by the distribution of fitness effect sizes along adaptive trajectories shape evolutionary outcomes \citep{ogbunugafor2016competition}.
 
 \subsection{Evolvability: Open Questions}
 
 Taken together, evolutionary computation and evolutionary biology paint a more complete picture of evolvability than either can alone.
-Natural history proves sophisticated evolvability can emerge with no explicit design, while the extensive challenges encountered by artificial models make clear such evolvability is by no means for granted.
+Natural history proves sophisticated evolvability can emerge with no explicit design, while the extensive challenges encountered by artificial models make clear such evolvability is by no means a given.
 
 While unsupervised learning theory offers a tantalizingly concise and general perspective on evolvability, it is also --- at face value --- highly artificial.
 However, promising recent work has taken key steps in identifying biologically plausible mechanisms that may indeed allow evolution to ``learn'' from past environments \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
-Much biological detail remains to be incorporated, however, as do motable contemporary developments in machine learning theory --- such as double descent, a surprising phenomenon where model expansion beyond the interpolation threshold can reduce overfitting, rather than worsening it \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
+Much biological detail remains to be incorporated, however, as do notable contemporary developments in machine learning theory --- such as double descent, a surprising phenomenon where model expansion beyond the interpolation threshold can reduce overfitting, rather than worsening it \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
 Given extensive existing involvements \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic,watson2016how,watson2014evolution}, opportunity is ripe for continued collaboration and leadership by EC practitioners on this front.
 
 More generally, progress is needed towards a systematic taxonomy of second-order selection effects \citep{gajewski2019evolvability,mengistu2016evolvability,hu2010evolvability}.
 Ideally, from a biological perspective, such theory would predict under what conditions a population would localize to different boundary genotypes \citep{kussell2006polymerpopulation}.
-It is plausible that existing EC selection schemes can already exhibit strong second-order selection for evolvability \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}, which --- along EC's unique experimental tractability --- makes them ideal candidates for such work.
+It is plausible that existing EC selection schemes can already exhibit strong second-order selection for evolvability \citep{hu2010evolvability,doncieux2020novelty,lehman2015enhancing}, which --- along with EC's unique experimental tractability --- makes them ideal candidates for such work.
 Such collaborations may ultimately help guide effective use of large search spaces with representation optimizing algorithms in EC, to provide better overall results than directly trying to find a good representation \citep{hewlett2008optimization,gajewski2019evolvability,mengistu2016evolvability}.
