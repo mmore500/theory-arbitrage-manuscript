@@ -46,13 +46,10 @@ In this spirit, we review work across both fields to highlight opportunities ---
 
 \subsection{Evolvability: Mapping-based Perspective}
 
-Given the objective-oriented nature of EC, much of interest in evolvability revolves around problems where evolution gets stuck \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
-In addition to numerous \textit{ad hoc} remedies (e.g., metaheuristic analysis, parameter tuning, large-effect mutations, evolutionary restarts, etc.) \citep{ragusa2022augmenting,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, a common strategy to address such premature convergence is to rearrange search space.
+Owing to the objective-oriented nature of EC, interest in evolvability largely revolves around premature convergence --- problems where evolution gets stuck \citep{crepinsek2013exploration,andre2001improvement,bongard2010guarding,pandey2014comparative,squillero2016divergence}.
+In addition to numerous \textit{ad hoc} remedies \citep{ragusa2022augmenting,wang2018population,dang2016selfadaptation,fogel1994introduction,fouskakis2002stochastic,kirkpatrick1983optimization,de2015money,doerr2014impact}, dead-end outcomes can be addressed by rearranging search space.
 
-Framed around capability for continued evolutionary progress inspired by \citet{kirschner2017plausibility}'s theory of facilitated variation, \citet{tarapore2015evolvability} define evolvability as capability to innovate by producing variation that is both (1) viable and (2) novel.
-These properties can be tested using an \textit{evolvability signature} assay, which samples outcomes produced under mutation to assess how strongly fitness constraints penalize phenotypic change.
-
-At a mechanistic level, numerous  properties of an ``evolvable'' representation that can support such innovation have been proposed \citep{moreno2017evolvability}:
+In this vein, numerous  mechanistic properties of an ``evolvable'' representation that can support such innovation have been proposed \citep{moreno2017evolvability}:
 \begin{itemize}
 \item \textit{modularity} and \textit{weak linkage}, mechanistic decoupling between phenotypic traits that allows them to vary independently or interact via high-level interfaces \citep{kirschner1998evolvability,downing2015intelligence,kashtan2005spontaneous,kashtan2007varying,wilder2015reconciling,owens2003quest};
 \item \textit{degeneracy}, overlapping function among structurally distinct elements which can enhance opportunity for variation \citep{whitacre2010degeneracy,wagner2003evolutionary};
@@ -62,14 +59,20 @@ At a mechanistic level, numerous  properties of an ``evolvable'' representation 
 \item \textit{anisotropy}, biased over-representation of certain phenotypes in genotype space \citep{schaper2014arrival,borenstein2008end,brunusan2025minimal,rohner2025macroevolution,herreralvarez2025structure}; and
 \item \textit{symmetry}, bias specifically toward phenotypic structure exhibiting regularity and repetition \citep{coyne1987lack,clune2011performance,tonelli2013relationships,cheney2014unshackling}.
 \end{itemize}
+Viewing evolvability at the functional level, however, allows a more concise formulation.
+\citet{tarapore2015evolvability} define evolvability as capability to innovate by producing variation that is both (1) viable and (2) novel.
+\unskip\footnote{%
+This framing is also influenced by \citet{kirschner2017plausibility}'s biological theory of facilitated variation.
+}
+Such capability can be tested using an \textit{evolvability signature} assay, which samples mutational outcomes to describe how strongly fitness constraints penalize phenotypic change.
 
-While this laundry list of principles is useful in teasing apart the properties of an existing representation, it is less obvious how they should factor into engineering a new one.
-This challenge motivates more recently proposed perspectives on genotype-phenotype maps \citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,bontrager2018deepmasterprints,rodrigueztorrado2020bootstrapping,volz2018evolving,rakicevic2021policy,thakkar2019autoencoder,yosinski2012visually,feng2017autoencoding,stuurman2023approach,li2024generating,song2024morphvae}, which pose genetic representations as a manifold embedding --- that is, a lower-dimensional carveout of choice regions within phenotype space  \citep{tenenbaum2000global,roweis2000nonlinear}.
+While these concepts are useful in teasing apart the properties of an existing representation, they do not necessarily imply how to engineer a new one.
+This limitation has motivated a slew of recent work in EC that poses genetic representations as a manifold embedding\citep{lehman2023evolution,moreno2018learning,bentley2022evolving,gaier2020discovering,wittenberg2023denoising,bontrager2018deepmasterprints,rodrigueztorrado2020bootstrapping,volz2018evolving,rakicevic2021policy,thakkar2019autoencoder,yosinski2012visually,feng2017autoencoding,stuurman2023approach,li2024generating,song2024morphvae}  --- that is, a lower-dimensional carveout of certain regions within phenotype space \citep{tenenbaum2000global,roweis2000nonlinear}.
 
-Importantly, unsupervised learning techniques allow the shape of such manifolds to be learned from training data \citep{radford2015unsupervised,turk1991eigenface,white2016sampling,frowd2004evofit}.
-Generative Adversarial Networks (GANs), for instance, can be trained to sample over a given manifold \citep{goodfellow2014generative}.
-Likewise, bottlenecked and error-correcting autoencoder architectures can distill manifold features and repair off-manifold departures \citep{hinton2006reducing,vincent2008extracting}.
-These capabilities lend themselves naturally to genotype-phenotype maps, making unsupervised learning a concise, and actionable, framing of evolvability.
+Critically, the shape of such manifolds can, in principle, be learned automatically from training data using unsupervised ML techniques \citep{radford2015unsupervised,turk1991eigenface,white2016sampling,frowd2004evofit}.
+Generative Adversarial Networks (GANs), for instance, can be trained from examples to sample over a given manifold \citep{goodfellow2014generative}.
+Likewise, bottlenecked and error-correcting autoencoders can learn to distill manifold features and de-noise off-manifold deviations \citep{hinton2006reducing,vincent2008extracting}.
+These capabilities lend themselves naturally to genotype-phenotype maps.
 Learned mutational operators have also been proposed to similar effect \citep{lehman2023evolution,meyerson2024language}.
 
 \subsection{Evolvability: Neighborhood-based Perspective}
@@ -115,6 +118,7 @@ Taken together, evolutionary computation and evolutionary biology can paint a mo
 Natural history proves sophisticated evolvability can emerge undesigned, while extensive challenges in this area encountered by artificial models make clear such evolvability is by no means for granted.
 
 A key challenge across both fields is to unite global and local framings of evolvability.
+TODO concise but artificial.
 Promising work has taken key steps in extending a machine learning framing of evolvability, wherein evolution may ``learn'' from past environments, to mechanisms driven purely by selection and implicit regularization constraints driven by metabolic costs  \citep{kouvaris2017evolution,watson2016how,watson2014evolution}.
 Notably, such work has advanced heavily in collaboration with evolutionary computation practitioners \citep{kouvaris2017evolution,szilagyi2020phenotypes,mitchell2025genomic}.
 Contemporary developments in machine learning theory remain to be integrated in this framework, however --- such as double descent, which reveals how growth in model size beyond the interpolation threshold can improve, rather than worsen, overfitting \citep{belkin2019reconciling,rocks2022memorizing,nakkiran2021deep}.
