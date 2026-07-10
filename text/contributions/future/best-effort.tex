@@ -2,7 +2,7 @@
 \label{sec:best-effort}
 
 Modern biology is driven by innovations enhancing visibility into the natural world and greater data availability \citep{strasser2012data} --- taxonomic collections \citep{winsor2009taxonomy}, microscopy \citep{turner1890cell}, satellite imagery \citep{stark2016toward}, and high-throughput sequencing \citep{durack2018gut}.
-Though data availability continues to grow \citep{sulston1983embryonic,sheth2017multiplex,weeks2023deep}, fundamental limitations exist in data completeness, particularly in natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
+Though data availability continues to grow \citep{sulston1983embryonic,sheth2017multiplex,weeks2022deep}, fundamental limitations exist in data completeness, particularly in natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
 
 In contrast to biology, evolutionary computation has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection of diagnostic information necessary to troubleshoot, tune parameters, and develop theory \citep{hernandez2023suite,hooker1995testing,oneil2003digital,lenski2003evolutionary}.
 % tailored to burgeoning deep learning workloads \citep{marcus2018deep,kaplan2020scaling}
@@ -15,7 +15,7 @@ Such ``inferential observability'' approaches can degrade gracefully under const
 % In the case of digital evolution, a key challenge is tracking population dynamics across a vast, highly-distributed fabric of memory-constrained processors.
 Recent wafer-scale digital evolution experiments have adopted strategies inspired by real-world experiments that assume data collection is expensive, limited, and non-deterministic \citep{moreno2024trackable,moreno2025mutator}.
 As reviewed in Section \ref{sec:diversity-measures}, phylogenies can be richly informative of both population- and organism-level dynamics \citep{genthon2023cell, levy2015quantitative,stadler2013recovering,moreno2025ecology,lewinsohn2023statedependent,nozoe2017inferring}.
-Rather than exhaustively tracking parent-child relationships \citep{dolson2023phylotrackpy}, we adopt an approach inspired by bioengineered lineage tracking \citep{moreno2022hereditary} --- in which progressive DNA barcode inserts identify closely-related organisms by shared commonalities \citep{masuyama2019dna,wagner2020lineage,mckenna2016wholeorganism,kebschull2018cellular,askary2024lives,sashittal2023startle,kong2020celltagging,chow2021imaging,chen2022connecting,choi2022timeresolved,kalhor2016rapidly}.
+Rather than exhaustively tracking parent-child relationships \citep{dolson2024phylotrackpy}, we adopt an approach inspired by bioengineered lineage tracking \citep{moreno2022hereditary} --- in which progressive DNA barcode inserts identify closely-related organisms by shared commonalities \citep{masuyama2019dna,wagner2020lineage,mckenna2016wholeorganism,kebschull2018cellular,askary2024lives,sashittal2023startle,kong2020celltagging,chow2021imaging,chen2022connecting,choi2022timeresolved,kalhor2016rapidly}.
 We use analogous barcoding with single-bit markers, budgeting a 64-bit capacity per genome \citep{moreno2025testing}.
 Once budgeted capacity fills, barcodes overwrite each other to maintain an approximate record \citep{moreno2024algorithms}.
 % Barcode origin times can be inferred from storage position, allowing direct estimation of lineage divergence
