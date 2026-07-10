@@ -1,10 +1,10 @@
 \subsection{Best-effort Observation}
 \label{sec:best-effort}
 
-Modern biology is driven by innovations enhancing visibility into the natural world and greater data availability \citep{strasser2012data} --- taxonomic collections \citep{winsor2009taxonomy}, microscopy \citep{turner1890cell}, satellite imagery \citep{stark2016toward}, and high-throughput sequencing \citep{durack2019gut}.
-Though data availability continues to grow \citep{sulston1983embryonic,sheth2017multiplex,weeks2023deep}, fundamental limitations exist in data completeness, particularly in natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
+Modern biology is driven by innovations enhancing visibility into the natural world and greater data availability \citep{strasser2012data} --- taxonomic collections \citep{winsor2009taxonomy}, microscopy \citep{turner1890cell}, satellite imagery \citep{stark2016toward}, and high-throughput sequencing \citep{durack2018gut}.
+Though data availability continues to grow \citep{sulston1983embryonic,sheth2017multiplex,weeks2022deep}, fundamental limitations exist in data completeness, particularly in natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
 
-In contrast to biology, evolutionary computation has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection of diagnostic information necessary to troubleshoot, tune parameters, and develop theory \citep{hernandez2023suite,hooker1995testing,o2003digital,lenski2003evolutionary}.
+In contrast to biology, evolutionary computation has, from the outset, enjoyed perfect fidelity and absolute completeness in data collection of diagnostic information necessary to troubleshoot, tune parameters, and develop theory \citep{hernandez2023suite,hooker1995testing,oneil2003digital,lenski2003evolutionary}.
 % tailored to burgeoning deep learning workloads \citep{marcus2018deep,kaplan2020scaling}
 However, powerful next-generation high-performance computing hardware \citep{zhang2016cambricon,emani2021accelerating,jia2019dissecting,medina2020habana,lauterbach2021path,vanessendelft2025record} is beginning to strain the perfect-observability paradigm.
 For instance, to pack 880,000 processors onto a single chip, the Cerebras Wafer-Scale Engine (WSE) platform provides only 48kB memory per processor, requires multi-hop message routing, and exports data only from the chip periphery \citep{miyajima2025benchmarking,he2025wafer,vanessendelft2025system}.
@@ -25,5 +25,5 @@ Such an approach scales to quadrillion-elapsed/billion-sampled taxa \citep{singh
 
 For instance, even under serial processing, maintaining full records of genetic program instruction history under sexual recombination has proven to be a highly technically demanding, data-intensive task \citep{mcphee2016using,mcphee2017visualizaing}.
 Such knockout trials --- in contrast to other aspects of digital evolution --- are notable in that combinatorial intractability has held back completely exhaustive analysis for all but the smallest genomes \citep{nitash2021information}.
-Knockout assay experiments have, therefore, typically been limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2023fluctuating}, or iterative approaches \citep{langdon2014improving,moreno2021case}.
+Knockout assay experiments have, therefore, typically been limited to single-site \citep{adami2006digital}, all-pairs \citep{kumawat2024evolution}, or iterative approaches \citep{langdon2014improving,moreno2021case}.
 Biologists offer screening- and sampling-based approaches \citep{amstrup2005handbook,mackenzie2017ccupancy,amsterdam2004identification,glanville2009precise} which can be used to approximate structural properties of evolved solutions without exhaustive work which can find use in evolutionary computation \citep{moreno2024cryptic}.
