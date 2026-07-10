@@ -77,20 +77,21 @@ Learned mutational operators have also been proposed to similar effect \citep{le
 
 \subsection{Evolvability: Neighborhood-based Perspective}
 
-Compared to that typical in EC, biological genotype space is staggeringly, exponentially vast \citep{stadler2007fitness,de2014empirical}.
-For instance, even at just 20 sites, upwards of a quintillion mutational paths exist between any two strands of RNA \citep{greenbury2022structure}.
-Despite dense mutational connectivity, the vastness of sequence space nonetheless affords numerous meaningfully self-contained local neighborhoods \citep{wagner2017information}.
-For instance, in a 20-site strand, upwards of 2.59 million sequences exist such that all are at least 5 mutations apart; for 40, 400, and 4,000 site strands, the number of sequences at least 25\% mutually distinct grows as $2.03 \times 10^{11}$, $4.64 \times 10^{97}$, and $9.60 \times 10^{956}$ \citep{gilbert1952comparison,varshamov1957estimate}.
-As a point of comparison, only on the order of $10^{88}$ photons have been estimated to exist in the observable universe \citep{dimopoulos1978baryon}.
+Compared to EC, biological genotype space is staggeringly, exponentially vast \citep{stadler2007fitness,de2014empirical}.
+For instance, for even just 20-site RNA strands, upwards of $10^{18}$ mutational paths exist between any pair \citep{greenbury2022structure}.
+Despite dense mutational connectivity, the vastness of sequence space affords numerous self-contained neighborhoods \citep{wagner2017information}.
+For instance, in a 20-site strand, upwards of 2.59 million sequences exist such that all are at least 5 mutations apart; for 40, 400, and 4,000 site strands, the lower bound on sequences at least 25\% mutually distinct grows to $2.03 \times 10^{11}$, $4.64 \times 10^{97}$, and $9.60 \times 10^{956}$ \citep{gilbert1952comparison,varshamov1957estimate}.
+\unskip\footnote{%
+As comparison, $10^{88}$ photons have been estimated within the observable universe \citep{dimopoulos1978baryon}.
+}
 
-This abundance affords evolution ample opportunity to exploit variation in local landscape structure in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
-Under a localized framing of evolvability, mutations can be considered ``evolvability enhancing'' if they shift into a region of genome space that provides access to later high fitness mutations.
-Such mutations can be surprisingly abundant in biological fitness landscapes \citep{wagner2023evolvability} --- although the generality of this abundance remains to be explored \citep{ogbunugafor2023mutations}.
-Localized notions of evolvability arise also in EC \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring,reisinger2006selecting}, referred to as \textit{acquired evolvability} \citep{reisinger2005towards}.
-Notable EC work has demonstrated such acquired evolvability, interestingly, can be directly selected for \citep{mengistu2016evolvability}.
+Evolution thus enjoys ample opportunity to exploit variation in local landscape structure in interesting ways \citep{kumawat2024evolution,barnett2025experimental,steinberg2016environmental,gupta2022hostparasite,ferrare2024evolution,pyo2025evolutionary}.
+Under a neighborhood-based framing, mutations can be considered ``evolvability enhancing'' if they provide access to later high fitness mutations.
+Such mutations can be surprisingly abundant \citep{wagner2023evolvability}, although generality across in biological fitness landscapes remains unexplored \citep{ogbunugafor2023mutations}.
+Neighborhood-based evolvability arises also in EC \citep{mengistu2016evolvability,doncieux2020novelty,katona2021quality,lehman2016critical,lehman2013evolvability,reisinger2007acquiring,reisinger2006selecting}, described as \textit{acquired evolvability} \citep{reisinger2005towards}.
 
-The plausibility of discovering genetic neighborhoods with evolvable characteristics, however, hinges on the extent to which --- in addition to instantaneous fitness \citep{watson2016how} --- biases in mutational composition can steer evolution.
-While such second-order effects are heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}, they have been conclusively demonstrated in specific instances across both biological and computational models \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution,richter2009detecting,grefenstette1999evolvability}.
+Although it is possible to select directly for acquired evolvability in EC \citep{mengistu2016evolvability}, the plausibility of natural evolution favoring genetic neighborhoods with evolvable characteristics hinges on the extent to which --- in addition to instantaneous fitness \citep{watson2016how} --- biases in mutational composition can steer evolution.
+While such second-order effects are heavily debated \citep{wagner2021adaptive,akay2016there,keller1999levels,altenberg1995genome,yoshimura1996evolution,yoshimura1991individual,pigliucci2008evolvability}, they have been conclusively demonstrated in specific instances within both biological and computational models \citep{sung2012driftbarrier,wilke2001evolution,pyo2025evolutionary,wagner2021adaptive,akay2016there,keller1999levels,wagner2017information,kumawat2024evolution,barnett2025experimental,steinberg2016environmental,hayden2011cryptic,gupta2022hostparasite,zaman2014coevolution,richter2009detecting,grefenstette1999evolvability}.
 
 While some second-order effects are studied at macroevolutionary scope (e.g., species selection) \citep{jablonski2008species,stanley1975theory,reznick2009darwin}, particular interest has arisen around the idea that environmental fluctuations acting at generational timescales \citep{bell2017evolutionary,bell2010fluctuating} can exert lineage selection for evolvability.
 Under such conditions, mutations may benefit a lineage directly, or with respect to an environment that is likely to appear in the future \citep{parter2008facilitated}.
