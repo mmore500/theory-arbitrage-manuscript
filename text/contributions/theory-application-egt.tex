@@ -1,0 +1,40 @@
+\section{Evolutionary Graph Theory}
+\label{sec:egt}
+
+Beyond the domain of well-mixed chemostat conditions, spatial structure is ubiquitous across natural biological populations.
+Evolutionary computation, by contrast, typically defaults to well-mixed conditions.
+While EC work has often explored the consequences of incorporating spatial structure for its own sake
+\citep{tomassini2005spatially,simon2008biogeographybased}, the topic of population structure most commonly arises in the context of parallel and distributed hardware resources \citep{cantupaz1999scalability}.
+To harness such hardware, independent subpopulations can be instantiated across available processors --- as if ``islands'' linked by occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed}.
+
+The question of how best to arrange such island subpopulations has attracted substantial attention within EC \citep{whitley1999island,cantupaz1999topologies,rucinski2010impact}.
+Topics of interest have included migration policy \citep{cantupaz2001migration,cantupaz1999topologies}, population size \citep{whitley1999island,goldberg1989sizing,cantupaz2001efficient}, population diversity \citep{tanese1989distributed,whitley1999island}, and which problem classes benefit from population structure \citep{lassig2013design}.
+
+Outside of EC, great interest also exists in how spatial structure can influence natural selection.
+This question is studied directly under the banner of evolutionary graph theory (EGT) \citep{lieberman2005evolutionary}.
+Under an EGT framing, population structure is typically treated as a graph topology --- with an individual occupying each vertex and edges indicating possible routes for lineage spread \citep{pattni2015evolutionary}.
+
+A central result of evolutionary graph theory is that population structure can systematically influence evolutionary outcomes: relative to a well-mixed population, some population configurations amplify selection by making beneficial mutations more likely to fix, while others instead suppress these fixation probabilities \citep{lieberman2005evolutionary,pavlogiannis2018construction,allen2017evolutionary}.
+Similar work has also examined how graph topology influences the fate of deleterious mutations \citep{sharma2022suppressors}.
+
+Importantly, EGT has shown population structure to shape not only whether a variant fixes, but also how quickly \citep{askari2015analytical}.
+Surprisingly, in such scenarios, faster fixation time often comes at the cost of lower fixation certainty \citep{frean2013effect}.
+Thematic parallels exist between such EGT work and EC's interest in extending duration required for mutational sweeps (``takeover time''), as a mechanism to slow search convergence \citep{goldberg1991comparative,rudolph2001takeover,giacobini2005selection,sudholt2015parallel}.
+
+As well-known in EC \citep{wolpert1997no}, no single search configuration can be expected optimal across all possible fitness landscapes.
+As such, recent work in EGT has developed techniques to engineer bespoke population structures tuned to individual optimization problems \citep{kuo2024theory,kuo2024evolutionary}.
+This framework revolves around manipulation of two evolutionary properties: selection strength (``amplification factor'') \citep{kuo2024theory} and effective population size/fixation time (``acceleration factor'') \citep{kuo2024evolutionary}.
+Crucially, these properties may be tuned independently --- a capability achieved by use of higher-order triangle motifs that alter fixation time without affecting fixation probability \citep{kuo2024evolutionary}.
+Such principled construction refines earlier reliance on black box optimization (notably, including EC approaches) \citep{moller2019exploring}.
+
+To test population structures constructed using their method, \citet{kuo2024evolutionary} evaluate performance on EC-style optimization tasks.
+On a task in which agents evolve spatial navigation behaviors, accelerated fixation speeds solution discovery.
+By contrast, to prevent premature fixation on a rugged benchmark function, ``decelerator'' motifs enhance solution quality.
+\citet{kuo2024evolutionarymutation} extends analysis to consider valley-crossing behavior.
+Here, amplification and acceleration factors are shown to jointly influence the probability of successfully crossing a fitness valley in a two-site landscape.
+
+As with other facets of bioscience, potential exists to extend formalisms developed within EC by relating them to EGT.
+However, given this recent intervention-oriented framing, EGT increasingly provides off-the-shelf capabilities directly relevant to EC practitioners.
+EC systems fit so well within an EGT framework, in fact, that in many regards they provide an ideal model system to conduct EGT studies.
+Indeed, such work is needed to characterize the limitations of classical EGT assumptions around update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and single-occupancy population structure \citep{broom2012general}.
+Promising early work on this front has explored the influence of EGT-style population structure on longer-term evolutionary outcomes, such as life history trade-offs in digital organisms \citep{gordon2025environmental}.

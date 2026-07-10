@@ -1,0 +1,101 @@
+% ELD: I see what you mean about the framing being tricky. Currently the flow of the intro seems to be:
+% - The framing of EC has historically been very biosinspired
+% - This is good because of common vocab and charisma
+% - But maybe its bad because it leads us to implement algorithms purely on the basis of the naturalistic fallacy
+% - This is bad because it hurts EC's credibility
+% - We could fix that problem by abandoning bioinspiration, but we're going to aruge that its actually better to lean further into bioinspiration and use it to improve the theoretical backing of EC
+% - Further set-up and elaboration on this theory
+%
+% I think on first reading it currently leans a little further than ideal into sounding like we're going to argue that the bio-inspiration is bad. Which might alienate the readers we are most interested in attracting (then again, maybe it would attract the readers we most want to change the minds of). It would probably help to be clearer about what we think and what others think. Going to try to make some edits to this effect.
+
+\section{Introduction} \label{sec:introduction}
+
+Evolutionary Computation (EC) applies population-based search methods to optimize candidate solutions with respect to desired criteria \citep{fogel1999evolutionary}.
+\unskip\footnote{%
+Common instances of EC include genetic programming \citep{koza1992genetic}, evolutionary programming \citep{fogel1966artificial}, genetic algorithms \citep{mitchell1996introduction}, evolutionary algorithms \citep{holland1975adaptation}, neuroevolution \citep{stanley2002evolving}, differential evolution \citep{storn1997differential}, and evolution strategies \citep{rechenberg1973evolutionsstrategie}.
+}
+Within the field, the underlying metaphor of biological evolution so thoroughly pervades that difficulty can arise in discerning the point where bio-inspiration ends and algorithm engineering begins.
+While some work does reach well outside the biological metaphor \citep{hansen2001completely,munteanu1999improving,miller2015cartesian}, core aspects of EC squarely inhabit a bio-inspired framing --- whether originally conceived as such, or subsequently reframed (Table \ref{tab:bioinspiration}).
+
+\input{tab/bioinspiration.tex}
+
+This ubiquity lends significant weight to concern over underlying merit of the biological metaphor \citep{moore2023evolution}.
+Proponents of bio-inspiration highlight evolutionary computation's metaphor as a source of new ideas, and more simply as a source for convenient, intuitive, self-consistent vocabulary \citep{sorensen2013metaheuristics,banzhaf2006artificial}.
+Another draw of bio-inspiration is the charisma it lends EC \citep{lehman2020surprising}.
+The natural world's complexity and emergent intelligence present an irresistible display of evolution's profound creative power, and the prospect of capturing any fraction of such capability is fascinating.
+% Could also mention that a lot of people find evolution more intuitive
+%The peculiar ubiquity of bio-inspiration in evolutionary computation compared to other ML/AI domains, however,
+Along these lines, natural precedent can also help justify the ultimate feasibility of ambitious research objectives \citep{miikkulainen2021biological,banzhaf2006artificial}.
+
+Bio-inspiration's charisma, however, has proven a double-edged sword --- also, in cases, acting to distract and obfuscate \citep{moore2023evolution,sorensen2013metaheuristics,aranha2021metaphorbased,campelo2023lessons}.
+Given the tendency for machine learning researchers to adhere to their preferred models \citep{domingos2012few}, there is risk for evolutionary approaches to devolve into a pursuit for their own sake rather than a means to an end \citep{woodward2016gp,yampolskiy2018why,michalewicz2012quo}.
+At a further extreme, especially half-baked bio-inspiration has been accused of naturalistic fallacy and mere window dressing on recycled ideas \citep{wortmann2020does,sorensen2013metaheuristics,simon2011analytical,campelo2023lessons,camachovillaln2022exposing,tzanetos2020nature,lones2019mitigating,delser2019bioinspired,fister2016new}.
+
+Skepticism of the evolutionary metaphor echoes a more fundamental concern that EC lacks a cohesive, rigorous theoretical framework with first-principles grounding \citep{worzel2003genetic} --- an anxiety also lingering from longstanding contention between ``scruffy'' and ``neat'' research philosophies \citep[p.~16]{jones2008artificial, minsky1991logical}.
+This \textit{ad hoc} nature imposes real cost in hindering EC adoption, on account of numerous arbitrary configurable and tunable elements \citep{oneil2010open}.
+
+One proposed path forward is to de-emphasize the evolutionary metaphor, in order to deepen and diversify alternate first-principles footing for EC \citep{moore2023evolution}.
+While we agree that EC needs sounder theory, we propose the opposite --- that a concurrent effort should approach the field's challenges by leaning further into the evolutionary metaphor, in a new direction.
+
+Historically, EC research has primarily drawn on bio-inspiration as means to invent new problem-solving mechanisms \citep{banzhaf2006artificial,kumar2003biologically,mcphee2009developmental,gaperov2024leveraging,mouret2010importing}.
+%  through approaches echoing processes and structures from the natural world
+% focuses on emulating of the mechanisms/structure of biology itself that fold into our runtime algorithms.
+Here, we argue to take one step further: gathering inspiration from the science arising around biology, rather than just the biology itself.
+Such bioscience can help improve understanding of how and why EC algorithms work, not just improve their performance.
+
+Crucial to its breadth, the study of biological evolution interleaves closely with many allied fields, such as population genetics, developmental biology, molecular biology, ethology (animal behavior), and ecology.
+Of particular note is the subfield of experimental evolution, which instantiates evolution under controlled conditions \citep{kawecki2012experimental} --- much the same as EC.
+Further, in the case of so-called ``directed evolution'' experiments, evolutionary optimization is even explicitly recruited to a desired objective \citep{cobb2013directed,carroll2014applying}.
+
+One concern in translating between biology and EC, however, is substrate specificity.
+While fundamental disparities do exist, it is also the case that life on Earth already stretches biological abstraction across wildly broad and diverse domains.
+Indeed, such generality underlies computational artificial life research, a close cousin of evolutionary computation \citep{cleland2012general,langton1989artificial,pennock2007models}. % ELD: Lots more astrobiology citations we could add here
+
+In many cases, a greater practical concern for effective arbitrage is familiarity with biological literature.
+Insofar as findings applicable to EC are available, harnessing them requires sufficient domain knowledge (1) to identify them and (2) to navigate subtleties in aligning appropriate correspondences with EC.
+Given the vastness, context-dependence, and --- at times --- polyonymy of biological theory, interdisciplinary collaborations can be highly productive \citep{goodman2020evolution}.
+
+Where sufficient effort is invested and necessary relationships developed, engaging biological knowledge can yield substantial value in EC \citep{hu2010evolvability,dolson2018ecological,paixao2015toward,wagner1996perspective}.
+Indeed, translated bioscience has already made important impacts (Table \ref{tab:arbitrage-examples}), as we review across five themes:
+% Subsequently, we will evaluate additional yet-to-be-explored opportunities that might further springboard understanding of evolutionary algorithms off of work in evolutionary biology.
+% Throughout, discussion highlights how such theory and analysis can translate to application-oriented objectives of EC.
+\begin{itemize}
+  \item genetics (Section \ref{sec:genetics});
+  \item ecology (Section \ref{sec:diversity-maintenance});
+  \item biodiversity science (Section \ref{sec:diversity-measures});
+  \item evolutionary graph theory (Section \ref{sec:egt}); and
+  \item adaptive landscapes (Section \ref{sec:evolvability}).
+\end{itemize}
+
+Much untapped work from bioscience remains to be arbitraged, however --- and we highlight several possibilities,
+\begin{itemize}
+  \item best-effort observation (Section \ref{sec:best-effort}),
+  \item replay analyses (Section \ref{sec:replay});
+  \item coevolution (Section \ref{sec:coevolution});
+  \item adaptive momentum (Section \ref{sec:adaptive-momentum}); and
+  \item phylogenetic networks (Section \ref{sec:recombination}).
+\end{itemize}
+
+\input{tab/arbitrage-examples.tex}
+
+\input{tab/arbitrage-opportunities.tex}
+
+While promising, borrowing from biology is by no means a silver bullet.
+Importantly, substantial gaps remain in the explanatory and predictive power available from evolutionary biology \citep{houlahan2016priority,catford2022addressing,yates2018outstanding}, despite the maturity and competence of the field \citep{lynch2025complexity}.
+Not unlike EC, great consternation exists over these deficiencies --- which arise in part from an overabundance of identifiable causal factors and the existence of exceptions to nearly every rule \citep{welch2016whats}.
+Failures by those outside the field to recognize and build on existing work have also been highlighted \citep{lynch2025complexity,beer2024alife}.
+
+Limitations notwithstanding, bioscience equivalencies likely exist for much of what explanatory power is possible within EC.
+Because EC algorithms host populations of discrete individuals with heritable traits under selection, they will --- in a literal sense --- instantiate evolutionary processes \citep{pennock2007models,lewontin1970units}.
+Therefore, theory generalizable across EC will inherently exhibit isomorphisms to aspects of biology and \textit{vice versa}.
+
+Abiotic dissimilarity does arise in the capability for digital evolution to abstract away otherwise immutable pillars of life (e.g., environmental heterogeneity, phenotypic plasticity, fitness stochasticity, etc.) \citep{belew1996computation}.
+While it must be accounted for, this abstractive capacity can actually prove complementary in experiments otherwise impossible with biological study systems \citep{dolson2021digital} --- a point we return to in our concluding remarks.
+Despite such possibility, much more will ultimately need to be borrowed than created; as a much smaller field, EC should not expect to rival the breadth and depth of biology in isolation.
+% ELD: I'm not sold on this last sentence. They've got superior numbers right now, but I actually think evolutionary computation is a really underutilized approach in evolutionary theory --- MAM: updated, how about now
+
+% has profoundly influenced the trajectory of evolutionary algorithm research.
+With expanded perspective, bio-inspiration can go beyond applied problem solving, to also help explain how and why EC works.
+We believe harnessing the science that has arisen around biology will be key to advancing the rigor, transparency, and efficacy of evolutionary computation.
+By highlighting steps in this direction --- both already and not yet realized --- we hope to catalyze continued progress toward these goals.
+% Calling attention to several yet-untapped correspondences with theory in ecology and evolutionary biology, we hope, also contributes towards this end.

@@ -1,0 +1,47 @@
+\section{Existing Connections: Genetics}
+\label{sec:genetics}
+
+As \citet{paixao2015toward} highlight, the fields of population genetics and EC developed largely in parallel for thirty years, independently accumulating overlapping results.  % @MAM this paper advances a message very closely in line with the overall message of this paper, so is a key foundational citations
+For instance, both derived equations that track how the frequencies of different genotypes in a population shift from one generation to the next.
+These were derived in population genetics as genotype-frequency recursions \citep{lewontin1964interaction,slatkin1970selection} and independently rediscovered in computer science --- under the monikers of quadratic dynamical systems and random heuristic search, both of which model distributional change under distribution-to-distribution transforms \citep{rabinovich1992quadratic,rabani1998computational,vose1999random}.
+In demonstrating the equivalency between these formulations, \citet{paixao2015toward} establish a foundation based in population genetics to rigorously compare evolutionary and genetic algorithms. % TODO expand
+
+While somewhat more opportunistic and scattershot, a number of other notable interdisciplinary exchanges on topics in genetics have also been made.
+In this section, we overview connections between quantitative genetics, the study of how traits respond to selection, and population genetics, the study of how genetic material flows within species over time and space.
+We also highlight several lesser-explored points of interest which may prove fruitful.
+
+\subsection{Population Genetics}
+\label{sec:population-genetics}
+
+Core theory around crossover recombination in EC derives from Geiringer's theorem --- which establishes that under recombination a population converges to linkage equilibrium, with no correlation between allele co-occurrence \citep{geiringer1944probability}.
+EC researchers have generalized this result from fixed-length strings to variable-length genetic algorithms and genetic programs \citep{poli2002allele}, and subsequently to tree-based GP \citep{mitavskiy2006results}.
+Population-genetic framing also supplies useful statistics to quantify linkage disequilibrium in a population (i.e., $D$, $D'$, $r^2$) \citep{hill1968linkage}.
+Existing work has used these statistics to provide a rigorous explanation for why crossover can encounter difficulty on strongly epistatic fitness landscapes, as it drives a population toward locus-wise independence \citep{chakraborty1997linkage}.  % @MAM it seems like there should be more and better examples, but I haven't been able to find them...
+
+Another topic of great interest in EC theory is population size \citep{harik1999gamblers,goldberg1991genetic}.
+Due to the role of random chance in evolution, the capability of selection to reliably favor advantageous traits fundamentally depends on the number of population members on which selection is sampled \citep{gravel2016selection}.
+For diploid populations, when the magnitude of selection is much smaller than one over twice the population size ($|s| \ll 1/(2N)$), drift overwhelms selection and alleles behave as if neutral.  % @MAM could note haploid populations
+Conversely, when the magnitude of selection is much greater than this threshold ($|s| \gg 1/(2N)$), selection dominates and tends to drive beneficial alleles toward fixation \citep{crow2017introduction}.
+This latter so-called Strong Selection/Weak Mutation regime is of particular interest to theorists: where mutations are rare relative to the time they take to fix, a population reduces to a tractable stochastic process advancing in single steps \citep{gillespie1983simple}.
+
+The SSWM regime has been connected to quantifying how expected time-to-solution is affected by selection configuration, and indicating where acceptance of fitness-decreasing moves diverges meaningfully from a standard elitist algorithm \citep{paixao2016towards}.
+Applied to the topic of fitness valleys, this analytical framework helps distinguish where time-to-solution is governed by valley length versus depth \citep{oliveto2017how}.
+By combining drift theorems from EC \citep{he2001drift,lehre2013general,johannsen2010random,oliveto2010simplified,rowe2014jonathan} with the fixation-probability results from population genetics \citep{kimura1962probability}, a SSWM lens has been shown to provide an upper bound on adaptation time across fitness landscapes \citep{heredia2017selection}.
+
+Statistical mechanics can also be used to describe the behavior of a population under selection and drift.
+Originally translated to evolutionary biology from physics, theory of thermodynamic systems can be used to characterize the steady-state distribution of fixed genotypes and genetic load in finite populations \citep{sella2005application}.
+Carried over to genetic algorithms, the same machinery can explain why finite populations can experience periods of fitness stasis (``fitness epochs'') on landscapes without local optima \citep{vannimwegen1999statistical}.
+
+\subsection{Quantitative Genetics}
+\label{sec:quantitative-genetics}
+
+Quantitative genetics models the response of continuous trait distributions to selection, which depends on both trait heritability and the strength of selection \citep{lush1945animal}.
+Existing work in EC has translated Lush's breeder's equation to predict future changes in fitness from measures of current selection intensity, standing variation, and fitness heritability \citep{mhlenbein1997equation}. % @MAM again, it seems like there should be more and better examples, but I haven't been able to find them...
+
+A key complication of evolution, both \textit{in silico} and \textit{in vivo}, is conflict between adaptive objectives arising from genetic trade-offs \citep{garland2022trade,deb2002fast}.
+The foundations of modern quantitative genetics are multivariate generalizations of the breeder's equations, which predict the joint response of correlated traits from their genetic covariance and individual selection gradients \citep{lande1979quantitative}.
+Direct correspondences exist between such analysis and the problem of multi-objective optimization.
+Indeed, existing work in evolutionary biology has drawn on an optimization lens to help explain phenotypic trait distributions in natural populations, posing natural organisms as exploring a high-dimensional Pareto surface \citep{shoval2012evolutionary}.
+However, the multivariate breeder's equation has yet to see much application in EC. % @MAM at least, I haven't turned any up though they could exist?
+
+Price's covariance-and-selection theorem \citep{price1970selection} has also found several applications in evolutionary computation \citep{altenberg1995schema,bassett2004looking,bassett2005applying,potter2003visualizing,altenberg1994evolution,card2008towards,wang2006estimation}.  % TODO
