@@ -2,11 +2,14 @@
 \label{sec:egt}
 
 Beyond the domain of well-mixed chemostat conditions, spatial structure is ubiquitous across natural biological populations.
-Evolutionary computation, by contrast, typically defaults to well-mixed conditions.
+Evolutionary computation, by contrast, typically defaults to well-mixed conditions; that is, any individual in the population is eligible to compete and/or sexually reproduce with any other individual during the selection process. % @AML added clarification here because well-mixed is less commonly used as an EC term
+% @AML I would definitely work in references to age-layered population structure, hierarchical fair competition, super explorers, etc
+Outside typical well-mixed conditions, many popular evolutionary computation techniques do impose structure on their populations, such as age-layered population structure (ALPS) [citations], hierarchical fair competition [cite], MAP-Elites [cite], and many others [citations].
+However, these methods are less commonly thought of as spatially structured, but instead, structure populations according to ancestral or phenotypic traits.
+
 While EC work has often explored the consequences of incorporating spatial structure for its own sake
 \citep{tomassini2005spatially,simon2008biogeographybased}, the topic of population structure most commonly arises in the context of parallel and distributed hardware resources \citep{cantupaz1999scalability}.
 To harness such hardware, independent subpopulations can be instantiated across available processors --- as if ``islands'' linked by occasional migration \citep{cohoon1987punctuated,grosso1985computer,tanese1989distributed}.
-
 The question of how best to arrange such island subpopulations has attracted substantial attention within EC \citep{whitley1999island,cantupaz1999topologies,rucinski2010impact}.
 Topics of interest have included migration policy \citep{cantupaz2001migration,cantupaz1999topologies}, population size \citep{whitley1999island,goldberg1989sizing,cantupaz2001efficient}, population diversity \citep{tanese1989distributed,whitley1999island}, and which problem classes benefit from population structure \citep{lassig2013design}.
 
@@ -38,3 +41,4 @@ However, given this recent intervention-oriented framing, EGT increasingly provi
 EC systems fit so well within an EGT framework, in fact, that in many regards they provide an ideal model system to conduct EGT studies.
 Indeed, such work is needed to characterize the limitations of classical EGT assumptions around update rules \citep{hindersin2015most}, mutation rate \citep{sharma2023selfloops}, and single-occupancy population structure \citep{broom2012general}.
 Promising early work on this front has explored the influence of EGT-style population structure on longer-term evolutionary outcomes, such as life history trade-offs in digital organisms \citep{gordon2025environmental}.
+Moreover, \citet{gordon2025environmental} show that populations evolving on different graph structures exhibit different rates of long-term optimization for different fitness landscapes; specifically, more constrained graph structures better facilitate crossing fitness valleys and general search space exploration, while less constrained graph structures better facilitate rapid exploitation.
