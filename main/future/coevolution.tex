@@ -1,14 +1,19 @@
 \subsection{Coevolution}
 \label{sec:coevolution}
 
-Evolutionary computation has drawn inspiration from co-evolutionary dynamics such as predation \citep{willkens2022evolving,popovici2012coevolutionary, ficici2000gametheoretic}, parasitism \citep{hillis1990coevolving,  cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005identifying, bucci2003mathematical, bucci2003focusing, watson2003computational, watson2001coevolutionary}.
-However, the specific form of co-evolutionary relationship plays an often underappreciated role in these algorithms.
+% @AML Need to pick co-evolution vs coevolution to be consistent for entire manuscript.
+Evolutionary computation has drawn inspiration from coevolutionary dynamics such as predation \citep{willkens2022evolving,popovici2012coevolutionary, ficici2000gametheoretic}, parasitism \citep{hillis1990coevolving,cliff1995tracking}, competition \citep{stanley2004competitive}, and mutualism \citep{wang2019paired, bucci2005identifying, bucci2003mathematical, bucci2003focusing, watson2003computational, watson2001coevolutionary}.
+However, the specific form of coevolutionary relationship plays an often underappreciated role in these algorithms.
 
-Under classic framing, evolutionary interactions are transient \citep{potter2000cooperative,ma2018survey, pan2022effective, gong2015distributed, goh2009competitivecooperative, antonio2017coevolutionary,hancer2025survey, wiegand2004analysis, garciapedrajas2005cooperative, wiegand2001empirical, byrski2015evolutionary}.
-However, this classic framing is a clear case of non-symbiotic co-evolution, because each individual subcomponent is only guaranteed to be evaluated with another individual subcomponent once.
-This structure is analogous to an individual hummingbird visiting an individual flower: they both benefit if the hummingbird's beak happens to perfectly fit the flower's shape, but the hummingbird's fitness is based on how well it matches the flowers on average (taking into account the hummingbird's ability to choose flowers of course) and the flower's fitness is based on how well it matches the visiting pollinators on average.
+% @AML context for 'classic framing' wasn't clear
+Under classic coevolutionary algorithm framing, evolutionary interactions between coevolving entities (e.g., solutions, solution components, training cases, \textit{etc.}) are transient \citep{potter2000cooperative,ma2018survey, pan2022effective, gong2015distributed, goh2009competitivecooperative, antonio2017coevolutionary,hancer2025survey, wiegand2004analysis, garciapedrajas2005cooperative, wiegand2001empirical, byrski2015evolutionary}.
+% @AML 'subcomponent' phrasing wasn't clear. Took a swing at improving clarity.
+However, this classic framing is a clear case of non-symbiotic coevolution because each individual entity is only guaranteed to be evaluated with another individual entity once. % @AML EC folks might quibble because stochastic interactions are often run multiple times, not once. I think what the above sentence is getting at is that interactions between individuals are single-generation.
+This structure is analogous to an individual hummingbird visiting an individual flower: they both benefit if the hummingbird's beak happens to perfectly fit the flower's shape.
+The hummingbird's fitness is based on how well it matches the flowers on average (taking into account the hummingbird's ability to choose flowers of course), and the flower's fitness is based on how well it matches the visiting pollinators on average.
 A life-long relationship between individuals of different species, i.e., a symbiotic relationship, guarantees that two individuals will continuously interact with each other, regardless of whether the relationship is parasitic or mutualistic.
-These relationships can be highly asymmetric, with one organism being considered a \textit{host} and the other the \textit{symbiont}, in which case the ``life-long'' relationship is only
+These relationships can be highly asymmetric, with one organism being considered a \textit{host} and the other a \textit{symbiont}, in which case the ``life-long'' relationship is only
+% @AML incomplete sentence above
 Mutualistic symbiosis frequently also involves vertical transmission, where the host offspring is infected with the symbiont's offspring near birth.
 Vertical transmission is most often in the context of a host/symbiont system, i.e., when there is a strong asymmetry in the size and lifespan of the partners.
 This mode of transmission enables the offspring of the partners to continue the same mutualistic relationship in terms of the shorter of the two lifespans.
