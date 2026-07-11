@@ -16,9 +16,8 @@ Such ``inferential observability'' approaches can degrade gracefully under const
 Recent wafer-scale digital evolution experiments have adopted strategies inspired by real-world experiments that assume data collection is expensive, limited, and non-deterministic \citep{moreno2024trackable,moreno2025mutator}.
 As reviewed in Section \ref{sec:diversity-measures}, phylogenies can be richly informative of both population- and organism-level dynamics \citep{genthon2023cell, levy2015quantitative,stadler2013recovering,moreno2025ecology,lewinsohn2023statedependent,nozoe2017inferring}.
 Rather than exhaustively tracking parent-child relationships \citep{dolson2024phylotrackpy}, \citet{moreno2022hereditary} adopt an approach inspired by bioengineered lineage tracking --- in which progressive DNA barcode inserts identify closely-related organisms by shared commonalities \citep{masuyama2019dna,wagner2020lineage,mckenna2016wholeorganism,kebschull2018cellular,askary2024lives,sashittal2023startle,kong2020celltagging,chow2021imaging,chen2022connecting,choi2022timeresolved,kalhor2016rapidly}.
-% @AML probably shouldn't use 'we' language here. Switch to Moreno et al.? Or rework sentence.
-We use analogous barcoding with single-bit markers, budgeting a 64-bit capacity per genome \citep{moreno2025testing}.
-Once budgeted capacity fills, barcodes overwrite each other to maintain an approximate record \citep{moreno2024algorithms}.
+Analogous barcoding can be performed with single-bit markers, budgeting a 64-bit capacity per genome \citep{moreno2025testing}.
+Once budgeted capacity fills, barcodes then overwrite each other to maintain an approximate record \citep{moreno2024algorithms}.
 % Barcode origin times can be inferred from storage position, allowing direct estimation of lineage divergence
 % Barcodes remain chronologically attributed, allowing estimation of the point in time when lineages diverged from conflicts \citep{}.
 Phylogenies incorporating multiple organisms can be constructed by agglomerative trie-building over shared barcode prefixes \citep{moreno2023toward}.
