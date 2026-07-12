@@ -2,23 +2,23 @@
 \label{sec:best-effort}
 
 Modern biology is driven by ever-increasing data availability \citep{strasser2012data,sulston1983embryonic,sheth2017multiplex,weeks2022deep}.
-Nonetheless, fundamental limitations exist in completeness of biological data --- particularly with respect to natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
+Nonetheless, fundamental limitations exist in the completeness of biological data --- particularly with respect to natural history \citep{benton2011assessing,delsuc2005phylogenomics}.
 
 By contrast, EC has traditionally enjoyed perfect fidelity and absolute completeness in data collection used to troubleshoot, tune parameters, and develop theory \citep{hernandez2023suite,hooker1995testing,oneil2003digital,lenski2003evolutionary}.
 % tailored to burgeoning deep learning workloads \citep{marcus2018deep,kaplan2020scaling}
 However, powerful next-generation high-performance computing hardware \citep{zhang2016cambricon,emani2021accelerating,jia2019dissecting,medina2020habana,lauterbach2021path,vanessendelft2025record} is beginning to introduce new challenges for such a complete-observability paradigm.
-For instance, the 880,000-processor Cerebras Wafer-Scale Engine (WSE) chip provides only 48kB memory per processor and supports exports data export only from the chip periphery \citep{miyajima2025benchmarking,he2025wafer,vanessendelft2025system}.
+For instance, the 880,000-processor Cerebras Wafer-Scale Engine (WSE) chip provides only 48kB memory per processor and supports data export only from the chip periphery \citep{miyajima2025benchmarking,he2025wafer,vanessendelft2025system}.
 Though extreme, such constraints mirror broader trends in HPC where data storage and movement are becoming more expensive relative to compute \citep{buluc2021randomized,khan2021analysis,gholami2024ai,klasky2021data}.
 
 To compensate, recent wafer-scale digital evolution experiments have explored ``inferential observability'' data strategies inspired by how real-world biological experiments tolerate expensive, limited, and non-deterministic data collection \citep{moreno2024trackable,moreno2025mutator,moreno2027trust}.
-For instance, rather than exhaustively tracking parent-child relationships to record phylogenies \citep{dolson2024phylotrackpy}, \citet{moreno2022hereditary} adopt an approach inspired by bioengineered lineage tracking where DNA barcode inserts identify closely-related organisms via shared commonalities \citep{masuyama2019dna,wagner2020lineage,mckenna2016wholeorganism,kebschull2018cellular,askary2024lives,sashittal2023startle,kong2020celltagging,chow2021imaging,chen2022connecting,choi2022timeresolved,kalhor2016rapidly}.
-To save memory, analogous barcoding can be performed with single-bit markers, within a budgeted 64-bit capacity per genome \citep{moreno2025testing} --- gradually overwriting each other to maintain an approximate record \citep{moreno2024algorithms}.
+For instance, rather than exhaustively tracking parent-child relationships to record phylogenies \citep{dolson2024phylotrackpy}, \citet{moreno2022hereditary} adopt an approach inspired by bioengineered lineage tracking where DNA barcode inserts identify closely related organisms via shared commonalities \citep{masuyama2019dna,wagner2020lineage,mckenna2016wholeorganism,kebschull2018cellular,askary2024lives,sashittal2023startle,kong2020celltagging,chow2021imaging,chen2022connecting,choi2022timeresolved,kalhor2016rapidly}.
+To save memory, analogous barcoding can be performed with single-bit markers, within a budgeted 64-bit capacity per genome \citep{moreno2025testing} --- with markers gradually overwriting each other to maintain an approximate record \citep{moreno2024algorithms}.
 % Barcode origin times can be inferred from storage position, allowing direct estimation of lineage divergence
 % Barcodes remain chronologically attributed, allowing estimation of the point in time when lineages diverged from conflicts \citep{}.
 Notably, this approach can efficiently produce phylogenies by agglomerative trie-building over shared barcode prefixes \citep{moreno2023toward}.
 Recent work has scaled this approach to experiments with quadrillion-elapsed/billion-sampled taxa \citep{singhvi2025scalable} while tolerating data loss from real-world hardware failures \citep{moreno2027trust}, an increasingly prevalent concern in large-scale systems \citep{snir2014addressing,kokolis2025revisiting}.
 
-Sophisticated screening and sampling techniques developed within bioscience \citep{amstrup2005handbook,mackenzie2017ccupancy,amsterdam2004identification,glanville2009precise} can also aid more conventional centralized computations.
+Sophisticated screening and sampling techniques developed within bioscience \citep{amstrup2005handbook,mackenzie2017occupancy,amsterdam2004identification,glanville2009precise} can also aid more conventional centralized computations.
 For instance, combinatorial intractability holds back exhaustive analysis of all but the smallest genome spaces \citep{nitash2021information}.
-Thus, knockout assessments of evolved functionality have, therefore, typically assessed only single-site \citep{adami2006digital}, all-pairs \citep{kumawat2024evolution}, or iterative mutants \citep{langdon2014improving,moreno2021case}.
+Thus, knockout assessments of evolved functionality have typically assessed only single-site \citep{adami2006digital}, all-pairs \citep{kumawat2024evolution}, or iterative mutants \citep{langdon2014improving,moreno2021case}.
 Sampling-based dosed knockouts and mark-recapture statistics, however, can complement these approaches to allow otherwise cryptic structural properties of evolved solutions to be approximated without exhaustive work \citep{moreno2024cryptic}.
